@@ -7,9 +7,24 @@
 
 * {
   box-sizing: border-box;
+}
+
+:root {
   --gate-width--desktop: 480px;
   --gate-height--desktop: 720px;
-  --radius: 12px;
+  --radius-sm: 12px;
+  --tap-height: 44px;
+  --radius-md: 22px;
+  --icon-md: 24px;
+  --density: 1;
+  --unit-sm: 4px;
+  --px: calc(1px / var(--density));
+  @media (-webkit-min-device-pixel-ratio: 2) {
+    --density: 2;
+  }
+  @media (-webkit-min-device-pixel-ratio: 3) {
+    --density: 3;
+  }
 }
 
 body {
@@ -17,6 +32,7 @@ body {
   padding: 0;
   display: block;
   font-size: 16px;
+  background-color: canvas;
 }
 
 .page {
@@ -30,13 +46,42 @@ body {
   overflow: hidden;
 }
 
+.desktop-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: var(--gate-height--desktop);
+  width: var(--gate-width--desktop);
+  overflow: hidden;
+  // // necessary because Safari sets an implicit black bg
+  // mix-blend-mode: screen;
+  &::before {
+    content: '';
+    position: absolute;
+    place-self: center;
+    z-index: 10;
+    inset: 0 0 0 0;
+    background: radial-gradient(circle, transparent 0%, transparent 30%, canvas 55%);
+    pointer-events: none;
+  }
+  @media (hover: none) and (width <= 440px) and (height <= 956px) { 
+    all: none;
+    overflow: hidden;
+    width: 100dvw;
+    height: 100dvh;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
+    &::before {
+      content: none;
+    }
+  }
+}
+
 .page--gatekeeper .logo-container {
   --logo-width: 240px;
   --logo-height: calc(var(--logo-width) / 1.875);
   --img-x-offset: 10%;
   --img-y-offset: 12%;
   --img-ratio: 260%;
-  
   position: relative;
 }
 
@@ -51,9 +96,8 @@ body {
   mask-repeat: no-repeat;
   mask-position: center;
   position: relative;
-  z-index: 10;
+  z-index: 1;
 }
-
 
 .page--gatekeeper .logo-masked-image, 
 .page--gatekeeper .background-image {
@@ -68,30 +112,55 @@ body {
   z-index: 0;
 }
 
-.desktop-frame {
+.page--gatekeeper .form {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--radius-sm) * 2);
   position: relative;
-  display: grid;
-  place-items: center;
-  height: var(--gate-height--desktop);
-  width: var(--gate-width--desktop);
-  // border-radius: var(--radius);
+  width: var(--logo-width);
+}
+
+.page--gatekeeper .code-input-container {
+  display: flex;
+  z-index: 1;
+  --height: var(--tap-height);
+  border-radius: var(--radius-md);
+  height: var(--tap-height);
   overflow: hidden;
-  // // necessary because Safari sets an implicit black bg
-  // mix-blend-mode: screen;
-  &::before {
-    content: '';
-    position: absolute;
-    place-self: center;
-    z-index: 10;
-    inset: 0 0 0 0;
-    background: radial-gradient(circle, transparent 0%, white 50%);
+  background-color: canvas;
+  align-items: center;
+  width: 100%;
+  box-shadow: 
+    0px 6px 12px rgba(0, 0, 0, 0.05), 
+    0px 1.8px 3.6px rgba(0, 0, 0, 0.03), 
+    0px 0.76px 1.52px rgba(0, 0, 0, 0.025), 
+    0px 0.28px 0.56px rgba(0, 0, 0, 0.017),
+    0 0 0 var(--px) rgba(0, 0, 0, 0.1);
+}
+
+.page--gatekeeper .code-input {
+  appearance: none;
+  -webkit-appearance: none;
+  font-size: 1rem;
+  padding: 0 0 0 1rem;
+  border: none;
+  height: 100%;
+  &:focus {
+    outline: none;
   }
-  @media (hover: none) and (width <= 440px) and (height <= 956px) { 
-    display: contents;
-    &::before {
-      content: none;
-    }
+  &::placeholder {
+    color: #69797E;
   }
+}
+
+.page--gatekeeper .code-submit {
+  width: var(--icon-md);
+  height: var(--icon-md);
+  border-radius: var(--radius-sm);
+  background-color: #419D7E;
+  color: #fff;
+  padding: var(--unit-sm);
+  margin-left: -10px;
 }
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) { 
