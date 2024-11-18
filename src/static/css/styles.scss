@@ -1,0 +1,104 @@
+@use 'sass:math';
+// @use 'root';
+// @use 'defaults';
+// @use 'wrapper-elements';
+// @use 'templates';
+// @use 'components';
+
+* {
+  box-sizing: border-box;
+  --gate-width--desktop: 480px;
+  --gate-height--desktop: 720px;
+  --radius: 12px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: block;
+  font-size: 16px;
+}
+
+.page {
+  display: grid;
+  place-items: center;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+.page--gatekeeper {
+  overflow: hidden;
+}
+
+.page--gatekeeper .logo-container {
+  --logo-width: 240px;
+  --logo-height: calc(var(--logo-width) / 1.875);
+  --img-x-offset: 10%;
+  --img-y-offset: 12%;
+  --img-ratio: 260%;
+  
+  position: relative;
+}
+
+.page--gatekeeper .logo-container,
+.page--gatekeeper .logo-mask { 
+  width: var(--logo-width);
+  height: var(--logo-height);
+}
+
+.page--gatekeeper .logo-mask {
+  mask-image: url("/assets/img/logo--240.svg");
+  mask-repeat: no-repeat;
+  mask-position: center;
+  position: relative;
+  z-index: 10;
+}
+
+
+.page--gatekeeper .logo-masked-image, 
+.page--gatekeeper .background-image {
+  position: absolute;
+  width: var(--img-ratio);
+  inset: calc(50% + var(--img-y-offset)) 0 0 calc(50% + var(--img-x-offset));
+  translate: -50% -50%;
+}
+
+.page--gatekeeper .background-image {
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.desktop-frame {
+  position: relative;
+  display: grid;
+  place-items: center;
+  height: var(--gate-height--desktop);
+  width: var(--gate-width--desktop);
+  // border-radius: var(--radius);
+  overflow: hidden;
+  // // necessary because Safari sets an implicit black bg
+  // mix-blend-mode: screen;
+  &::before {
+    content: '';
+    position: absolute;
+    place-self: center;
+    z-index: 10;
+    inset: 0 0 0 0;
+    background: radial-gradient(circle, transparent 0%, white 50%);
+  }
+  @media (hover: none) and (width <= 440px) and (height <= 956px) { 
+    display: contents;
+    &::before {
+      content: none;
+    }
+  }
+}
+// mobile portrait
+@media (hover: none) and (width <= 440px) and (height <= 956px) { 
+  
+}
+
+// mobile landscape
+@media (hover: none) and (width <= 956px) and (height <= 440px) { 
+}
+
