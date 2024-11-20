@@ -1,0 +1,11 @@
+---
+layout: 'page.njk'
+eleventyExcludeFromCollections: true
+permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/index.html'
+pagination:
+  data: invitations
+  size: 1
+---
+{%- for item in pagination.items %}
+  {{ invitations[pagination.pageNumber].code | dump }}
+{% endfor -%}
