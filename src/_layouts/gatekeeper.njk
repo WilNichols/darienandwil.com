@@ -1,7 +1,6 @@
 ---
 layout: page.njk
 ---
-
 <div class="page page--gatekeeper">
   <div class="desktop-frame">
     <div class="form">
@@ -13,10 +12,31 @@ layout: page.njk
       </div>    
       <div class="code-input-container">
         <input class="code-input" type="password" placeholder="Enter your code" />
-        <div class="code-submit">
+        <button class="code-submit" onclick="signIn()">
           {% include "../static/img/arrow-right--16.svg" %}
-        </div>
+        </button>
       </div>
     </div>
   </div>
 </div>
+
+{# addEventListener solution from https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form #}
+<script>
+  window.addEventListener('keydown', function(e) {
+    if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
+      if (e.target.nodeName == 'INPUT' && e.target.type == 'password') {
+      console.log('return');
+        e.preventDefault();
+        signIn();
+      }
+    }
+  }, true);
+  function signIn() {
+    var field = document.getElementsByClassName('code-input')[0];
+    if (field.value.length > 0) {
+      location.href = '../invitations/' + field.value + '/';
+    } else {
+      document.getElementsByClassName('code-input-container')[0].classList.add('error--visible');
+    }
+  };
+</script>

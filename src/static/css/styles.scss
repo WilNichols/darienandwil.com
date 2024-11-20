@@ -161,6 +161,7 @@ body {
   color: #fff;
   padding: var(--unit-sm);
   margin-left: -10px;
+  border: 0;
 }
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) { 
