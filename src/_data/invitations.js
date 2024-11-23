@@ -10,8 +10,15 @@ export default function () {
       {
         name: 'Jeremy Abbott'
       }, 
-      {}, 
-      {}
+      {
+        name: 'Delta Abbott'
+      }, 
+      {
+        name: 'Beaux Abbott'
+      },
+      {
+        name: 'Drake Abbott'
+      }
     ],
     code: 'mf0vc'
   },
@@ -55,11 +62,24 @@ export default function () {
     name: 'Sloan Arno',
     party: [
       {
-        name: 'Sloan Arno'
+        name: 'Sloan Arno',
+        diet: ['vegan']
       }, 
       {}
     ],
     code: '2zlnj'
+  },
+  {
+    name: 'Matthew Leary & Anna Capparella',
+    party: [
+      {
+        name: 'Matthew Leary'
+      },
+      {
+        name: 'Anna Capparella'
+      }
+    ],
+    code: 'zlzj4'
   },
   {
     name: 'John & Karen Leary',
@@ -142,13 +162,19 @@ export default function () {
       {
         name: 'Susan Culotta'
       }, 
-      {}
+      {
+        name: 'Ethan Culotta'
+      },
+      {
+        name: 'Elijah Culotta'
+      },
+      {},
     ],
     code: '8j83x'
   },
   {
     name: 'Wes & Julie Nichols',
-    privileges: ['rehearsal', 'photos'],
+    privileges: ['rehearsal', 'cocktail', 'photos'],
     party: [
       {
         name: 'Wes Nichols'
@@ -220,12 +246,14 @@ export default function () {
     code: 'uu34j'
   },
   {
-    name: 'Sriram Vishwanath',
+    name: 'Sriram & Aparna Vishwanath',
     party: [
       {
         name: 'Sriram Vishwanath'
       }, 
-      {}
+      {
+        name: 'Aparna Vishwanath'
+      }
     ],
     code: 'eos97'
   },
@@ -304,13 +332,13 @@ export default function () {
     code: 'lxy7k'
   },
   {
-    name: 'Riley & Chelsea Sheehan',
+    name: 'Riley & Chelsey Sheehan',
     party: [
       {
         name: 'Riley Sheehan'
       }, 
       {
-        name: 'Chelsea Sheehan'
+        name: 'Chelsey Sheehan'
       }, 
       {
         name: 'Everett Sheehan'
@@ -320,7 +348,7 @@ export default function () {
   },
   {
     name: 'Laura & Tom Rulon',
-    privileges: ['rehearsal', 'photos'],
+    privileges: ['rehearsal', 'cocktail', 'photos'],
     party: [
       {
         name: 'Laura Rulon'
@@ -332,13 +360,13 @@ export default function () {
     code: 'd4n7y'
   },
   {
-    name: 'Jim & Susan O’Conner',
+    name: 'Jim & Susan O’Connor',
     party: [
       {
-        name: 'Jim O’Conner'
+        name: 'Jim O’Connor'
       }, 
       {
-        name: 'Susan O’Conner'
+        name: 'Susan O’Connor'
       }
     ],
     code: 'q8zp6'
@@ -360,7 +388,7 @@ export default function () {
   },
   {
     name: 'Jenna Snodgrass & Abhi Ilindra',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Jenna Snodgrass'
@@ -373,7 +401,7 @@ export default function () {
   },
   {
     name: 'Marlen Kraemer',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail'],
     party: [
       {
         name: 'Marlen Kraemer'
@@ -384,7 +412,7 @@ export default function () {
   },
   {
     name: 'Elaine Higgins',
-    privileges: ['rehearsal', 'photos'],
+    privileges: ['rehearsal', 'cocktail', 'photos'],
     party: [
       {
         name: 'Elaine Higgins'
@@ -449,7 +477,7 @@ export default function () {
   },
   {
     name: 'Tommy Nunn',
-    privileges: ['rehearsal'],
+    privileges: ['cocktail'],
     party: [
       {
         name: 'Tommy Nunn'
@@ -481,13 +509,13 @@ export default function () {
     code: 'i969w'
   },
   {
-    name: 'Kimi Bryson-Reilly & John Henry Reilly',
+    name: 'Kimi Bryson-Reilly & John Henry Fahey Reilly',
     party: [
       {
         name: 'Kimi Bryson-Reilly'
       },
       {
-        name: 'John Henry Reilly'
+        name: 'John Henry Fahey Reilly'
       }
     ],
     code: 'jx59g'
@@ -553,7 +581,7 @@ export default function () {
   },
   {
     name: 'Tyler Comfort',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Tyler Comfort'
@@ -603,7 +631,7 @@ export default function () {
   },
   {
     name: 'Casey Higgins & Roel Pedraza',
-    privileges: ['rehearsal', 'early', 'photos'],
+    privileges: ['rehearsal', 'cocktails', 'early', 'photos'],
     party: [
       {
         name: 'Casey Higgins'
@@ -611,7 +639,9 @@ export default function () {
       {
         name: 'Roel Pedraza'
       },
-      {}
+      {
+        name: 'Rae Pedraza'
+      }
     ],
     code: 'skcub'
   },
@@ -635,10 +665,10 @@ export default function () {
     code: '37hi3'
   },
   {
-    name: 'Angela Cerillo',
+    name: 'Angela Cerrillo',
     party: [
       {
-        name: 'Angela Cerillo'
+        name: 'Angela Cerrillo'
       },
       {}
     ],
@@ -672,7 +702,7 @@ export default function () {
   },
   {
     name: 'Jackie & Bill Dorfner',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail'],
     party: [
       {
         name: 'Jackie Dorfner'
@@ -684,10 +714,10 @@ export default function () {
     code: 'linsx'
   },
   {
-    name: 'William and Janet Grubbs',
+    name: 'Bill and Janet Grubbs',
     party: [
       {
-        name: 'William Grubbs'
+        name: 'Bill Grubbs'
       },
       {
         name: 'Janet Grubbs'
@@ -750,6 +780,7 @@ export default function () {
   },
   {
     name: 'Meg Thompson & Ellen Fanning',
+    privileges: ['cocktail', 'photos'],
     party: [
       {
         name: 'Meg Thompson'
@@ -784,7 +815,7 @@ export default function () {
   },
   {
     name: 'Juliana Kadiasi & Mike Temple',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Juliana Kadiasi'
@@ -797,7 +828,7 @@ export default function () {
   },
   {
     name: 'Jeanne & Robert Guy',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail'],
     party: [
       {
         name: 'Jeanne Guy'
@@ -810,7 +841,7 @@ export default function () {
   },
   {
     name: 'Craig & Judy Nunn',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail', 'photos'],
     party: [
       {
         name: 'Craig Nunn'
@@ -821,16 +852,19 @@ export default function () {
       {
         name: 'Helen Nunn'
       },
-      {}
+      {
+        name: 'Helen’s +1'
+      }
     ],
     code: 'xkpbl'
   },
   {
     name: 'Karalei Nunn & Tom Nichols',
-    privileges: ['rehearsal', 'photos'],
+    privileges: ['rehearsal', 'cocktail', 'photos'],
     party: [
       {
-        name: 'Karalei Nunn'
+        name: 'Karalei Nunn',
+        allergens: 'soy'
       },
       {
         name: 'Tom Nichols'
@@ -874,11 +908,12 @@ export default function () {
   },
   {
     name: 'Heena Momaya',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Heena Momaya'
-      }
+      },
+      {}
     ],
     code: 'iec3a'
   },
@@ -906,15 +941,31 @@ export default function () {
   },
   {
     name: 'Ginny & Tommy Elia',
+    privileges: ['cocktail', 'photos'],
     party: [
       {
         name: 'Ginny Elia'
       },
       {
         name: 'Tommy Elia'
-      }
+      },
+      {},
+      {}
     ],
     code: 'u10me'
+  },
+  {
+    name: 'Ricky Elia & Victoria Torres',
+    privileges: ['cocktail', 'photos'],
+    party: [
+      {
+        name: 'Ricky Elia'
+      },
+      {
+        name: 'Victoria Torres'
+      }
+    ],
+    code: '3nwhr'
   },
   {
     name: 'Estevan Balderrama & Coyote Balderrama-Shook',
@@ -941,18 +992,38 @@ export default function () {
     code: 'adngh'
   },
   {
-    name: 'The Momaya Family',
-    TODO: 'confirm names',
+    name: 'Debra & Erik Olesen',
     party: [
-      {},
-      {},
-      {},
-      {}
+      {
+        name: 'Debra Olesen'
+      },
+      {
+        name: 'Erik Olesen'
+      }
+    ],
+    code: 'jgd31'
+  },
+  {
+    name: 'The Momaya Family',
+    party: [
+      {
+        name: 'Rekhaj Momaya'
+      },
+      {
+        name: 'Jayshri Momaya'
+      },
+      {
+        name: 'Laxmi Momaya'
+      },
+      {
+        name: 'Ami Momaya'
+      }
     ],
     code: 'd8wuc'
   },
   {
     name: 'Helen Nunn',
+    privileges: ['rehearsal', 'early', 'photos'],
     party: [
       {
         name: 'Helen Nunn'
@@ -963,7 +1034,7 @@ export default function () {
   },
   {
     name: 'Simon Nichols & Ariana Cruz',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Simon Nichols'
@@ -985,6 +1056,18 @@ export default function () {
     code: '1g8p4'
   },
   {
+    name: 'Jim & Nancy Pickering',
+    party: [
+      {
+        name: 'Jim Pickering'
+      },
+      {
+        namd: 'Nancy Pickering'
+      }
+    ],
+    code: 'e11np'
+  },
+  {
     name: 'Nancy Ott & Jim Viel',
     party: [
       {
@@ -998,6 +1081,7 @@ export default function () {
   },
   {
     name: 'Jim Rigby',
+    privilege: ['rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Jim Rigby'
@@ -1036,13 +1120,18 @@ export default function () {
       {
         name: 'Petrina Burkard'
       },
-      {},
-      {}
+      {
+        name: 'Willy'
+      },
+      {
+        name: 'Volker'
+      }
     ],
     code: 'damth'
   },
   {
     name: 'Frederick & Janet Elia',
+    privileges: ['cocktails', 'photos'],
     party: [
       {
         name: 'Frederick Elia'
@@ -1058,7 +1147,8 @@ export default function () {
     party: [
       {
         name: 'Donald Mason'
-      }
+      },
+      {}
     ],
     code: 'qywlt'
   },
@@ -1067,24 +1157,27 @@ export default function () {
     party: [
       {
         name: 'Reef Love'
-      }
+      },
+      {}
     ],
     code: 's5956'
   },
   {
-    name: 'Alex & Irinia Gavrilov',
+    name: 'Alex & Irina Gavrilov',
+    note: 'if unable to come, maybe the rehearsal',
     party: [
       {
         name: 'Alex Gavrilov'
       },
       {
-        name: 'Irinia Gavrilov'
+        name: 'Irina Gavrilov'
       }
     ],
     code: '5z1o4'
   },
   {
     name: 'Christel, Peter, & Matthew Crabbe',
+    privileges: ['cocktail'],
     party: [
       {
         name: 'Christel Crabbe'
@@ -1134,7 +1227,7 @@ export default function () {
   },
   {
     name: 'Andie & Matt Hanson',
-    TODO: 'confirm names',
+    privileges: ['cocktail', 'photos'],
     party: [
       {
         name: 'Andie Hanson'
@@ -1146,11 +1239,26 @@ export default function () {
         name: 'Griffin Love'
       },
       {
+        name: 'Reef Love'
+      },
+      {
         name: 'Paisely Hicks'
       },
-      {}
+      {
+        name: 'Lilly Hanson'
+      }
     ],
     code: 'tmk19'
+  },
+  {
+    name: 'Griffin Love',
+    privileges: ['cocktail', 'photos'],
+    party: [
+      {
+        name: 'Griffin Love'
+      }
+    ],
+    code: 'x3nzs'
   },
   {
     name: 'Brandi & Brian Cordell',
@@ -1167,7 +1275,7 @@ export default function () {
   {
     name: 'Alex Bulla',
     TODO: 'confirm names',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Alex Bulla'
@@ -1205,17 +1313,17 @@ export default function () {
     name: 'Matt Petri',
     party: [
       {
-        name: 'Matt Petri'
+        name: 'Matt  '
       },
       {}
     ],
     code: 'g9vzl'
   },
   {
-    name: 'Janet & Brent Farler',
+    name: 'Janie & Brent Farler',
     party: [
       {
-        name: 'Janet Farler'
+        name: 'Janie Farler'
       },
       {
         name: 'Brent Farler'
@@ -1283,7 +1391,6 @@ export default function () {
   },
   {
     name: 'Peter Schuster',
-    TODO: 'confirm +1',
     party: [
       {
         name: 'Peter Schuster'
@@ -1315,7 +1422,7 @@ export default function () {
   },
   {
     name: 'Matthew Kluchin',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Matthew Kluchin'
@@ -1328,7 +1435,8 @@ export default function () {
     name: 'Tate Burke',
     party: [
       {
-        name: 'Tate Burle'
+        name: 'Tate Burle',
+        allergens: 'strawberries'
       },
       {}
     ],
@@ -1336,7 +1444,6 @@ export default function () {
   },
   {
     name: 'Judy Mayfield & Jack Thompson',
-    TODO: 'confirm names',
     party: [
       {
         name: 'Judy Mayfield'
@@ -1351,10 +1458,9 @@ export default function () {
     name: 'Everley Estes-Lloyd',
     party: [
       {
-        name: 'Everyley Estest-Lloyd'
+        name: 'Everyley Estes-Lloyd'
       },
-      {
-      }
+      {}
     ],
     code: 'vlq2c'
   },
@@ -1371,8 +1477,7 @@ export default function () {
   },
   {
     name: 'Ryan & Anna Higgins',
-    TODO: 'confirm Anna last name',
-    privileges: ['bach', 'rehearsal', 'early', 'photos'],
+    privileges: ['bach', 'rehearsal', 'cocktail', 'early', 'photos'],
     party: [
       {
         name: 'Rya Higgins'
@@ -1414,7 +1519,7 @@ export default function () {
   },
   {
     name: 'Becky & Jim Fisher',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail'],
     party: [
       {
         name: 'Becky Fisher'
@@ -1427,13 +1532,13 @@ export default function () {
   },
   {
     name: 'Annet Bakker & Marcel Kreleger',
-    privileges: ['rehearsal'],
+    privileges: ['rehearsal', 'cocktail'],
     party: [
       {
-        name: 'Becky Fisher'
+        name: 'Annet Bakker'
       },
       {
-        name: 'Jim Fisher'
+        name: 'Marcel Kreleger'
       }
     ],
     code: '3t9im'
@@ -1464,12 +1569,14 @@ export default function () {
     code: 'byaa0'
   },
   {
-    name: 'Josh Ellis',
+    name: 'Josh & Jacqueline Ellis',
     party: [
       {
         name: 'Josh Ellis'
       },
-      {},
+      {
+        name: 'Jacqueline Ellis'
+      },
       {},
       {}
     ],
@@ -1481,7 +1588,6 @@ export default function () {
       {
         name: 'Thomas Elmasri'
       },
-      {},
       {}
     ],
     code: 'zzpr2'
