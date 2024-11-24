@@ -27,7 +27,7 @@ body {
   margin: 0;
   padding: 0;
   display: block;
-  font-size: 16px;
+  font-size: var(--type-0);
   background-color: canvas;
   font-family: "degular-variable", sans-serif;
   font-variation-settings: "wght" 400, "opsz" 6, "ital" 0;
@@ -172,9 +172,21 @@ body {
   width: var(--gate-width--desktop);
   display: flex;
 }
+
 .page--program .program-content {
   // height: var(--gate-height--desktop);
   width: var(--gate-width--desktop);
+}
+
+.page--program .program-items {
+  list-style: none;
+  padding: 0;
+}
+
+.page--program .program-items .program-item {
+  .program-item__title {
+    font-size: var(--type-0);
+  }
 }
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) { 

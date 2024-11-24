@@ -11,15 +11,27 @@ pagination:
   {{ navigation() }}
   <header class="program-header">
     <div class="program-header__content">
-      <h1 class="text-heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>
-      <span class=text--subheadline">{{ meta.receptionAddress}}</span>
+      <h1 class="text--heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>
+      <span class="text--subheadline text--tinted--secondary">{{ meta.receptionAddress}}</span>
     </div>
   </header>
   <main class="program-content">
     <ul class="program-items">
+    {% if eventDate == date %}{% set date = "" %}{% endif %}
     {% for block in meta.program %}
+      {% set eventDate = block.details[0].value %}
       <li class="program-item">
-        {{ block.title }}
+        {% if eventDate != date %}{{ eventDate }}{% endif %}
+        <h3 class="text--tinted--primary program-item__title">{{ block.title }}</h3>
+        <div class="program-item__details">
+        {% for detail in block.details -%}
+          {% if detail.title !== 'Date' %}
+            <dd class="text--tinted--secondary">{{ detail.title }}</dd>
+            <dd class="text--tinted--primary">{{ detail.value | safe }}{% for link in detail.links %}{{ meta.title.separator }} <a href="{{ link.src }}" target="blank">{{ link.label }}</a>{% endfor %}</dd>
+          {% endif %}
+          {% set date = eventDate %}
+        {%- endfor %}
+        </div>
       </li>
     {% endfor %}
     </ul>

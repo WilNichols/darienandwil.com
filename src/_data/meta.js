@@ -1,5 +1,5 @@
 export default function () {
-  
+
   const meta = {
     lang: 'en',
     url: 'https://darienandwil.com',
@@ -12,80 +12,209 @@ export default function () {
   const info = {
     ceremonyDate: {
       string: '01.11.25',
-      html: '<span class="text--secondary">0</span><span class="text--primary">1</span><span class="text--secondary">.</span><span class="text--primary">11</span><span class="text--secondary">.</span><span class="text--primary">25</span>'
+      html: '<span class="text--tinted--tertiary ">0</span><span class="text--tinted--primary">1</span><span class="text--tinted--tertiary ">.</span><span class="text--tinted--primary">11</span><span class="text--tinted--tertiary ">.</span><span class="text--tinted--primary">25</span>'
     },
     receptionAddress: '445 E. Morrow St, Georgetown, Texas',
     program: [
       {
         id: 'bach',
-        date: 'Friday, January 10',
-        time: '4:00 pm',
         title: 'Bachelor(ette) Party',
-        detail: 'Call Simon',
-        TODO: 'Simon phone number in env var',
-        detailLink: 'tel'
+        details: [
+          {
+            title: 'Date',
+            value: 'Friday, January 3'
+          },
+          {
+            title: 'Time',
+            value: '4:00 pm'
+          },
+          {
+            title: 'Location',
+            value: 'Call <a href="tel:' + process.env.SIMON_PHONE + '">Simon</a>'
+          }
+        ]
       },
       {
         id: 'rehearsal',
-        date: 'Friday, January 10',
-        time: '4:00 - 5:00 pm',
         title: 'Rehearsal',
-        detail: '643 River Bluff Circle, Georgetown',
-        detailLink: ''
+        details: [
+          {
+            title: 'Date',
+            value: 'Friday, January 10'
+          },
+          {
+            title: 'Time',
+            value: '4:00 - 5:00 pm'
+          },
+          {
+            title: 'Location',
+            value: '643 River Bluff Circle',
+            links: [
+              {
+                label: 'Google Maps',
+                src: 'https://maps.app.goo.gl/NE8AbGYFxjTQwzXQ8'
+              },
+              {
+                label: 'Apple Maps',
+                src: 'https://maps.apple.com/?address=643%20River%20Bluff%20Cir,%20Georgetown,%20TX%20%2078626,%20United%20States&ll=30.655601,-97.657360&q=643%20River%20Bluff%20Cir'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'cocktail',
-        date: 'Friday, January 10',
-        time: '5:30 pm - 9:00 pm',
         title: 'Cocktails',
-        detail: '200 Cimarron Hills Trail W., Georgetown',
-        detailLink: ''
+        details: [
+          {
+            title: 'Date',
+            value: 'Friday, January 10'
+          },
+          {
+            title: 'Time',
+            value: '5:30 - 9:00 pm'
+          },
+          {
+            title: 'Location',
+            value: '200 Cimarron Hills Trail W.',
+            links: [
+              {
+                label: 'Google Maps',
+                src: 'https://maps.app.goo.gl/FNQ6WvVVUoWxzXhn8'
+              },
+              {
+                label: 'Apple Maps',
+                src: 'https://maps.apple.com/?address=200%20W%20Cimarron%20Hills%20Trail,%20Georgetown,%20TX%20%2078628,%20United%20States&ll=30.639127,-97.794033&q=200%20W%20Cimarron%20Hills%20Trail'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'early',
-        date: 'Saturday, June 11',
-        time: '3:00 pm',
-        title: 'Early arrival at the ceremony',
-        detail: '643 River Bluff Circle, Georgetown',
-        detailLink: ''
+        title: 'Early arrival at the ceremony. Only the wedding party parks at this address.',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '5:30 - 9:00 pm'
+          },
+          {
+            title: 'Location',
+            value: '643 River Bluff Circle',
+            links: [
+              {
+                label: 'Google Maps',
+                src: 'https://maps.app.goo.gl/NE8AbGYFxjTQwzXQ8'
+              },
+              {
+                label: 'Apple Maps',
+                src: 'https://maps.apple.com/?address=643%20River%20Bluff%20Cir,%20Georgetown,%20TX%20%2078626,%20United%20States&ll=30.655601,-97.657360&q=643%20River%20Bluff%20Cir'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'ceremonyArrival',
-        date: 'Saturday, June 11',
-        time: '3:15 - 3:45 pm',
         title: 'Arrive for a shuttle to the ceremony',
-        detail: '445 E. Morrow St., Georgetown',
-        detailLink: ''
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '3:15 - 3:45 pm'
+          },
+          {
+            title: 'Location',
+            value: '445 E. Morrow St.',
+            links: [
+              {
+                label: 'Google Maps',
+                src: 'https://maps.app.goo.gl/YesLBvCYRGWYA8ba6'
+              },
+              {
+                label: 'Apple Maps',
+                src: 'https://maps.apple.com/?address=445%20E%20Morrow%20St,%20Georgetown,%20TX%20%2078626,%20United%20States&ll=30.652549,-97.668932&q=445%20E%20Morrow%20St'
+              }
+            ]
+          }
+        ]
       },
       {
         id: 'ceremony',
-        date: 'Saturday, June 11',
-        time: '4:00 - 5:00 pm',
-        title: 'Ceremony'
+        title: 'Ceremony',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '4:00 - 5:00 pm'
+          }
+        ]
       },
       {
         id: 'photos',
-        date: 'Saturday, June 11',
-        time: '5:00 - 5:45 pm',
-        title: 'Photos'
+        title: 'Photos',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '5:00 - 5:45 pm'
+          }
+        ]
       },
       {
         id: 'cocktailHour',
-        date: 'Saturday, June 11',
-        time: '5:00 - 6:00 pm',
-        title: 'Cocktail hour'
+        title: 'Cocktail hour',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '5:00 - 6:00 pm',
+          }
+        ]
       },
       {
         id: 'dinner',
-        date: 'Saturday, June 11',
-        time: '6:00 - 9:45 pm',
-        title: 'Dinner & dance'
+        title: 'Dinner & dance',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '6:00 - 9:45 pm',
+          }
+        ]
       },
       {
         id: 'end',
-        date: 'Saturday, June 11',
-        time: '10:00 pm',
-        title: 'Sendoff'
+        title: 'Sendoff',
+        details: [
+          {
+            title: 'Date',
+            value: 'Saturday, January 11'
+          },
+          {
+            title: 'Time',
+            value: '10:00 pm',
+          }
+        ]
       }
     ]
   }

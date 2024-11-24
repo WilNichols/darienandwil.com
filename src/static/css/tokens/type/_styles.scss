@@ -30,10 +30,10 @@ p {
 @include headingStyles;
 
 @for $i from 1 through 6 {
-  .text-heading--#{$i} {
+  .text--heading--#{$i} {
     @extend %heading--#{$i};
-    line-height: 1.5em;
     position: relative;
+    margin: 0;
     @if ($i > 1) {
       &::before {
         content: '';
@@ -57,4 +57,9 @@ $colors: 'Primary', 'Secondary', 'Tertiary';
       color: var(--content#{$groupName}#{$color}Color);
     }
   }
+}
+
+.text--subheadline {
+  font-size: var(--type--1);
+  font-weight: 500;
 }
