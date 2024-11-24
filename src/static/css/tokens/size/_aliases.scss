@@ -4,7 +4,7 @@ $note-title-gap: .25em; // the size of a monospaced space character in Neue Haas
 $categoryWidth: 480px;
 $lineHeight: 2px;
 
-@mixin sizeAliases {
+:root {
   // Typography. This isn't _the_ solution — I haven't tried much with fluid scales yet, but it's _a_ solution for now. 
   /* @link https://utopia.fyi/type/calculator?c=320,17,1.2,1200,20,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
   --type--2: clamp(0.7378rem, 0.7152rem + 0.113vi, 0.8rem);

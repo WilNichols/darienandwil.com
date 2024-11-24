@@ -1,0 +1,28 @@
+{% macro rsvpActions() -%}
+  <ul class="navigation__rsvp-actions">
+    <li class="navigation__rsvp__action">
+      <a href="">I’m not attending</a>
+    </li>
+    <li class="navigation__rsvp__action">
+      <a href="">I’m attending</a>
+    </li>
+  </ul>
+{%- endmacro %}
+{% macro navigationLinks() -%}
+  <nav class="navigation">
+    <ul class="navigation__items">
+      <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if page.url == '/'}}" href="/"><span>Home</span></a></li>
+      <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if page.url == '/party/'}}" href="/party/"><span>Party</span></a></li>
+      <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if page.url == '/info/'}}" href="/info/"><span>Q&A</span></a></li>
+      <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if page.url == '/registry/'}}" href="/registry/"><span>Registry</span></a></li>
+    </ul>
+  </nav>
+{%- endmacro %}
+
+{% macro navigation() -%}
+  <div class="navigation">
+    {# <div class="header__logo"><a href="/">{% include "../static/img/logo--240.svg" %}</a></div> #}
+    {{ navigationLinks() }}
+    {{ rsvpActions() }}
+  </div>
+{%- endmacro %}

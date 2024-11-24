@@ -101,6 +101,11 @@ export default async function(eleventyConfig) {
   
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
   
+  eleventyConfig.addFilter('JSON', (obj) => {
+    return JSON.stringify(obj, null, 4);
+  });
+  // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  
   eleventyConfig.addFilter('log', (value) => {
     console.log('\x1b[37m', value);
     console.log('\x1b[0m', '');

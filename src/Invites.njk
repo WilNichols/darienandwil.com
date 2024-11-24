@@ -1,11 +1,27 @@
 ---
-layout: 'page.njk'
+layout: 'program.njk'
 eleventyExcludeFromCollections: true
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/index.html'
 pagination:
   data: invitations
   size: 1
 ---
-{%- for item in pagination.items %}
-  {{ invitations[pagination.pageNumber].code | dump }}
-{% endfor -%}
+<div class="page page--program">
+  {%- from 'navigation.njk' import navigation with context -%}
+  {{ navigation() }}
+  <header class="program-header">
+    <div class="program-header__content">
+      <h1 class="text-heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>
+      <span class=text--subheadline">{{ meta.receptionAddress}}</span>
+    </div>
+  </header>
+  <main class="program-content">
+    <ul class="program-items">
+    {% for block in meta.program %}
+      <li class="program-item">
+        {{ block.title }}
+      </li>
+    {% endfor %}
+    </ul>
+  </main>
+</div>
