@@ -4,8 +4,7 @@ export default function () {
     lang: 'en',
     url: 'https://darienandwil.com',
     title: {
-      base: 'Darien & Wil',
-      separator: ' | '
+      base: 'Darien & Wil'
     }
   }
 
@@ -114,7 +113,7 @@ export default function () {
           },
           {
             title: 'Extra',
-            value: 'This address is only for the wedding party and their guests. All other guests will be shuttled from the community center.'
+            value: 'This address is only for the wedding party and their guests. Others will be shuttled from the community center.'
           }
         ]
       },
