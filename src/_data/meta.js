@@ -17,6 +17,7 @@ export default function () {
     program: [
       {
         id: 'bach',
+        permission: 'bach',
         title: 'Bachelor(ette) Party',
         details: [
           {
@@ -31,6 +32,7 @@ export default function () {
       },
       {
         id: 'rehearsal',
+        permission: 'rehearsal',
         title: 'Rehearsal',
         details: [
           {
@@ -59,6 +61,7 @@ export default function () {
       },
       {
         id: 'cocktail',
+        permission: 'cocktail',
         title: 'Cocktails',
         details: [
           {
@@ -87,6 +90,7 @@ export default function () {
       },
       {
         id: 'early',
+        permission: 'early',
         title: 'Early arrival',
         details: [
           {
@@ -119,6 +123,7 @@ export default function () {
       },
       {
         id: 'ceremonyArrival',
+        permission: 'ceremony',
         title: 'Shuttles to the ceremony',
         details: [
           {
@@ -147,6 +152,7 @@ export default function () {
       },
       {
         id: 'ceremony',
+        permission: 'ceremony',
         title: 'Ceremony',
         details: [
           {
@@ -161,6 +167,7 @@ export default function () {
       },
       {
         id: 'photos',
+        permission: 'photos',
         title: 'Photos',
         details: [
           {
@@ -175,6 +182,7 @@ export default function () {
       },
       {
         id: 'cocktailHour',
+        permission: 'ceremony',
         title: 'Return shuttle & cocktail hour',
         details: [
           {
@@ -189,6 +197,7 @@ export default function () {
       },
       {
         id: 'dinner',
+        permission: 'ceremony',
         title: 'Dinner & dance',
         details: [
           {
@@ -203,6 +212,7 @@ export default function () {
       },
       {
         id: 'end',
+        permission: 'ceremony',
         title: 'Sendoff',
         details: [
           {

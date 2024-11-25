@@ -43,8 +43,12 @@ export default async function(eleventyConfig) {
       return tagsList;
   });
   
+  eleventyConfig.addFilter("arrayContains", function(array, key) {
+    return array.includes(key);
+  });
+  
   eleventyConfig.addFilter("markdownify", string => {
-      return md.render(string)
+    return md.render(string)
   });
   
   // simple cache busting method from https://rob.cogit8.org/posts/2020-10-28-simple-11ty-cache-busting/

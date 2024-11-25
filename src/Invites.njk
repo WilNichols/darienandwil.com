@@ -6,6 +6,7 @@ pagination:
   data: invitations
   size: 1
 ---
+{% set invitation = invitations[pagination.pageNumber] %}
 <div class="page page--program">
   {%- from 'navigation.njk' import navigation with context -%}
   {{ navigation() }}
@@ -19,38 +20,41 @@ pagination:
     <ul class="program-items">
     {% if eventDate == date %}{% set date = "" %}{% endif %}
     {% for block in meta.program %}
-      {% set eventDate = block.details[0].value %}
-      {% if eventDate != date -%}
-        <li class="program-item program-item--date">
-          <span class="program-item__date text--tinted--secondary">{{ eventDate | safe }}</span>
-        </li>
-      {%- endif %}
-      <li class="program-item program-item--event">
-        {% for detail in block.details -%}
-          {% if detail.title == 'Time' %}<span class="program-item__time">{{ detail.value }}</span>{% endif %}
-        {%- endfor %}
-        <div class="program-item__title-block">
-          <h3 class="text--tinted--primary program-item__title">{{ block.title }}</h3>
+      {% if (invitation.permissions) | arrayContains(block.permission) %}
+        {# {{ invitation.permission | dump }}: {{ block.permission }} #}
+        {% set eventDate = block.details[0].value %}
+        {% if eventDate != date -%}
+          <li class="program-item program-item--date">
+            <span class="program-item__date text--tinted--secondary">{{ eventDate | safe }}</span>
+          </li>
+        {%- endif %}
+        <li class="program-item program-item--event">
           {% for detail in block.details -%}
-            {% if detail.title == 'Details' %}
-              <span class="text--tinted--primary program-item__{{ detail.title | lower }}">{{ detail.value | safe }}</span>
-              {% if detail.links -%}
-                <span class="program-item__map-links">{{ strings.routeVia }}
-                  {% for link in detail.links -%}
-                    <a href={{ link.src }}">{{ link.label }}</a>{{ ' ' + strings.pipe + ' '  if loop.index != loop.length }}
-                  {%- endfor %}
-                </span>
-              {%- endif %}
-            {% endif %}
+            {% if detail.title == 'Time' %}<span class="program-item__time">{{ detail.value }}</span>{% endif %}
           {%- endfor %}
-        </div>
-        {% for detail in block.details -%}
-          {% if detail.title == 'Extra' %}
-            <p class="program-item__extra">{{ detail.value }}</p>
-          {% endif %}
-        {% endfor %}
-        {% set date = eventDate %}
-      </li>
+          <div class="program-item__title-block">
+            <h3 class="text--tinted--primary program-item__title">{{ block.title }}</h3>
+            {% for detail in block.details -%}
+              {% if detail.title == 'Details' %}
+                <span class="text--tinted--primary program-item__{{ detail.title | lower }}">{{ detail.value | safe }}</span>
+                {% if detail.links -%}
+                  <span class="program-item__map-links">{{ strings.routeVia }}
+                    {% for link in detail.links -%}
+                      <a href={{ link.src }}">{{ link.label }}</a>{{ ' ' + strings.pipe + ' '  if loop.index != loop.length }}
+                    {%- endfor %}
+                  </span>
+                {%- endif %}
+              {% endif %}
+            {%- endfor %}
+          </div>
+          {% for detail in block.details -%}
+            {% if detail.title == 'Extra' %}
+              <p class="program-item__extra">{{ detail.value }}</p>
+            {% endif %}
+          {% endfor %}
+          {% set date = eventDate %}
+        </li>
+      {% endif %}
     {% endfor %}
     </ul>
   </main>

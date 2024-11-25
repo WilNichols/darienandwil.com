@@ -1,6 +1,40 @@
+@use 'sass:list';
 @use 'sass:math';
+@use 'sass:string';
 @use 'tokens';
 @use 'tokens/color/mixins' as *;
+
+
+@mixin controlStates($prop, $val) {
+  $controlStates: '', 'Hover', 'Active';
+  @for $i from 1 through 3 {
+    @if $i == 1 {
+      #{$prop}: var($val);
+    } @else {
+      $state: list.nth($controlStates, $i);
+      &:#{string.to-lower-case($state)} {
+        #{$prop}: var(#{$val + $state});
+      }
+    }
+  }
+}
+
+%backgroundBlur {
+  backdrop-filter: blur(20px) saturate(150%);
+}
+
+%backgroundBlurOverlay {
+  background-color: var(--navigationColor);
+  @include light-dark(--blendMode, multiply, screen);
+  mix-blend-mode: var(--blendMode);
+}
+
+%roundBtn {
+  height: var(--btnHeight);
+  border-radius: calc(var(--btnHeight)/2);
+  overflow: hidden;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -48,11 +82,17 @@ body {
 .navigation {
   position: fixed;
   inset: auto 0 0 0;
-  padding: 0 1rem 1rem 1rem;
+  $g: 1rem;
+  padding: 0 $g $g $g;
+  gap: $g;
   z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
+  > ul {
+    padding: 0;
+    margin: 0;
+  }
   .navigation__items {
     position: relative;
     display: grid;
@@ -60,13 +100,12 @@ body {
     list-style: none;
     justify-content: space-between;
     grid-template-rows: 1fr;
-    width: 100%;
-    height: var(--btnHeight);
     $gap: 6px;
     padding: $gap;
     gap: $gap;
-    border-radius: calc(var(--btnHeight)/2);
+    width: 100%;
     max-width: var(--gate-width--desktop);
+    @extend %roundBtn;
     overflow: hidden;
     &::before, &::after {
       content: '';
@@ -75,14 +114,11 @@ body {
     }
     &::before  {
       z-index: 0;
-      backdrop-filter: blur(20px) saturate(150%);
+      @extend %backgroundBlur;
     }
     &::after {
       z-index: 0;
-      background-color: var(--navigationColor);
-      @include light-dark(--blendMode, multiply, screen);
-      mix-blend-mode: var(--blendMode);
-      
+      @extend %backgroundBlurOverlay;
     }
     .navigation__item {
       position: relative;
@@ -122,6 +158,48 @@ body {
           0px 0.76px 1.52px rgba(10, 44, 8, 0.025), 
           0px 0.28px 0.56px rgba(10, 44, 8, 0.017),
           0 0 0 var(--px) rgba(10, 44, 8, 0.1);
+      }
+    }
+  }
+  .navigation__rsvp-actions {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row; 
+    gap: var(--px);
+    list-style: none;
+    width: 100%;
+    max-width: var(--gate-width--desktop);
+    border-radius: calc(var(--btnHeight)/2);
+    background-color: var(--materialElevatedPrimaryColor);
+    box-shadow: 
+      0px 6px 12px rgba(10, 44, 8, 0.05), 
+      0px 1.8px 3.6px rgba(10, 44, 8, 0.03), 
+      0px 0.76px 1.52px rgba(10, 44, 8, 0.025), 
+      0px 0.28px 0.56px rgba(10, 44, 8, 0.017),
+      0 0 0 var(--px) rgba(10, 44, 8, 0.1);
+    .navigation__rsvp__action  {
+      display: block;
+      width: 100%;
+    }
+    .navigation__rsvp__action a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      height: var(--btnHeight);
+      color: var(--contentTintedSecondaryColor);
+      font-variation-settings: "wght" 500;
+      justify-content: center;
+      padding: 0;
+      box-shadow: var(--px) 0 0 var(--materialElevatedSeparatorColor);
+      -webkit-tap-highlight-color: transparent;
+      &:hover {
+        background-color: var(--materialElevatedPrimaryColorHover);
+        box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorHover);
+      }
+      &:active {
+        background-color: var(--materialElevatedPrimaryColorActive);
+        box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorActive);
       }
     }
   }
@@ -238,11 +316,11 @@ body {
   width: var(--icon-md);
   height: var(--icon-md);
   border-radius: var(--radius-sm);
-  background-color: #419D7E;
   color: #fff;
   padding: var(--unit-sm);
   margin-left: -10px;
   border: 0;
+  @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
 .page--program {
