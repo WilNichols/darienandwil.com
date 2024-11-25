@@ -77,6 +77,11 @@ body {
 }
 
 .page--gatekeeper {
+  --logo-width: 240px;
+  --logo-height: calc(var(--logo-width) / 1.875);
+  --img-x-offset: 10%;
+  --img-y-offset: 12%;
+  --img-ratio: 260%;
 }
 
 .navigation {
@@ -236,11 +241,6 @@ body {
 }
 
 .page--gatekeeper .logo-container {
-  --logo-width: 240px;
-  --logo-height: calc(var(--logo-width) / 1.875);
-  --img-x-offset: 10%;
-  --img-y-offset: 12%;
-  --img-ratio: 260%;
   position: relative;
 }
 
@@ -280,6 +280,7 @@ body {
 }
 
 .page--gatekeeper .code-input-container {
+  position: relative;
   display: flex;
   z-index: 1;
   --height: var(--tap-height);
@@ -288,7 +289,6 @@ body {
   overflow: hidden;
   background-color: canvas;
   align-items: center;
-  width: 100%;
   box-shadow: 
     0px 6px 12px rgba(0, 0, 0, 0.05), 
     0px 1.8px 3.6px rgba(0, 0, 0, 0.03), 
@@ -301,25 +301,30 @@ body {
   appearance: none;
   -webkit-appearance: none;
   font-size: 1rem;
-  padding: 0 0 0 1rem;
+  padding: 0;
   border: none;
-  height: 100%;
+  position: absolute;
+  inset: 0;
+  padding: 0 var(--tap-height) 0 1em;
   &:focus {
     outline: none;
   }
   &::placeholder {
-    color: #69797E;
+    color: var(--contentTertiaryColor);
   }
 }
 
 .page--gatekeeper .code-submit {
-  width: var(--icon-md);
+  min-width: var(--icon-md);
   height: var(--icon-md);
   border-radius: var(--radius-sm);
-  color: #fff;
-  padding: var(--unit-sm);
-  margin-left: -10px;
+  color: var(--cK100);
+  display: grid;
+  place-items: center;
   border: 0;
+  padding: 0;
+  position: absolute;
+  right: 10px;
   @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
