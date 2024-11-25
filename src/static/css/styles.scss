@@ -175,6 +175,7 @@ body {
       }
     }
   }
+
   .navigation__rsvp-actions {
     overflow: hidden;
     display: flex;
@@ -194,13 +195,16 @@ body {
       display: block;
       width: 100%;
     }
+
     .navigation__rsvp__action form {
       display: contents;
     }
+
     .navigation__rsvp__action button {
       all: unset;
       cursor: pointer;
     }
+
     .navigation__rsvp__action a, .navigation__rsvp__action button {
       display: flex;
       align-items: center;
@@ -216,8 +220,6 @@ body {
       line-height: $constType;
       font-size: $constType;
       font-variation-settings: "wght" 500;
-      // for the button
-  
       &:hover {
         background-color: var(--materialElevatedPrimaryColorHover);
         box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorHover);
@@ -226,6 +228,13 @@ body {
         background-color: var(--materialElevatedPrimaryColorActive);
         box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorActive);
       }
+    }
+
+    .navigation__rsvp__action--submitted a,
+    .navigation__rsvp__action--submitted button, {
+      color: var(--rsvpSelectedColor);
+      background-color: var(--rsvpSelectedBackgroundColor);
+      pointer-events: none;
     }
   }
 }
@@ -445,10 +454,10 @@ body {
   margin: 2em 0 0 0;
 }
 
+
 // .page--program .program-item__details
 // mobile portrait
-@media (hover: none) and (width <= 440px) and (height <= 956px) { 
-  
+@media (hover: none) and (width <= 440px) and (height <= 956px) {  
 }
 
 // mobile landscape

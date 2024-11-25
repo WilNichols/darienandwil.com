@@ -7,10 +7,6 @@ import markdownItAttrs from 'markdown-it-attrs';
 import markdownItFootnote from 'markdown-it-footnote';
 import markdownItTitle from 'markdown-it-title';
 import fs from 'fs';
-import { getAverageColor } from 'fast-average-color-node';
-import { S3Client, ListObjectsV2Command } from '@aws-sdk/client-s3';
-import sizeOf from 'image-size';
-
 
 dotenv.config();
 
@@ -57,50 +53,6 @@ export default async function(eleventyConfig) {
     const params = new URLSearchParams(paramPart || "");
     params.set("v", DateTime.local().toFormat("X"));
     return `${urlPart}?${params}`;
-  });
-   
-  eleventyConfig.addAsyncFilter("getPhotos",  async function() {
-    // do some Async work
-    const client = new S3Client({ 
-      region: "us-east-1" ,
-      credentials: {
-        accessKeyId: process.env.WN_AWS_ACCESS_KEY_ID,
-        secretAccessKey: process.env.WN_AWS_SECRET_ACCESS_KEY
-      }
-    });
-    const albumsParams = {
-      Bucket: 'wnphoto01',
-      Delimiter: '/',
-      Prefix: 'wedding/'
-    };
-    
-    const command = new ListObjectsV2Command(albumsParams);
-    let data;
-    let albums;
-    try {
-      data = await client.send(command);
-      albums = data.Contents.map(a => a.Key.replace(albumsParams.Prefix, '').replace(albumsParams.Delimiter, ''));
-      // fs.writeFileSync('./aws-' + dir + '.json', JSON.stringify(albums, null, 1) , 'utf-8');
-    } catch (error) {
-      return 'AWS failure'
-    } finally {
-      // console.log(albums)
-      return albums;
-    }
-  });
-  
-  eleventyConfig.addAsyncFilter('imageInfo', async function(src) {
-      const path = src.replace(process.env.KXCDN, '_offline/thumbs').replace('.jpg', '.webp').replace('.png', '.webp');
-      const width = sizeOf(path).width;
-      const height = sizeOf(path).height;
-      async function getColor() {
-        return getAverageColor(path).then(color => {
-            return color.hex;
-        });
-      };
-      const color = await getColor();
-      const obj = {path: path, height: height, width: width, ratio: width/height, color: color};
-      return obj;
   });
   
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

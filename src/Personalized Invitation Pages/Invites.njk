@@ -9,9 +9,25 @@ pagination:
 {%- from 'check-code.njk' import checkCode -%}
 {{ checkCode() }}
 {% set invitation = invitations[pagination.pageNumber] %}
+
+{# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
+{% set isAttending = 'unknown' %}
+
+{% for notAttending in rsvpForms %}
+  {% if notAttending.data.code == invitation.code %}
+     {% set isAttending = 'no' %}
+  {% endif %}
+{% endfor %}
+
+{% set invitationData = {
+  name: invitation.name,
+  code: invitation.code,
+  attending: isAttending
+} %}
+
 <div class="page page--program">
   {%- from 'navigation.njk' import navigation with context -%}
-  {{ navigation(invitation.name, invitation.code) }}
+  {{ navigation(invitationData) }}
   <header class="program-header">
     <div class="program-header__content">
       <h1 class="text--heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>
