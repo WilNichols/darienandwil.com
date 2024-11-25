@@ -6,6 +6,8 @@ pagination:
   data: invitations
   size: 1
 ---
+{%- from 'check-code.njk' import checkCode -%}
+{{ checkCode() }}
 {% set invitation = invitations[pagination.pageNumber] %}
 <div class="page page--program">
   {%- from 'navigation.njk' import navigation with context -%}

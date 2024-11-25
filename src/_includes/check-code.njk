@@ -1,0 +1,11 @@
+{% macro checkCode() -%}
+  <script>
+    const code = localStorage.getItem('code');
+    const url = new URL(window.location);
+    if (code && !url.pathname.includes(code)) {
+      window.location.replace(url.origin + '/invitations/' + code + '/');
+    } else if (!code) {
+      window.location.replace(url.origin);
+    }
+  </script>
+{%- endmacro %}

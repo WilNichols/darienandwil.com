@@ -20,8 +20,16 @@ layout: page.njk
   </div>
 </div>
 
-{# addEventListener solution from https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form #}
 <script>
+  if (document.readyState === "loading") {
+    const code = localStorage.getItem('code');
+    if (code) {
+      console.log('code: ' + code);
+      window.location.replace('../invitations/' + code + '/')
+    }
+  };
+  
+  {# addEventListener solution from https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form #}
   window.addEventListener('keydown', function(e) {
     if (e.keyIdentifier == 'U+000A' || e.keyIdentifier == 'Enter' || e.keyCode == 13) {
       if (e.target.nodeName == 'INPUT' && e.target.type == 'password') {
@@ -33,6 +41,7 @@ layout: page.njk
   }, true);
   function signIn() {
     var field = document.getElementsByClassName('code-input')[0];
+    localStorage.setItem('code', field.value);
     if (field.value.length > 0) {
       location.href = '../invitations/' + field.value + '/';
     } else {
@@ -40,3 +49,4 @@ layout: page.njk
     }
   };
 </script>
+
