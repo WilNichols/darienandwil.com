@@ -20,18 +20,26 @@ pagination:
     {% if eventDate == date %}{% set date = "" %}{% endif %}
     {% for block in meta.program %}
       {% set eventDate = block.details[0].value %}
-      <li class="program-item">
-        {% if eventDate != date %}{{ eventDate }}{% endif %}
-        <h3 class="text--tinted--primary program-item__title">{{ block.title }}</h3>
-        <div class="program-item__details">
+      {% if eventDate != date -%}
+        <li class="program-item program-item--date">
+          <span class="program-item__date text--tinted--secondary">{{ eventDate | safe }}</span>
+        </li>
+      {%- endif %}
+      <li class="program-item program-item--event">
         {% for detail in block.details -%}
-          {% if detail.title !== 'Date' %}
-            <dd class="text--tinted--secondary">{{ detail.title }}</dd>
-            <dd class="text--tinted--primary">{{ detail.value | safe }}{% for link in detail.links %}{{ meta.title.separator }} <a href="{{ link.src }}" target="blank">{{ link.label }}</a>{% endfor %}</dd>
+          {% if detail.title == 'Time' %}<span class="program-item__time">{{ detail.value }}</span>{% endif %}
+        {%- endfor %}
+        <h3 class="text--tinted--primary program-item__title">{{ block.title }}</h3>
+        {% for detail in block.details -%}
+          {% if (detail.title == 'Details') or (detail.title == 'Extra') %}
+            <span class="text--tinted--primary program-item__{{ detail.title | lower }}">{{ detail.value | safe }}</span>
           {% endif %}
+          {# {% if detail.title == 'Extra' %} #}
+          
+            {# {% for link in detail.links %}{{ meta.title.separator }} <a href="{{ link.src }}" target="blank">{{ link.label }}</a>{% endfor %}</span> #}
+          {# {% endif %} #}
           {% set date = eventDate %}
         {%- endfor %}
-        </div>
       </li>
     {% endfor %}
     </ul>

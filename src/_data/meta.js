@@ -22,15 +22,11 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Friday, January 3'
+            value: 'Friday <strong class="text--tinted--primary">January 3</strong> - Sunday <strong class="text--tinted--primary">January 5</strong>'
           },
           {
-            title: 'Time',
-            value: '4:00 pm'
-          },
-          {
-            title: 'Location',
-            value: 'Call <a href="tel:' + process.env.SIMON_PHONE + '">Simon</a>'
+            title: 'Details',
+            value: 'Text <a href="tel:' + process.env.SIMON_PHONE + '">Simon</a> for more information.'
           }
         ]
       },
@@ -40,15 +36,15 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Friday, January 10'
+            value: 'Friday <strong class="text--tinted--primary">January 10</strong>'
           },
           {
             title: 'Time',
             value: '4:00 - 5:00 pm'
           },
           {
-            title: 'Location',
-            value: '643 River Bluff Circle',
+            title: 'Details',
+            value: '643 River Bluff Cir.',
             links: [
               {
                 label: 'Google Maps',
@@ -68,14 +64,14 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Friday, January 10'
+            value: 'Friday <strong class="text--tinted--primary">January 10</strong>'
           },
           {
             title: 'Time',
             value: '5:30 - 9:00 pm'
           },
           {
-            title: 'Location',
+            title: 'Details',
             value: '200 Cimarron Hills Trail W.',
             links: [
               {
@@ -92,19 +88,19 @@ export default function () {
       },
       {
         id: 'early',
-        title: 'Early arrival at the ceremony. Only the wedding party parks at this address.',
+        title: 'Early arrival',
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
-            value: '5:30 - 9:00 pm'
+            value: '3:00 pm'
           },
           {
-            title: 'Location',
-            value: '643 River Bluff Circle',
+            title: 'Details',
+            value: '643 River Bluff Cir.',
             links: [
               {
                 label: 'Google Maps',
@@ -115,23 +111,27 @@ export default function () {
                 src: 'https://maps.apple.com/?address=643%20River%20Bluff%20Cir,%20Georgetown,%20TX%20%2078626,%20United%20States&ll=30.655601,-97.657360&q=643%20River%20Bluff%20Cir'
               }
             ]
+          },
+          {
+            title: 'Extra',
+            value: 'This address is only for the wedding party and their guests. All other guests will be shuttled from the community center.'
           }
         ]
       },
       {
         id: 'ceremonyArrival',
-        title: 'Arrive for a shuttle to the ceremony',
+        title: 'Shuttles to the ceremony',
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
             value: '3:15 - 3:45 pm'
           },
           {
-            title: 'Location',
+            title: 'Details',
             value: '445 E. Morrow St.',
             links: [
               {
@@ -152,7 +152,7 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
@@ -166,7 +166,7 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
@@ -176,11 +176,11 @@ export default function () {
       },
       {
         id: 'cocktailHour',
-        title: 'Cocktail hour',
+        title: 'Return shuttle & cocktail hour',
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
@@ -194,7 +194,7 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
@@ -208,7 +208,7 @@ export default function () {
         details: [
           {
             title: 'Date',
-            value: 'Saturday, January 11'
+            value: 'Saturday <strong class="text--tinted--primary">January 11</strong>'
           },
           {
             title: 'Time',
