@@ -33,4 +33,5 @@
   @include light-dark(--buttonPrimaryBackgroundColor, var(--cG55), var(--cG50));
   @include light-dark(--buttonPrimaryBackgroundColorHover, var(--cG50), var(--cG55));
   @include light-dark(--buttonPrimaryBackgroundColorActive, var(--cG45), var(--cG60));
+  @include light-dark(--navLinkSelectedColor, var(--cG40), var(--cG85));
 }
