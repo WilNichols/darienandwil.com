@@ -1,0 +1,21 @@
+---
+layout: 'page.njk'
+eleventyExcludeFromCollections: true
+permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/RSVP-no/index.html'
+pagination:
+  data: invitations
+  size: 1
+---
+{%- from 'check-code.njk' import checkCode -%}
+{{ checkCode() }}
+{% set invitation = invitations[pagination.pageNumber] %}
+<div class="page page--program">
+  {%- from 'navigation.njk' import navigation with context -%}
+  {{ navigation(invitation.name, invitation.code) }}
+  <main class="program-header">
+    <div class="program-header__content">
+      <h1 class="text--heading--1">{{ strings.noRSVPTitle }}</h1>
+      <p class="text--subheadline text--tinted--secondary">{{ strings.noRSVPBody }}</p>
+    </div>
+  </main>
+</div>

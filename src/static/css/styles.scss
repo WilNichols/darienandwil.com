@@ -107,6 +107,7 @@ body {
     padding: 0;
     margin: 0;
   }
+  $constType: 16px;
   .navigation__items {
     position: relative;
     display: grid;
@@ -148,7 +149,6 @@ body {
       will-change: scale;
     }
     .navigation__link {
-      $constType: 16px;
       line-height: $constType;
       font-size: $constType;
       text-decoration: none;
@@ -194,7 +194,14 @@ body {
       display: block;
       width: 100%;
     }
-    .navigation__rsvp__action a {
+    .navigation__rsvp__action form {
+      display: contents;
+    }
+    .navigation__rsvp__action button {
+      all: unset;
+      cursor: pointer;
+    }
+    .navigation__rsvp__action a, .navigation__rsvp__action button {
       display: flex;
       align-items: center;
       width: 100%;
@@ -206,6 +213,11 @@ body {
       padding: 0;
       box-shadow: var(--px) 0 0 var(--materialElevatedSeparatorColor);
       -webkit-tap-highlight-color: transparent;
+      line-height: $constType;
+      font-size: $constType;
+      font-variation-settings: "wght" 500;
+      // for the button
+  
       &:hover {
         background-color: var(--materialElevatedPrimaryColorHover);
         box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorHover);
@@ -428,7 +440,6 @@ body {
   font-size: var(--type--1);  
   margin: 1em 0 0 0;
 }
-
 
 .page--program .program-item--event + .program-item--date {
   margin: 2em 0 0 0;

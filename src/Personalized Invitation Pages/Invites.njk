@@ -11,7 +11,7 @@ pagination:
 {% set invitation = invitations[pagination.pageNumber] %}
 <div class="page page--program">
   {%- from 'navigation.njk' import navigation with context -%}
-  {{ navigation() }}
+  {{ navigation(invitation.name, invitation.code) }}
   <header class="program-header">
     <div class="program-header__content">
       <h1 class="text--heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>

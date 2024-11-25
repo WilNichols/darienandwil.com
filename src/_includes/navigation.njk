@@ -1,7 +1,15 @@
-{% macro rsvpActions() -%}
+{% macro rsvpActions(name, code) -%}
   <ul class="navigation__rsvp-actions">
     <li class="navigation__rsvp__action">
-      <a href="">No, I’m not attending</a>
+      <form
+        name="Not-Attending"
+        action="{{ page.url }}rsvp-no/"
+        method="POST"
+        netlify>
+        <input name="name" type="text" value="{{ name }}" hidden />
+        <input name="code" type="text" value="{{ code }}" hidden />
+        <button type="submit">No, I’m not attending</button>
+      </form>
     </li>
     <li class="navigation__rsvp__action">
       <a href="">Yes, I’m attending</a>
@@ -17,12 +25,12 @@
   </ul>
 {%- endmacro %}
 
-{% macro navigation() -%}
+{% macro navigation(name, code) -%}
   <div class="navigation-container">
     {# <div class="header__logo"><a href="/">{% include "../static/img/logo--240.svg" %}</a></div> #}
     <nav class="navigation">
       {{ navigationLinks() }}
-      {{ rsvpActions() }}
+      {{ rsvpActions(name, code) }}
     </nav>
   </div>
 {%- endmacro %}
