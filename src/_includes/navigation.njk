@@ -13,8 +13,26 @@
       {{ strings.RSVPButtonYes }}
     {% endif %}
   {%- endset %}
+  <script> 
+    const invitationData = {{ invitationData | dump | safe }};
+    const attendingLocal = localStorage.getItem('attending');
+    const strings = {{ strings | dump | safe }};
+    window.addEventListener('DOMContentLoaded', function() {
+      const noButton = document.getElementById('rsvp-action--no');
+      const yesButton = document.getElementById('rsvp-action--yes')
+      // if they've pressed the "no" button but the site hasn't rebuilt
+      if ((attendingLocal == 'no') && (invitationData.attending == 'unknown')) {
+        console.log('Doing this locally...');
+        noButton.classList.add('navigation__rsvp__action--submitted');
+        yesButton.getElementsByClassName('navigation__rsvp__action__label')[0].innerHTML = strings.RSVPButtonYesCorrection;
+      }
+      if (invitationData.attending == 'no') {
+          console.log('got this from the server');
+      }
+    });
+  </script>
   <ul class="navigation__rsvp-actions">
-    <li class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
+    <li id="rsvp-action--no" class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
       <form
         name="Not-Attending"
         action="{{ page.url }}rsvp-no/"
@@ -22,14 +40,26 @@
         netlify>
         <input name="name" type="text" value="{{ invitationData.name }}" hidden />
         <input name="code" type="text" value="{{ invitationData.code }}" hidden />
-        <button type="submit" class="navigation__rsvp__action__label">{{ labelNo }}</button>
+        <button 
+          type="submit" 
+          onClick="saveAttendingLocal()"
+          class="navigation__rsvp__action__label">
+          {{ labelNo }}
+        </button>
       </form>
     </li>
-    <li class="navigation__rsvp__action">
+    <li id="rsvp-action--yes" class="navigation__rsvp__action">
       <a href="" class="navigation__rsvp__action__label">{{ labelYes }}</a>
     </li>
   </ul>
+  <script> 
+    // set attending value locally for the gap between site rebuild
+    function saveAttendingLocal() {
+      localStorage.setItem('attending', 'no');  
+    }
+  </script>
 {%- endmacro %}
+
 {% macro navigationLinks() -%}
   <ul class="navigation__items">
     <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if (not '/party/' in page.url) and (not '/info/' in page.url) and (not '/info/' in page.url) and (not '/registry/' in page.url) }}" href="{{ page.url }}"><span>{{ strings.navHome }}</span></a></li>

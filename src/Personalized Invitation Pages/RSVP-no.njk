@@ -1,17 +1,30 @@
 ---
-layout: 'page.njk'
-eleventyExcludeFromCollections: true
+layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-no/index.html'
-pagination:
-  data: invitations
-  size: 1
 ---
 {%- from 'check-code.njk' import checkCode -%}
 {{ checkCode() }}
-{% set invitation = invitations[pagination.pageNumber] %}
+
+{# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
+  {% set invitation = invitations[pagination.pageNumber] %}
+  {% set isAttending = 'unknown' %}
+  
+  {% for notAttending in rsvpForms %}
+  {% if notAttending.data.code == invitation.code %}
+    {% set isAttending = 'no' %}
+  {% endif %}
+  {% endfor %}
+  
+  {% set invitationData = {
+    name: invitation.name,
+    code: invitation.code,
+    attending: isAttending
+  } %}
+{# end copypasta #}
+
 <div class="page page--program">
   {%- from 'navigation.njk' import navigation with context -%}
-  {{ navigation(invitation.name, invitation.code) }}
+  {{ navigation(invitationData) }}
   <main class="program-header">
     <div class="program-header__content">
       <h1 class="text--heading--1">{{ strings.noRSVPTitle }}</h1>
