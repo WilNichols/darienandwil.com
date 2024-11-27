@@ -1,5 +1,5 @@
-export default () {
-  const strings {
+export default function () {
+  const strings = {
     formTitle: 'Great! Let’s fill in a few details.',
     formSubtitle: 'Great! Your party has %num% seat%plu%.',
     yourFormTitle: 'Your RSVP',
@@ -29,7 +29,7 @@ export default () {
     confirmSubtitle: 'Does everything look right?'
   }
   
-  const meals {
+  const meals = {
     adult: [
       {
         long: strings.eggplantMealLong,
@@ -45,8 +45,9 @@ export default () {
       short: strings.kidsMealShort
     }
   }
+
   return {
-    ...strings, 
+    
     ...meals
   }  
 }

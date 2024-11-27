@@ -1781,7 +1781,7 @@ export default function () {
   ]
   
   return {
-  ...invitations,
-  ...us
+    ...invitations,
+    ...us
   }
 }
