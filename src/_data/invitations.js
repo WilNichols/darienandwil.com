@@ -661,15 +661,16 @@ export default function () {
   },
   {
     name: 'Brett Williams & Family',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Brett Williams'
       },
+      {},
+      {},
       {
         name: 'Gayle Mayfield'
       },
-      {},
       {}
     ],
     code: 'ikqy2'
@@ -1007,10 +1008,10 @@ export default function () {
       {
         name: 'Ginny Elia'
       },
+      {},
       {
         name: 'Tommy Elia'
       },
-      {},
       {}
     ],
     code: 'u10me'
