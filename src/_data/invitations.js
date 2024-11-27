@@ -368,7 +368,8 @@ export default function () {
         name: 'Chelsey Sheehan'
       }, 
       {
-        name: 'Everett Sheehan'
+        name: 'Everett Sheehan',
+        kid: true
       }
     ],
     code: 'y27m6'
@@ -410,7 +411,8 @@ export default function () {
         name: 'Eugene Mymrin'
       }, 
       {
-        name: 'Natalie'
+        name: 'Natalie',
+        meal: 'none'
       }
     ],
     code: 'ua5g2'
@@ -1386,7 +1388,9 @@ export default function () {
       {
         name: 'Alex DiGregorio'
       },
-      {}
+      {
+        kid: true
+      }
     ],
     code: 'd96k6'
   },
@@ -1436,7 +1440,8 @@ export default function () {
         name: 'Adam Sheehan'
       },
       {
-        name: 'Riyan Sheehan'
+        name: 'Riyan Sheehan',
+        kid: true
       }
     ],
     code: 'vo84w'
@@ -1527,7 +1532,7 @@ export default function () {
     permissions: ['ceremony'],
     party: [
       {
-        name: 'Tate Burle',
+        name: 'Tate Burke',
         allergens: 'strawberries'
       },
       {}
@@ -1662,8 +1667,12 @@ export default function () {
         name: 'Jose Azuara'
       },
       {},
-      {},
-      {}
+      {
+        kid: true
+      },
+      {
+        kid: true
+      }
     ],
     code: 'byaa0'
   },
@@ -1677,8 +1686,12 @@ export default function () {
       {
         name: 'Jacqueline Ellis'
       },
-      {},
-      {}
+      {
+        kid: true
+      },
+      {
+        kid: true
+      }
     ],
     code: 'tr2qf'
   },
@@ -1746,7 +1759,9 @@ export default function () {
       {
         name: 'Nate Filipek'
       },
-      {}
+      {
+        name: 'Emily Blackner'
+      }
     ],
     code: '4ifg2'
     }
