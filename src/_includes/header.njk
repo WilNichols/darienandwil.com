@@ -6,3 +6,12 @@
     </div>
   </header>
 {%- endmacro %}
+
+{% macro smallHeader(title, subtitle) -%}
+  <header class="form-header">
+    <div class="form-header__content">
+      <h1 class="text--heading--3">{{ title }}</h1>
+      {% if subtitle %}<span class="text--subheadline text--tinted--secondary">{{ subtitle }}</span>{% endif %}
+    </div>
+  </header>
+{%- endmacro %}

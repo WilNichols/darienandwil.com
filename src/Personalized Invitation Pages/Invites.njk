@@ -8,9 +8,6 @@ pagination:
 ---
 {%- from 'navigation.njk' import navigation with context -%}
 {%- from 'header.njk' import header -%}
-{%- from 'check-code.njk' import checkCode -%}
-{{ checkCode() }}
-
 
 {# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
