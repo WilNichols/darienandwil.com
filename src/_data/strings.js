@@ -11,6 +11,7 @@ export default function () {
     RSVPButtonYesCorrection: 'I’ve changed my mind!',
     noRSVPTitle: 'You’ll be missed!',
     noRSVPBody: 'But seriously, thanks for letting us know.',
+    QATitle: 'Q <span class="text--tinted--tertiary">&</span> A',
     
   }
 }

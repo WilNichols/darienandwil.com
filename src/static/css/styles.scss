@@ -24,7 +24,7 @@
 }
 
 %backgroundBlurOverlay {
-  background-color: var(--navigationColor);
+  background-color: var(--blurTintColor);
   @include light-dark(--blendMode, multiply, screen);
   mix-blend-mode: var(--blendMode);
 }
@@ -233,7 +233,7 @@ body {
     .navigation__rsvp__action--submitted a,
     .navigation__rsvp__action--submitted button, {
       color: var(--rsvpSelectedColor);
-      background-color: var(--rsvpSelectedBackgroundColor);
+      background-color: var(--buttonPrimaryBackgroundColor);
       pointer-events: none;
     }
   }
@@ -359,7 +359,7 @@ body {
   @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
-.page--program {
+%page--invite {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -368,21 +368,25 @@ body {
   padding: max($navHeight, var(--col)) 0;
 }
 
-%page--padded {
+.page--program {
+  @extend %page--invite; 
+}
+
+%page--padded__item {
   width: 100%;
   max-width: var(--gate-width--desktop);
   padding: 0 var(--gutter);
 }
 
-.page--program .program-header {
-  @extend %page--padded;
+.page--program .invitation-header {
+  @extend %page--padded__item;
   display: flex;
   text-align: center;
   justify-content: center;
 }
 
 .page--program .program-content {
-  @extend %page--padded;
+  @extend %page--padded__item;
 }
 
 .page--program .program-items {
@@ -454,6 +458,53 @@ body {
   margin: 2em 0 0 0;
 }
 
+.page--qa {
+  @extend %page--invite; 
+}
+
+.qa-content {
+  @extend %page--padded__item;
+  font-size: var(--type-0);
+}
+
+.qa-items {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5em;
+}
+
+.qa__q, .qa__a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 3ex auto;
+  
+  &::before {
+    content: var(--prefix, '');
+    color: var(--contentTintedTertiaryColor);
+    text-transform: uppercase;
+    grid-column: 1 / 2;
+    height: 1.5em;
+  }
+  > p {
+    grid-column: 2 / 3;
+    margin: 0;
+    + p {
+      margin: 1.5em 0 0 0;
+    }
+  }
+}
+.qa__q {
+  font-variation-settings: "wght" 500;
+  color: var(--contentTintedPrimaryColor);
+  margin: 1em 0 0 0;
+  --prefix: 'q'
+}
+
+.qa__a {
+  color: var(--contentTintedSecondaryColor);
+  margin: 0;
+  --prefix: 'a'
+}
 
 // .page--program .program-item__details
 // mobile portrait

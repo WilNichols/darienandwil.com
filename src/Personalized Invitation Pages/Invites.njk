@@ -1,11 +1,13 @@
 ---
-layout: 'program.njk'
+layout: '_root.njk'
 eleventyExcludeFromCollections: true
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/index.html'
 pagination:
   data: invitations
   size: 1
 ---
+{%- from 'navigation.njk' import navigation with context -%}
+{%- from 'header.njk' import header -%}
 {%- from 'check-code.njk' import checkCode -%}
 {{ checkCode() }}
 
@@ -20,7 +22,7 @@ pagination:
       {% set isAttending = 'no' %}
     {% endif %}
   {% endfor %}
-  
+   
   {% set invitationData = {
   name: invitation.name,
   code: invitation.code,
@@ -29,14 +31,8 @@ pagination:
 {# end copypasta #}
 
 <div class="page page--program">
-  {%- from 'navigation.njk' import navigation with context -%}
   {{ navigation(invitationData) }}
-  <header class="program-header">
-    <div class="program-header__content">
-      <h1 class="text--heading--1"><date>{{ meta.ceremonyDate.html | safe }}</date></h1>
-      <span class="text--subheadline text--tinted--secondary">{{ meta.receptionAddress}}</span>
-    </div>
-  </header>
+  {{ header(meta.ceremonyDate.html | safe, meta.receptionAddress) }}
   <main class="program-content">
     <ul class="program-items">
     {% if eventDate == date %}{% set date = "" %}{% endif %}
