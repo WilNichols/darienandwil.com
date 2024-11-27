@@ -79,8 +79,6 @@
 {% macro navigation(invitationData) -%}
 {% set code %}{{ invitationData.code }}{% endset %}
   <div class="navigation-container">
-
-    {# <div class="header__logo"><a href="/">{% include "../static/img/logo--240.svg" %}</a></div> #}
     <nav class="navigation">
       {% if isFormSubmissionPage -%}
           <a class="form-submission-back" href="/invitations/{{ code }}/">Return to your invitation</a>
