@@ -9,7 +9,7 @@ export default function () {
       a: 'December 16.'
     },
     {
-      q: 'What is the attire for the ceremony and receiption?',
+      q: 'What is the attire for the ceremony and reception?',
       a: 'We ask that you wear cocktail party attire. The ceremony is—weather permitting—outdoors, so plan for a warming outer layer that you can later shed for an indoor reception, dinner, and dance.'
     },
     {
@@ -21,7 +21,7 @@ export default function () {
       a: 'There’s more to do in Austin, but if staying in Georgetown, I suggest the Sheraton. We don’t have block rates nearby.'
     },
     {
-      q: 'Is the ceremony and receiption child-friendly?',
+      q: 'Is the ceremony and reception child-friendly?',
       a: 'Yes! We love kids and welcome them. We aren’t planning for child entertainment; however, we have kids’ meals and look forward to them joining us on the dance floor.'
     },
     {
@@ -30,7 +30,7 @@ export default function () {
     },
     {
       q: 'What COVID precautions are in place?',
-      a: 'Optional masks will be provided for the ceremony and reception. Additionally, the ceremony is outdoors, and the receiption will offer open-air spaces.'
+      a: 'Optional masks will be provided for the ceremony and reception. Additionally, the ceremony is outdoors, and the reception will offer open-air spaces.'
     }
   ]
 }
