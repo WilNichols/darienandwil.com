@@ -2,6 +2,7 @@
 @use 'mixins' as *;
 
 :root {
+  @include light-dark(--blurTintBlendMode, multiply, screen);
   @include light-dark(--materialPrimaryColor, var(--c100), var(--c0));
   @include light-dark(--materialSecondaryColor, var(--cG85), var(--cG25));
   @include light-dark(--materialSeparatorColor, var(--cK80), var(--cK10));
@@ -25,4 +26,6 @@
   @include light-dark(--buttonPrimaryBackgroundColorActive, var(--cG45), var(--cG60));
   @include light-dark(--navLinkSelectedColor, var(--cG40), var(--cG85));
   @include light-dark(--rsvpSelectedColor, var(--c100), var(--c100));
+  @include light-dark(--materialNavColorHover, rgba(#5B9468,0.1), rgba(#D6F7D4,0.1));
+  @include light-dark(--materialNavColorActive, rgba(#5B9468,0.15), rgba(#D6F7D4,0.15));
 }

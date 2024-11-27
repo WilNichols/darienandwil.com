@@ -2,7 +2,6 @@
 @use 'sass:math';
 @use 'sass:string';
 @use 'tokens';
-@use 'tokens/color/mixins' as *;
 
 
 @mixin controlStates($prop, $val) {
@@ -25,8 +24,7 @@
 
 %backgroundBlurOverlay {
   background-color: var(--blurTintColor);
-  @include light-dark(--blendMode, multiply, screen);
-  mix-blend-mode: var(--blendMode);
+  mix-blend-mode: var(--blurTintBlendMode);
 }
 
 %roundBtn {
@@ -155,6 +153,9 @@ body {
       color: var(--contentTintedPrimaryColor);
       display: grid;
       place-items: center;
+      position: absolute;
+      inset: 0;
+      border-radius: 99px;
       span {
         display: block;
         // padding-top: 2px;
@@ -162,16 +163,19 @@ body {
       }
       &--current {
         background-color: var(--materialElevatedPrimaryColor);
-        position: absolute;
-        inset: 0;
         color: var(--navLinkSelectedColor);
-        border-radius: 99px;
         box-shadow: 
           0px 6px 12px rgba(10, 44, 8, 0.05), 
           0px 1.8px 3.6px rgba(10, 44, 8, 0.03), 
           0px 0.76px 1.52px rgba(10, 44, 8, 0.025), 
           0px 0.28px 0.56px rgba(10, 44, 8, 0.017),
           0 0 0 var(--px) rgba(10, 44, 8, 0.1);
+      }
+      &:not(&--current):hover {
+        background-color: var(--materialNavColorHover);
+      }
+      &:not(&--current):active {
+        background-color: var(--materialNavColorActive);
       }
     }
   }
