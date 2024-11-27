@@ -32,11 +32,11 @@ pagination:
 
 <div class="page page--program">
   {{ navigation(invitationData) }}
-  {{ header(meta.ceremonyDate.html | safe, meta.receptionAddress) }}
+  {{ header(strings.programTitle | safe, strings.receptionAddress) }}
   <main class="program-content">
     <ul class="program-items">
     {% if eventDate == date %}{% set date = "" %}{% endif %}
-    {% for block in meta.program %}
+    {% for block in program %}
       {% if (invitation.permissions) | arrayContains(block.permission) %}
         {# {{ invitation.permission | dump }}: {{ block.permission }} #}
         {% set eventDate = block.details[0].value %}

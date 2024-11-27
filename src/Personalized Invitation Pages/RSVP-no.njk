@@ -1,8 +1,10 @@
 ---
 layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-no/index.html'
+isFormSubmissionPage: true
 ---
 {%- from 'check-code.njk' import checkCode -%}
+{%- from 'navigation.njk' import navigation with context -%}
 {{ checkCode() }}
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
@@ -23,7 +25,7 @@ permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-no/in
 {# end copypasta #}
 
 <div class="page page--program">
-  {%- from 'navigation.njk' import navigation with context -%}
+
   {{ navigation(invitationData) }}
   <main class="invitation-header">
     <div class="invitation-header__content">

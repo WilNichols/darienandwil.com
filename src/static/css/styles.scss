@@ -180,12 +180,8 @@ body {
     }
   }
 
-  .navigation__rsvp-actions {
+  %floatingWhiteButton {
     overflow: hidden;
-    display: flex;
-    flex-direction: row; 
-    gap: var(--px);
-    list-style: none;
     width: 100%;
     border-radius: var(--btnRad);
     background-color: var(--materialElevatedPrimaryColor);
@@ -195,6 +191,29 @@ body {
       0px 0.76px 1.52px rgba(10, 44, 8, 0.025), 
       0px 0.28px 0.56px rgba(10, 44, 8, 0.017),
       0 0 0 var(--px) rgba(10, 44, 8, 0.1);
+  }
+
+  .navigation__rsvp__action button {
+    all: unset;
+    cursor: pointer;
+  }
+
+  %floatingWhiteButtonLabel {
+    height: var(--btnHeight);
+    color: var(--navLinkSelectedColor);
+    font-variation-settings: "wght" 500;
+    -webkit-tap-highlight-color: transparent;
+    line-height: $constType;
+    font-size: $constType;
+  }
+  
+  .navigation__rsvp-actions {
+    @extend %floatingWhiteButton;
+    display: flex;
+    flex-direction: row; 
+    gap: var(--px);
+    list-style: none;
+    
     .navigation__rsvp__action  {
       display: block;
       width: 100%;
@@ -204,26 +223,15 @@ body {
       display: contents;
     }
 
-    .navigation__rsvp__action button {
-      all: unset;
-      cursor: pointer;
-    }
-
     .navigation__rsvp__action a, .navigation__rsvp__action button {
       display: flex;
       align-items: center;
       width: 100%;
       text-decoration: none;
-      height: var(--btnHeight);
-      color: var(--navLinkSelectedColor);
-      font-variation-settings: "wght" 500;
       justify-content: center;
       padding: 0;
       box-shadow: var(--px) 0 0 var(--materialElevatedSeparatorColor);
-      -webkit-tap-highlight-color: transparent;
-      line-height: $constType;
-      font-size: $constType;
-      font-variation-settings: "wght" 500;
+      @extend %floatingWhiteButtonLabel;
       &:hover {
         background-color: var(--materialElevatedPrimaryColorHover);
         box-shadow: 0 0 0 var(--px) var(--materialElevatedSeparatorColorHover);
@@ -239,6 +247,20 @@ body {
       color: var(--rsvpSelectedColor);
       background-color: var(--buttonPrimaryBackgroundColor);
       pointer-events: none;
+    }
+  }
+  
+  .form-submission-back {
+    @extend %floatingWhiteButton;
+    @extend %floatingWhiteButtonLabel;
+    display: grid;
+    place-content: center;
+    text-decoration: none;
+    &:hover {
+      background-color: var(--materialElevatedPrimaryColorHover);
+    }
+    &:active {
+      background-color: var(--materialElevatedPrimaryColorActive);
     }
   }
 }

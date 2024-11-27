@@ -12,6 +12,7 @@ export default function () {
     noRSVPTitle: 'You’ll be missed!',
     noRSVPBody: 'But seriously, thanks for letting us know.',
     QATitle: 'Q <span class="text--tinted--tertiary">&</span> A',
-    
+    programTitle: '<span class="text--tinted--tertiary ">0</span><span class="text--tinted--primary">1</span><span class="text--tinted--tertiary ">.</span><span class="text--tinted--primary">11</span><span class="text--tinted--tertiary ">.</span><span class="text--tinted--primary">25</span>',
+    receptionAddress: '445 E. Morrow St, Georgetown, Texas'
   }
 }
