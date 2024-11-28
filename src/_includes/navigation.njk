@@ -84,8 +84,8 @@
           <a class="form-submission-back" href="/invitations/{{ code }}/">Return to your invitation</a>
         {% else %}
           {{ navigationLinks(code) }}
+          {{ rsvpActions(invitationData) }}
       {%- endif %}
-      {{ rsvpActions(invitationData) }}
     </nav>
   </div>
 {%- endmacro %}

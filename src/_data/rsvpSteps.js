@@ -1,11 +1,11 @@
 export default function () {
   const strings = {
     formTitle: 'Great! Let’s fill in a few details.',
-    formSubtitle: 'Great! Your party has %num% seat%plu%.',
+    formSubtitle: 'Your party has %num% seat%plu%.',
     yourFormTitle: 'Your RSVP',
     othersFormsTitle: 'The rest of your party',
     yourNamePlaceholder: 'Name',
-    guestPlaceholder: 'Your guest',
+    guestPlaceholder: 'Guest',
     attendingBool: 'Attending on January 11',
     mealsTitle: 'Meal choice',
     infoFormTitle: 'Group information',
@@ -32,12 +32,12 @@ export default function () {
   const meals = {
     adult: [
       {
-        long: strings.eggplantMealLong,
-        short: strings.eggplantMealShort
-      },
-      {
         long: strings.pastaMealLong,
         short: strings.pastaMealShort
+      },
+      {
+        long: strings.eggplantMealLong,
+        short: strings.eggplantMealShort
       }
     ],
     kids: {

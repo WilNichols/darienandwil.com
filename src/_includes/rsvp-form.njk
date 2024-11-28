@@ -1,0 +1,73 @@
+{% macro rsvpForm(loop, attendee) -%}
+  {% if loop.index == 1 %}
+    {% set title = rsvpSteps.yourFormTitle %}
+    {% set namePlaceholder = rsvpSteps.yourNamePlaceholder %}
+    {% set attendingBool = 'checked' %}
+  {% else %}
+    {% if loop.index == 2 %}
+      {% set title = rsvpSteps.othersFormsTitle %}
+    {% endif %}
+    {% set namePlaceholder = rsvpSteps.guestPlaceholder %}
+    {% set hidetitle = true %}
+  {% endif %}
+  {% if not hideTitle %}
+    <h2 class="">{{ title }}</h2>
+  {% endif %}
+  <div class="">
+    <input 
+      type="text" 
+      placeholder="{{ namePlaceholder }}"
+      {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
+      required/>
+      <input 
+        id="attendingBool"
+        type="checkbox" 
+        value="isAttending"
+        {{ attendingBool }}
+        required />
+      <label for="attendingBool" class="">
+        <span class="">{{ rsvpSteps.attendingBool }}</span>
+      </label>
+    <div class="meals">
+      <h3 class="">{{ rsvpSteps.mealsTitle }}</h3>
+      {{ mealChoiceLoop(attendee, loop) }}
+    </div>
+  </div>
+{%- endmacro %}
+
+{% macro mealChoiceLoop(attendee, parentLoop) %}
+  <ul class="meal-choices">
+    {% if attendee.kid %}
+      {{ mealChoice(rsvpSteps.kids, rsvpSteps.kidsMealLong, checked = true)}}
+    {% endif %}
+    {% for meal in rsvpSteps.adult %}
+      {% if ((not attendee.kid) and (loop.index == 1)) %}
+        {% set mealSelection = true %}
+      {% else %}
+        {% set mealSelection = false %}
+      {% endif %}
+      {% if parentLoop.index == 1 %}
+          {% set label = meal.long %}
+      {% else %}
+          {% set label = meal.short %}
+      {% endif %}
+      {{ mealChoice(meal, label, checked = mealSelection)}}
+    {% endfor %}
+  </ul>
+{% endmacro %}
+
+{% macro mealChoice(meal, label, checked) -%}
+  <li class="meal-choice">
+    <input 
+      type="radio" 
+      id="{{ meal.short }}" 
+      value="{{ meal.short }}"
+      {% if checked %}checked{% endif %}
+      required />
+    <label 
+      class="" 
+      for="{{ meal.short }}">
+      <span class="">{{ label }}</span>
+    </label>
+  </li>
+{%- endmacro %}
