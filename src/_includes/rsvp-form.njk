@@ -21,15 +21,24 @@
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         required/>
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
-        <input 
-          id="{{ attendingBoolID }}"
-          type="checkbox" 
-          value="isAttending"
-          {{ attendingBool }}
-          required />
-        <label for="{{ attendingBoolID }}" class="">
-          <span class="">{{ rsvpSteps.attendingBool }}</span>
-        </label>
+      <input 
+        id="{{ attendingBoolID }}"
+        type="checkbox" 
+        value="isAttending"
+        class="isAttending"
+        {{ attendingBool }}
+        required />
+      <label for="{{ attendingBoolID }}" class="">
+        <span class="">{{ rsvpSteps.attendingBool }}</span>
+      </label>
+      <style>
+        .isAttending ~ .meals {
+          display: none;
+        }
+        .isAttending:checked ~ .meals {
+          display: block;
+        }
+      </style>
       <fieldset class="meals">
         <legend class="">{{ rsvpSteps.mealsTitle }}</legend>
         {{ mealChoiceLoop(attendee, loop) }}
