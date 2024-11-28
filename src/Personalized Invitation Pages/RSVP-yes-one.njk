@@ -3,32 +3,32 @@ layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-yes-one/index.html'
 isFormSubmissionPage: true
 ---
+{%- from 'header.njk' import smallHeader with context -%}
 {%- from 'navigation.njk' import navigation with context -%}
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
   {% set invitation = invitations[pagination.pageNumber] %}
   {% set isAttending = 'unknown' %}
-  
+  {% set partySizeInt = invitation.party.length %}
+  {% set partySizeWord = strings.numbers[partySizeInt - 1] %}
   {% for notAttending in rsvpForms %}
-  {% if notAttending.data.code == invitation.code %}
-    {% set isAttending = 'no' %}
-  {% endif %}
+    {% if notAttending.data.code == invitation.code %}
+      {% set isAttending = 'no' %}
+    {% endif %}
   {% endfor %}
-  
   {% set invitationData = {
     name: invitation.name,
     code: invitation.code,
     attending: isAttending
   } %}
+  {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
+  {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
-
 <div class="page page--program">
-
+  {# {% set subtitle -%}
+   {% if invitation.party | length > 1 %} #}
   {{ navigation(invitationData) }}
   <main class="invitation-header">
-    <div class="invitation-header__content">
-      <h1 class="text--heading--1">{{ strings.noRSVPTitle }}</h1>
-      <p class="text--subheadline text--tinted--secondary">{{ strings.noRSVPBody }}</p>
-    </div>
+    {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
   </main>
 </div>

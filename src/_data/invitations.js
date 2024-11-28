@@ -1772,11 +1772,35 @@ export default function () {
       name: 'Wil',
       code: '09191994',
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
+      party: [
+        {
+          name: 'Fake Guest'
+        }, 
+        {
+          kid: true
+        }, 
+        {
+          name: 'Fake Guest 2'
+        }, 
+        {}
+      ],
     },
     {
       name: 'Darien',
       code: '11201995',
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
+      party: [
+        {
+          name: 'Fake Guest'
+        }, 
+        {
+          kid: true
+        }, 
+        {
+          name: 'Fake Guest 2'
+        }, 
+        {}
+      ],
     }
   ]
   
