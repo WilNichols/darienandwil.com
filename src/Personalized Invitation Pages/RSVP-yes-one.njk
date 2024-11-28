@@ -26,10 +26,10 @@ isFormSubmissionPage: true
   {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
 
-<div class="page page--program">
+<form class="page page--program">
   {{ navigation(invitationData) }}
   <div class="form__action">
-    <a href="#confirm" id="button--continue" class="button--primary">{{ strings.continue }}</a>
+    <a href="#confirm" id="button--continue" class="button--primary" onClick="logRSVPLocal()">{{ strings.continue }}</a>
     <button 
       type="submit"
       onClick="saveRSVPLocal()"
@@ -46,4 +46,9 @@ isFormSubmissionPage: true
       {% endfor %}
     </div>
   </main>
-</div>
+</form>
+<script>
+  function logRSVPLocal() {
+    
+  }
+</script>
