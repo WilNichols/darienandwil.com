@@ -41,38 +41,59 @@
 {% macro mealChoiceLoop(attendee, parentLoop) %}
   <ul class="meal-choices">
     {% if attendee.kid %}
-      {{ mealChoice(rsvpSteps.kids, rsvpSteps.kidsMealLong, checked = true)}}
+      {{ mealChoice(
+        rsvpSteps.kids, 
+        rsvpSteps.kidsMealLong, 
+        checked = true, 
+        parentIndex = parentLoop.index)
+      }}
     {% endif %}
     {% for meal in rsvpSteps.adult %}
-      {% if ((not attendee.kid) and (loop.index == 1)) %}
+      {% set thisIndex = loop.index %}
+      {% if ((not attendee.kid) and (thisIndex == 1)) %}
         {% set mealSelection = true %}
       {% else %}
         {% set mealSelection = false %}
       {% endif %}
-      {% if parentLoop.index == 1 %}
+      {% if choiceIndex == 1 %}
           {% set label = meal.long %}
       {% else %}
           {% set label = meal.short %}
       {% endif %}
-      {{ mealChoice(meal, label, checked = mealSelection)}}
+      {{ mealChoice(
+        meal, 
+        label, 
+        checked = mealSelection, 
+        parentIndex = parentLoop.index)
+      }}
     {% endfor %}
   </ul>
 {% endmacro %}
 
-{% macro mealChoice(meal, label, checked) -%}
+{% macro 
+  mealChoice(
+    meal, 
+    label, 
+    checked, 
+    parentIndex) 
+-%}
+<br />
+{{ parentIndex | log }}
+  {% set mealCode -%}
+    attendee-{{ parentIndex }}-meal
+  {%- endset %}
   <li class="meal-choice">
     <label 
       class=""
-      for="">
+      for="{{ mealCode }}">
       <input 
         type="radio" 
+        name="{{ mealCode }}"
         id="{{ meal.short }}" 
         value="{{ meal.short }}"
         {% if checked %}checked{% endif %}
         required />
-      <span 
-        class="" 
-        for="{{ meal.short }}">
+      <span class="">
         {{ label }}
       </span>
     </label>
