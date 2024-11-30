@@ -32,10 +32,10 @@ isFormSubmissionPage: true
   {{ submitRSVPParty(invitationData) }}
   <main class="rsvp-form-content">
     {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
-    <div class="rsvp-form-items">
-      {% for attendee in invitation.party %}
-         {{ rsvpForm(loop, attendee, invitation.code) }}
-      {% endfor %}
+    <div class="rsvp-form-items rsvp-form-length--{{ invitation.party.length }}">
+    {% for i in range(0, 6) %}
+      {{ rsvpForm(i, party, invitation.code) }}
+    {% endfor %}
     </div>
   </main>
 </form>
