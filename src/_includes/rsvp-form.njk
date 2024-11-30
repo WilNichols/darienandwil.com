@@ -38,10 +38,10 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
-      <fieldset class="rsvp-form__meal-choices__container">
-        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
+      <div class="rsvp-form__meal-choices__container">
+        <span class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</span>
         {{ mealChoiceLoop(attendee, loop) }}
-      </fieldset>
+      </div>
     </div>
   </fieldset>
 {%- endmacro %}
