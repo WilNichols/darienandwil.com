@@ -19,7 +19,7 @@
     <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 
-        name="{{ loop.index }}--correctedName"
+        name="{{ loop.index }}--no"
         form="{{ meta.rsvpForm1 }}"
         type="text" 
         class="ui-textfield rsvp-form-item__name"
@@ -28,27 +28,6 @@
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         />
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
-      <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item---bool">
-        <input 
-          name="{{ loop.index }}--attending"
-          form="{{ meta.rsvpForm1 }}"
-          id="{{ attendingBoolID }}"
-          type="checkbox" 
-          value="isAttending"
-          class="isAttending"
-          onClick="setDefaultMeal()"
-          {{ attendingBool }}
-          />
-        {{ rsvpSteps.attendingBool }}
-      </label>
-      <input 
-        type="radio" 
-        name="{{ loop.index }}--meal"
-       
-        />
-      <span class="">
-        test
-      </span>
     </div>
   </fieldset>
 {%- endmacro %}
