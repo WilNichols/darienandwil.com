@@ -71,20 +71,20 @@
     <nav class="navigation">
       <button 
         type="submit"
+        onClick="savePartyLocal()"
         class="button--primary">
         <span class="button--primary__label">{{ strings.continue }}</span>
       </button>
     </nav>
   </div>
   <script>
-  document.getElementById('rsvp-party').addEventListener('submit', function (e) {
-    e.preventDefault();
+  function savePartyLocal() {
     const form = document.getElementById('rsvp-party');
     const data = new FormData(form);
     for (var [key, value] of data) {
         console.log(key, value);
     }
-  });
+  };
   </script>
 {%- endmacro %}
 

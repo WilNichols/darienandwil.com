@@ -2,6 +2,7 @@
   {% if loop.index == 1 %}
     {% set title = rsvpSteps.yourFormTitle %}
     {% set namePlaceholder = rsvpSteps.yourNamePlaceholder %}
+    {% set attendeeName = invitation.name %}
     {% set attendingBool = 'checked' %}
   {% else %}
     {% if loop.index == 2 %}

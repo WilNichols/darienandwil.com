@@ -1784,6 +1784,7 @@ export default function () {
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
       party: [
         {
+          name: 'Wil Nichols'
         }, 
         {
           placeholder: 'Wil’s +1',
@@ -1801,7 +1802,7 @@ export default function () {
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
       party: [
         {
-          name: 'Fake Guest'
+          name: 'Darien Hiddins'
         }, 
         {
           kid: true
