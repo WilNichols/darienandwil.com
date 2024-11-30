@@ -568,7 +568,9 @@ export default function () {
       },
       {
         name: 'Meredith Dixon'
-      }
+      },
+      {},
+      {}
     ],
     code: '0bfly'
   },
