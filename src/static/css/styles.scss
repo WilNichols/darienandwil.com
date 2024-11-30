@@ -565,7 +565,7 @@ body {
 // logic to show/hide meals
 
 .rsvp-form-item__is-attending:has(> .isAttending) ~ .rsvp-form__meal-choices__container {
-  // display: none;
+  display: none;
 }
 .rsvp-form-item__is-attending:has(> .isAttending:checked) ~ .rsvp-form__meal-choices__container {
   display: flex;

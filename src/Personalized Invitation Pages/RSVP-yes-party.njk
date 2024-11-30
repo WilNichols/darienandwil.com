@@ -25,6 +25,20 @@ isFormSubmissionPage: true
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
   {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
+<form class="force-detect" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/{{ invitation.code }}/rsvp-details/" netlify hidden>
+  <input name="1--correctedName" type="text"/>
+  <input name="1--attending" type="checkbox"/>
+  <input name="1--meal-choice" type="radio"/>
+  <input name="2--correctedName" type="text"/>
+  <input name="2--attending" type="checkbox"/>
+  <input name="2--meal-choice" type="radio"/>
+  <input name="3--correctedName" type="text"/>
+  <input name="3--attending" type="checkbox"/>
+  <input name="3--meal-choice" type="radio"/>
+  <input name="4--correctedName" type="text"/>
+  <input name="4--attending" type="checkbox"/>
+  <input name="4--meal-choice" type="radio"/>
+</form>
 <form class="page page--rsvp--one" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/{{ invitation.code }}/rsvp-details/" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />

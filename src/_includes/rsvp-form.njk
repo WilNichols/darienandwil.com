@@ -15,8 +15,8 @@
     {% endif %}
     {% set hidetitle = true %}
   {% endif %}
-  
-    
+  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.rsvpForm1 }}" >
+    <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 
         name="{{ loop.index }}--correctedName"
@@ -41,11 +41,12 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
+      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.rsvpForm1 }}">
+        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
+        {{ mealChoiceLoop(attendee, loop) }}
+      </fieldset>
     </div>
-  
-    <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
-    {{ mealChoiceLoop(attendee, loop) }}
-  
+  </fieldset>
 {%- endmacro %}
 
 {% macro mealChoiceLoop(attendee, parentLoop) %}
