@@ -79,7 +79,7 @@
   </div>
   <script>
   function savePartyLocal() {
-    const form = document.getElementById('rsvp-party-2');
+    const form = document.getElementById('{{ meta.rsvpForm1 }}');
     const data = new FormData(form);
     for (var [key, value] of data) {
         console.log(key, value);
