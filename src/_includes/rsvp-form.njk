@@ -41,7 +41,14 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
-      {{ mealChoiceLoop(attendee, loop) }}
+      <input 
+        type="radio" 
+        name="{{ loop.index }}--meal"
+       
+        />
+      <span class="">
+        test
+      </span>
     </div>
   </fieldset>
 {%- endmacro %}
