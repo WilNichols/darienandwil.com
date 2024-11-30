@@ -19,7 +19,7 @@
     <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 
-        name="{{ loop.index }}--no"
+        name="{{ loop.index }}--correctedName"
         form="{{ meta.rsvpForm1 }}"
         type="text" 
         class="ui-textfield rsvp-form-item__name"
@@ -28,8 +28,9 @@
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         />
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
+      <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item---bool">
         <input 
-          name="{{ loop.index }}--wtf"
+          name="{{ loop.index }}--attending"
           form="{{ meta.rsvpForm1 }}"
           id="{{ attendingBoolID }}"
           type="checkbox" 
@@ -39,15 +40,17 @@
           {{ attendingBool }}
           />
         {{ rsvpSteps.attendingBool }}
-
-      <span class="">
-        test
-      </span>
+      </label>
+      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.rsvpForm1 }}">
+        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
+        {{ mealChoiceLoop(attendee, loop) }}
+      </fieldset>
     </div>
   </fieldset>
 {%- endmacro %}
 
 {% macro mealChoiceLoop(attendee, parentLoop) %}
+  <ul class="rsvp-form__meal-choices__list">
     {% if attendee.kid %}
       {{ mealChoice(
         rsvpSteps.kids, 
@@ -75,6 +78,7 @@
         parentIndex = parentLoop.index)
       }}
     {% endfor %}
+  </ul>
 {% endmacro %}
 
 {% macro 
@@ -85,6 +89,7 @@
     parentIndex) 
 -%}
   {% set mealCode -%}{{ parentIndex }}--meal-choice{%- endset %}
+  <li class="rsvp-form__meal-choice">
     <label 
       class="rsvp-form-item---bool"
       for="{{ mealCode }}">
@@ -100,4 +105,5 @@
         {{ label }}
       </span>
     </label>
+  </li>
 {%- endmacro %}
