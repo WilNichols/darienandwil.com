@@ -35,6 +35,7 @@
     <li id="rsvp-action--no" class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
       <form
         name="Not-Attending"
+        id="rsvp-no"
         action="{{ page.url }}rsvp-no/"
         method="POST"
         netlify>
@@ -49,34 +50,51 @@
       </form>
     </li>
     <li id="rsvp-action--yes" class="navigation__rsvp__action">
-      <a href="" class="navigation__rsvp__action__label">{{ labelYes }}</a>
+      <a href="{{ baseURL }}rsvp-party/" class="navigation__rsvp__action__label">{{ labelYes }}</a>
     </li>
   </ul>
   <script> 
     // set attending value locally for the gap between site rebuild
     function saveAttendingLocal() {
       localStorage.setItem('attending', 'no');  
+      const form = document.getElementById('rsvp-no');
+      const data = new FormData(form);
+      for (var [key, value] of data) {
+          console.log(key, value);
+      };
     }
   </script>
 {%- endmacro %}
 
-{% macro RSVPYesActions(invitationData) -%}
+{% macro submitRSVPParty(invitationData) -%}
   <div class="navigation-container">
     <nav class="navigation">
-      <a 
-        href="#confirm" 
-        id="button--continue" 
-        class="button--primary"
-        onClick="logRSVPLocal()"
-        data-step="party">
-        <span class="button--primary__label">{{ strings.continue }}</span>
-      </a>
       <button 
         type="submit"
-        onClick="saveRSVPLocal()"
-        id="button--submit" 
-        class="button--primary"
-        data-step="confirm">
+        class="button--primary">
+        <span class="button--primary__label">{{ strings.continue }}</span>
+      </button>
+    </nav>
+  </div>
+  <script>
+  document.getElementById('rsvp-party').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const form = document.getElementById('rsvp-party');
+    const data = new FormData(form);
+    for (var [key, value] of data) {
+        console.log(key, value);
+    }
+  });
+  </script>
+{%- endmacro %}
+
+{% macro submitRSVPDetails(invitationData) -%}
+  <div class="navigation-container">
+    <nav class="navigation">
+      <button 
+        type="submit"
+        onClick="saveRSVPDetails()"
+        class="button--primary">
         <span class="button--primary__label">{{ strings.submit }}</span>
       </button>
     </nav>

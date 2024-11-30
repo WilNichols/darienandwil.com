@@ -1,10 +1,10 @@
 ---
 layout: 'paginated.njk'
-permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-yes-one/index.html'
+permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-party/index.html'
 isFormSubmissionPage: true
 ---
 {%- from 'header.njk' import smallHeader with context -%}
-{%- from 'navigation.njk' import RSVPYesActions with context -%}
+{%- from 'navigation.njk' import submitRSVPParty with context -%}
 {%- from 'rsvp-form.njk' import rsvpForm with context -%}
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
@@ -25,10 +25,10 @@ isFormSubmissionPage: true
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
   {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
-<a class="step-one" id="party">One</a>
-<a class="step-two" id="confirm">Two</a>
-<form class="page page--rsvp--one">
-  {{ RSVPYesActions(invitationData) }}
+<form class="page page--rsvp--one" id="rsvp-party" action="/{{ invitation.code }}/rsvp-details/">
+  <input name="name" type="text" value="{{ invitationData.name }}" hidden />
+  <input name="code" type="text" value="{{ invitationData.code }}" hidden />
+  {{ submitRSVPParty(invitationData) }}
   <main class="rsvp-form-content">
     {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
     <div class="rsvp-form-items">
@@ -39,7 +39,7 @@ isFormSubmissionPage: true
   </main>
 </form>
 <script>
-  function logRSVPLocal() {
-    
+  function setDefaultMeal() {
+    event.target.parentElement.nextElementSibling.getElementsByTagName('input')[0].checked = !event.target.parentElement.nextElementSibling.getElementsByTagName('input')[0].checked;
   }
 </script>

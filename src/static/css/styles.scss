@@ -587,24 +587,6 @@ body {
   list-style: none;
 }
 
-// steps 
-
-.step {
-  // display:none;
-}
-
-[data-step] {
-  // hides step content by default
-  display: none;
-}
-
-#party:target, 
-#party:not(:has(~:target)) ~ * [data-step="party"],
-#confirm:target ~ * [data-step="confirm"] {
-  // visible states
-  display: flex;
-}
-
 // .page--program .program-item__details
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) {  

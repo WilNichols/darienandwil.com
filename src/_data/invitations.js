@@ -668,12 +668,18 @@ export default function () {
       {
         name: 'Brett Williams'
       },
-      {},
-      {},
+      {
+        name: 'Lily Williams'
+      },
+      {
+        name: 'Jacob Williams'
+      },
       {
         name: 'Gayle Mayfield'
       },
-      {}
+      {
+        placeholder: 'Gayle’s guest'
+      }
     ],
     code: 'ikqy2'
   },
@@ -912,7 +918,7 @@ export default function () {
         name: 'Helen Nunn'
       },
       {
-        name: 'Helen’s +1'
+        placeholder: 'Helen’s +1'
       }
     ],
     code: 'xkpbl'
@@ -1010,11 +1016,15 @@ export default function () {
       {
         name: 'Ginny Elia'
       },
-      {},
+      {
+        placeholder: 'Ginny’s +1'
+      },
       {
         name: 'Tommy Elia'
       },
-      {}
+      {
+        placeholder: 'Tommy’s +1'
+      }
     ],
     code: 'u10me'
   },
@@ -1774,9 +1784,9 @@ export default function () {
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
       party: [
         {
-          name: 'Fake Guest'
         }, 
         {
+          placeholder: 'Wil’s +1',
           kid: true
         }, 
         {
