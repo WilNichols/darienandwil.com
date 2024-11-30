@@ -520,6 +520,14 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  // Netlify needs the form to be equal length on all pages, so this hides form fields greater than the party size.
+  @for $i from 1 through 10 {
+    &[data-party-size='#{$i}'] {
+      > *:nth-child(n + #{$i + 1}) {
+        display: none;
+      }
+    }
+  }
 }
 
 .page--rsvp--one .rsvp-form-item__container,
