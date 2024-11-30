@@ -41,16 +41,12 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
-      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.rsvpForm1 }}">
-        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
-        {{ mealChoiceLoop(attendee, loop) }}
-      </fieldset>
+      {{ mealChoiceLoop(attendee, loop) }}
     </div>
   </fieldset>
 {%- endmacro %}
 
 {% macro mealChoiceLoop(attendee, parentLoop) %}
-  <ul class="rsvp-form__meal-choices__list">
     {% if attendee.kid %}
       {{ mealChoice(
         rsvpSteps.kids, 
@@ -78,7 +74,6 @@
         parentIndex = parentLoop.index)
       }}
     {% endfor %}
-  </ul>
 {% endmacro %}
 
 {% macro 
@@ -89,7 +84,6 @@
     parentIndex) 
 -%}
   {% set mealCode -%}{{ parentIndex }}--meal-choice{%- endset %}
-  <li class="rsvp-form__meal-choice">
     <label 
       class="rsvp-form-item---bool"
       for="{{ mealCode }}">
@@ -105,5 +99,4 @@
         {{ label }}
       </span>
     </label>
-  </li>
 {%- endmacro %}
