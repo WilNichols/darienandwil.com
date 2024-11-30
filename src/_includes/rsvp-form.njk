@@ -1,4 +1,4 @@
-{% macro rsvpForm(loop, attendee) -%}
+{% macro rsvpForm(loop, attendee, code) -%}
   {% if loop.index == 1 %}
     {% set title = rsvpSteps.yourFormTitle %}
     {% set namePlaceholder = rsvpSteps.yourNamePlaceholder %}
@@ -15,7 +15,7 @@
     {% endif %}
     {% set hidetitle = true %}
   {% endif %}
-  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.rsvpForm1 }}" >
+  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.rsvpForm1 }}--{{ code }}" >
     <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 

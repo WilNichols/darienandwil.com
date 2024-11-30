@@ -26,7 +26,7 @@ isFormSubmissionPage: true
   {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
 
-<form class="page page--rsvp--one" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/{{ invitation.code }}/rsvp-details/" netlify>
+<form class="page page--rsvp--one" id="{{ meta.rsvpForm1 }}--{{ invitation.code }}" name="{{ meta.rsvpForm1 }}--{{ invitation.code }}" action="/{{ invitation.code }}/rsvp-details/" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPParty(invitationData) }}
@@ -34,7 +34,7 @@ isFormSubmissionPage: true
     {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
     <div class="rsvp-form-items">
       {% for attendee in invitation.party %}
-         {{ rsvpForm(loop, attendee) }}
+         {{ rsvpForm(loop, attendee, invitation.code) }}
       {% endfor %}
     </div>
   </main>
