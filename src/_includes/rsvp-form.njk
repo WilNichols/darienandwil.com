@@ -38,7 +38,7 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
-      <fieldset class="rsvp-form__meal-choices__container" name="meal-choice">
+      <fieldset class="rsvp-form__meal-choices__container" name="meal-choice-{{ loop.index }}" form="{{ meta.rsvpForm1 }}">
         <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
         {{ mealChoiceLoop(attendee, loop) }}
       </fieldset>
@@ -85,7 +85,7 @@
     checked, 
     parentIndex) 
 -%}
-  {% set mealCode -%}attendee{{ parentIndex }}Meal{%- endset %}
+  {% set mealCode -%}meal-choice-{{ parentIndex }}{%- endset %}
   <li class="rsvp-form__meal-choice">
     <label 
       class="rsvp-form-item---bool"
@@ -95,6 +95,7 @@
         name="{{ mealCode }}"
         id="{{ meal.short }}" 
         value="{{ meal.short }}"
+        form="{{ meta.rsvpForm1 }}"
         {% if checked %}checked{% endif %}
         />
       <span class="">

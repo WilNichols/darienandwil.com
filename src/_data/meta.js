@@ -3,6 +3,6 @@ export default function () {
     lang: 'en',
     url: 'https://darienandwil.com',
     title: 'Darien & Wil',
-    rsvpForm1: 'rsvp-party-3'
+    rsvpForm1: 'rsvp-party-4'
   }
 }
