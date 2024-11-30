@@ -2,6 +2,11 @@
 
 $body-gap: 1em;
 
+%degular {
+  font-family: "degular-variable", sans-serif;
+  font-variation-settings: "wght" 400, "opsz" 6, "ital" 0;
+}
+
 @mixin headingStyles {
   @for $i from 1 through 6 {
     %heading--#{$i} {
@@ -65,5 +70,5 @@ $colors: 'Primary', 'Secondary', 'Tertiary';
 
 .text--subheadline {
   font-size: var(--type--1);
-  font-weight: 500;
+  font-variation-settings: "wght" 500;
 }

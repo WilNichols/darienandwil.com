@@ -1,6 +1,6 @@
 {% macro header(title, subtitle) -%}
-  <header class="invitation-header">
-    <div class="invitation-header__content">
+  <header class="page-header">
+    <div class="page-header__content">
       <h1 class="text--heading--1">{{ title }}</h1>
       {% if subtitle %}<span class="text--subheadline text--tinted--secondary">{{ subtitle }}</span>{% endif %}
     </div>
@@ -8,8 +8,8 @@
 {%- endmacro %}
 
 {% macro smallHeader(title, subtitle) -%}
-  <header class="form-header">
-    <div class="form-header__content">
+  <header class="page-header page-header--sm">
+    <div class="page-header__content">
       <h1 class="text--heading--3">{{ title }}</h1>
       {% if subtitle %}<span class="text--subheadline text--tinted--secondary">{{ subtitle }}</span>{% endif %}
     </div>

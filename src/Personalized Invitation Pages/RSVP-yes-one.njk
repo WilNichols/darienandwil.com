@@ -4,7 +4,7 @@ permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-yes-o
 isFormSubmissionPage: true
 ---
 {%- from 'header.njk' import smallHeader with context -%}
-{%- from 'navigation.njk' import navigation with context -%}
+{%- from 'navigation.njk' import RSVPYesActions with context -%}
 {%- from 'rsvp-form.njk' import rsvpForm with context -%}
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
@@ -25,22 +25,13 @@ isFormSubmissionPage: true
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
   {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
-
-<form class="page page--program">
-  {{ navigation(invitationData) }}
-  <div class="form__action">
-    <a href="#confirm" id="button--continue" class="button--primary" onClick="logRSVPLocal()">{{ strings.continue }}</a>
-    <button 
-      type="submit"
-      onClick="saveRSVPLocal()"
-      id="button--submit" 
-      class="button--primary">
-      {{ strings.submit }}
-    </button>
-  </div>
-  <main class="form-content">
+<a class="step-one" id="party">One</a>
+<a class="step-two" id="confirm">Two</a>
+<form class="page page--rsvp--one">
+  {{ RSVPYesActions(invitationData) }}
+  <main class="rsvp-form-content">
     {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
-    <div class="form-items">
+    <div class="rsvp-form-items">
       {% for attendee in invitation.party %}
          {{ rsvpForm(loop, attendee) }}
       {% endfor %}

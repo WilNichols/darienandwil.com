@@ -12,35 +12,28 @@
   {% endif %}
   {% if not hideTitle %}
   {% endif %}
-  <fieldset class="">
-    <legend class="">{{ title }}</legend>
-    <div class="">
+  <fieldset class="rsvp-form-item__container" data-step="party">
+    <legend class="rsvp-form-item__title">{{ title }}</legend>
+    <div class="rsvp-form-item__fields">
       <input 
         type="text" 
+        class="ui-textfield rsvp-form-item__name"
         placeholder="{{ namePlaceholder }}"
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         required/>
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
-      <input 
-        id="{{ attendingBoolID }}"
-        type="checkbox" 
-        value="isAttending"
-        class="isAttending"
-        {{ attendingBool }}
-        required />
-      <label for="{{ attendingBoolID }}" class="">
-        <span class="">{{ rsvpSteps.attendingBool }}</span>
+      <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item---bool">
+        <input 
+          id="{{ attendingBoolID }}"
+          type="checkbox" 
+          value="isAttending"
+          class="isAttending"
+          {{ attendingBool }}
+          required />
+        {{ rsvpSteps.attendingBool }}
       </label>
-      <style>
-        .isAttending ~ .meals {
-          display: none;
-        }
-        .isAttending:checked ~ .meals {
-          display: block;
-        }
-      </style>
-      <fieldset class="meals">
-        <legend class="">{{ rsvpSteps.mealsTitle }}</legend>
+      <fieldset class="rsvp-form__meal-choices__container">
+        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
         {{ mealChoiceLoop(attendee, loop) }}
       </fieldset>
     </div>
@@ -48,7 +41,7 @@
 {%- endmacro %}
 
 {% macro mealChoiceLoop(attendee, parentLoop) %}
-  <ul class="meal-choices">
+  <ul class="rsvp-form__meal-choices__list">
     {% if attendee.kid %}
       {{ mealChoice(
         rsvpSteps.kids, 
@@ -89,9 +82,9 @@
   {% set mealCode -%}
     attendee-{{ parentIndex }}-meal
   {%- endset %}
-  <li class="meal-choice">
+  <li class="rsvp-form__meal-choice">
     <label 
-      class=""
+      class="rsvp-form-item---bool"
       for="{{ mealCode }}">
       <input 
         type="radio" 

@@ -60,6 +60,29 @@
   </script>
 {%- endmacro %}
 
+{% macro RSVPYesActions(invitationData) -%}
+  <div class="navigation-container">
+    <nav class="navigation">
+      <a 
+        href="#confirm" 
+        id="button--continue" 
+        class="button--primary"
+        onClick="logRSVPLocal()"
+        data-step="party">
+        <span class="button--primary__label">{{ strings.continue }}</span>
+      </a>
+      <button 
+        type="submit"
+        onClick="saveRSVPLocal()"
+        id="button--submit" 
+        class="button--primary"
+        data-step="confirm">
+        <span class="button--primary__label">{{ strings.submit }}</span>
+      </button>
+    </nav>
+  </div>
+{%- endmacro %}
+
 {% macro navigationLinks(code) -%}
   <ul class="navigation__items">
     {% set baseURL %}/invitations/{{ code }}/{% endset %}
@@ -77,11 +100,11 @@
 {%- endmacro %}
 
 {% macro navigation(invitationData) -%}
-{% set code %}{{ invitationData.code }}{% endset %}
+  {% set code %}{{ invitationData.code }}{% endset %}
   <div class="navigation-container">
     <nav class="navigation">
       {% if isFormSubmissionPage -%}
-          <a class="form-submission-back" href="/invitations/{{ code }}/">Return to your invitation</a>
+          <a class="button--secondary" href="/invitations/{{ code }}/"><span class="button--secondary__label">Return to your invitation</span></a>
         {% else %}
           {{ navigationLinks(code) }}
           {{ rsvpActions(invitationData) }}
