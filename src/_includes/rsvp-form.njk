@@ -15,20 +15,23 @@
     {% endif %}
     {% set hidetitle = true %}
   {% endif %}
-  <fieldset class="rsvp-form-item__container" data-step="party">
+  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.rsvpForm1 }}" >
     <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 
-        name="correctedName"
+        name="{{ loop.index }}--correctedName"
+        form="{{ meta.rsvpForm1 }}"
         type="text" 
         class="ui-textfield rsvp-form-item__name"
         placeholder="{{ namePlaceholder }}"
+        
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         />
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
       <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item---bool">
         <input 
-          name="attending"
+          name="{{ loop.index }}--attending"
+          form="{{ meta.rsvpForm1 }}"
           id="{{ attendingBoolID }}"
           type="checkbox" 
           value="isAttending"
@@ -38,7 +41,7 @@
           />
         {{ rsvpSteps.attendingBool }}
       </label>
-      <fieldset class="rsvp-form__meal-choices__container" name="meal-choice-{{ loop.index }}" form="{{ meta.rsvpForm1 }}">
+      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.rsvpForm1 }}">
         <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
         {{ mealChoiceLoop(attendee, loop) }}
       </fieldset>
