@@ -44,7 +44,7 @@ $constType: 16px;
   font-size: var(--type-0);
   color: var(--contentPrimaryColor);
   caret-color: var(--buttonPrimaryBackgroundColor);
-  
+  font-size: var(--type--1);
   &::placeholder {
     color: var(--contentSecondaryColor);
   }

@@ -376,6 +376,7 @@ body {
   display: flex;
   text-align: center;
   justify-content: center;
+  color: var(--contentTintedPrimaryColor);
 }
 
 .page--program .program-content {
@@ -506,24 +507,30 @@ body {
   padding: $navHeight;
 }
 
-.page--rsvp-party .page-header--sm .text--heading--3 {
+.page--rsvp-party .page-header--sm .text--heading--3,
+.page--rsvp-details .page-header--sm .text--heading--3 {
  font-variation-settings: "wght" 500;
  font-size: var(--type-1);
 }
 
 
-.page--rsvp-party .rsvp-form-content {
+.rsvp-form-content,
+.rsvp-details-content {
   display: flex;
   flex-direction: column;
   gap: 4rem;
   max-width: var(--gate-width--desktop);
   padding: 0 var(--gutterPadding);
+  font-size: var(--type--1);
 }
 
-.page--rsvp-party .rsvp-form-items {
+.rsvp-form-items, .rsvp-details {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+
+.page--rsvp-party .rsvp-form-items {
   // Netlify needs the form to be equal length on all pages, so this hides form fields greater than the party size.
   @for $i from 1 through 10 {
     &[data-party-size='#{$i}'] {
@@ -543,16 +550,15 @@ body {
 
 %formTitle {
   color: var(--contentSecondaryColor);
-  font-size: var(--type-0);
+  font-size: var(--type--1);
 }
 
-.page--rsvp-party .rsvp-form-item__title {
+.rsvp-form-item__title {
   @extend %formTitle;
   margin: 0 0 var(--radius-sm) var(--radius-md);
 }
 
-
-.page--rsvp-party .rsvp-form-item__fields {
+.rsvp-form-item__fields {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -562,7 +568,7 @@ body {
   width: 100%;
 }
 
-.page--rsvp-party .rsvp-form-item--bool {
+.rsvp-form-item--bool {
   display: flex;
   gap: 10px;
   min-height: var(--tap-height-sm);
@@ -570,7 +576,7 @@ body {
   align-items: center;
 }
 
-.page--rsvp-party .rsvp-form__meal-choices__title {
+.rsvp-form__meal-choices__title {
   @extend %formTitle;
 }
 
@@ -599,6 +605,13 @@ body {
   list-style: none;
 }
 
+.rsvp-form-item--textarea {
+  display: flex;
+  flex-direction: column;
+  textarea {
+    min-width: 100%;
+  }
+}
 // .page--program .program-item__details
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) {  

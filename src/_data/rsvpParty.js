@@ -12,7 +12,7 @@ export default function () {
     eggplantMealShort: 'Eggplant',
     pastaMealLong: 'Pasta primavera with a creamy pesto sauce',
     pastaMealShort: 'Pasta',
-    kidsMealLong: 'Vegetarian corn dog and  mac & cheese',
+    kidsMealLong: 'Vegetarian corn dog, mac & cheese',
     kidsMealShort: 'Kids’ meal',
   }
   
