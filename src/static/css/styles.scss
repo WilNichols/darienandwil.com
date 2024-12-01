@@ -345,7 +345,8 @@ body {
   place-items: center;
 }
 
-.page--program {
+.page--program,
+.page--qa {
   @extend %page--invite; 
   $navHeight: calc((2 * var(--tap-height)) + 2rem);
   padding: var(--tap-height) 0 $navHeight 0;
