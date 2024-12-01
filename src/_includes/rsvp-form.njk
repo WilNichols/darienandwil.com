@@ -66,7 +66,7 @@
       {% else %}
         {% set mealSelection = false %}
       {% endif %}
-      {% if choiceIndex == 1 %}
+      {% if i == 0 %}
         {% set label = meal.long %}
       {% else %}
         {% set label = meal.short %}
@@ -81,8 +81,7 @@
   </ul>
 {% endmacro %}
 
-{% macro 
-  mealChoice(
+{% macro mealChoice(
     meal, 
     label, 
     checked, 
