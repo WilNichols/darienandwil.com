@@ -53,7 +53,6 @@ title: 'Invitation'
     {% elif isAttending == 'no' %}
       <p>You’ll be missed, but we hope to see you soon, {{ invitation.party[0].name.split(" ")[0] }}.</p>
     {% elif isAttending == 'yes' %}
-    <p>The pleasure of your company <br />is requested at the marriage of</p>
       <p>We look forward to seeing you {{ plu }} {{ firstName }}!</p>
     {% endif %}
   </main>
