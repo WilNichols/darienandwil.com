@@ -22,7 +22,7 @@ title: 'Details'
     attending: isAttending
   } %}
 {# end copypasta #}
-
+code: {{ invitations[pagination.pageNumber].code }}
 {{ invitationData | dump }}
 <form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/invitations/{{ invitation.code }}/" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />

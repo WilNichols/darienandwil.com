@@ -26,6 +26,7 @@ title: 'Your Party'
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
   {% set subtitle = rsvpParty.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
+{{ invitationData | dump }}
 
 <form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" action="/invitations/{{ invitation.code }}/rsvp-details/" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
