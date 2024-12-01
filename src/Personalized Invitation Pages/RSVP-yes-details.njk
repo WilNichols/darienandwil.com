@@ -4,7 +4,7 @@ permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-detai
 isFormSubmissionPage: true
 ---
 {%- from 'header.njk' import smallHeader with context -%}
-{%- from 'navigation.njk' import submitRSVPParty with context -%}
+{%- from 'navigation.njk' import submitRSVPDetails with context -%}
 {%- from 'rsvp-form.njk' import rsvpForm with context -%}
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
@@ -23,19 +23,47 @@ isFormSubmissionPage: true
     attending: isAttending
   } %}
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
-  {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
+  {% set subtitle = rsvpParty.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
 
-<form class="page page--rsvp-details" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/{{ invitation.code }}/rsvp-details/" netlify>
+<form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/invitations/{{ invitation.code }}" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
-  {{ submitRSVPParty(invitationData) }}
-  <main class="rsvp-form-content">
-    {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
-    <div class="rsvp-form-items" data-party-size="{{ invitation.party.length }}">
-    {% for i in range(0, 6) %}
-      {{ rsvpForm(i, invitation.party) }}
-    {% endfor %}
+  {{ submitRSVPDetails(invitationData) }}
+  <main class="rsvp-details-content">
+    {{ smallHeader(rsvpDetails.formTitle) }}
+    <div class="rsvp-details">
+      <label for="cocktails" class="rsvp-details-item__cocktails rsvp-form-item--bool">
+        <input 
+          name="cocktails"
+          form="{{ meta.detailForm }}"
+          id="cocktails"
+          type="checkbox" 
+          value="cocktails"
+          checked
+          />
+        {{ rsvpDetails.cocktailBool }}
+      </label>
+      <div class="rsvp-details-item__contact rsvp-form-item--textarea">
+        <label for="contact" class="rsvp-form-item__label">{{ rsvpDetails.contactInputTitle }}</label>
+        <textarea 
+          class="ui-textarea"
+          name="contact"
+          form="{{ meta.detailForm }}"
+          id="contact"
+          placeholder="{{ rsvpDetails.contactInputPlaceholder }}"
+          rows="4"></textarea>
+      </div>
+      <div class="rsvp-details-item__other rsvp-form-item--textarea">
+        <label for="other" class="rsvp-form-item__label">{{ rsvpDetails.otherInputTitle }}</label>
+        <textarea 
+          class="ui-textarea"
+          name="other"
+          form="{{ meta.detailForm }}"
+          id="other"
+          placeholder="{{ rsvpDetails.otherInputPlaceholder }}"
+          rows="4"></textarea>
+      </div>
     </div>
   </main>
 </form>

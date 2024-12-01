@@ -23,15 +23,15 @@ isFormSubmissionPage: true
     attending: isAttending
   } %}
   {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
-  {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
+  {% set subtitle = rsvpParty.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
 
-<form class="page page--rsvp-party" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/invitations/{{ invitation.code }}/rsvp-details/" netlify>
+<form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" action="/invitations/{{ invitation.code }}/rsvp-details/" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPParty(invitationData) }}
   <main class="rsvp-form-content">
-    {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
+    {{ smallHeader(rsvpParty.formTitle, subtitle)}}
     <div class="rsvp-form-items" data-party-size="{{ invitation.party.length }}">
     {% for i in range(0, 6) %}
       {{ rsvpForm(i, invitation.party) }}

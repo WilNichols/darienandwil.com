@@ -31,7 +31,7 @@ $constType: 16px;
 
 // text field
 
-.ui-textfield {
+.ui-textinput {
   @extend %inner-shadow;
   @extend %degular;
   border: none;
@@ -52,6 +52,10 @@ $constType: 16px;
     outline: 2px solid var(--buttonPrimaryBackgroundColor);
     outline-offset: 2px;
   }
+}
+
+.ui-textarea {
+  @extend .ui-textinput;
 }
 
 // buttons

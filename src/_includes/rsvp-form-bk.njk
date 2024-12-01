@@ -1,37 +1,37 @@
 {% macro rsvpForm(loop, attendee) -%}
   {% if loop.index == 1 %}
-    {% set title = rsvpSteps.yourFormTitle %}
-    {% set namePlaceholder = rsvpSteps.yourNamePlaceholder %}
+    {% set title = rsvpParty.yourFormTitle %}
+    {% set namePlaceholder = rsvpParty.yourNamePlaceholder %}
     {% set attendeeName = invitation.name %}
     {% set attendingBool = 'checked' %}
   {% else %}
     {% if loop.index == 2 %}
-      {% set title = rsvpSteps.othersFormsTitle %}
+      {% set title = rsvpParty.othersFormsTitle %}
     {% endif %}
     {% if attendee.placeholder %}
       {% set namePlaceholder = attendee.placeholder %}
     {% else %}
-      {% set namePlaceholder = rsvpSteps.guestPlaceholder %}
+      {% set namePlaceholder = rsvpParty.guestPlaceholder %}
     {% endif %}
     {% set hidetitle = true %}
   {% endif %}
-  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.rsvpForm1 }}" >
+  <fieldset class="rsvp-form-item__container" name="attendee-{{ loop.index }}" form="{{ meta.partyForm }}" >
     <legend class="rsvp-form-item__title">{{ title }}</legend>
     <div class="rsvp-form-item__fields">
       <input 
         name="{{ loop.index }}--correctedName"
-        form="{{ meta.rsvpForm1 }}"
+        form="{{ meta.partyForm }}"
         type="text" 
-        class="ui-textfield rsvp-form-item__name"
+        class="ui-textinput rsvp-form-item__name"
         placeholder="{{ namePlaceholder }}"
         
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         />
         {% set attendingBoolID %}attendee-{{ loop.index }}--attendingBool{% endset %}
-      <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item---bool">
+      <label for="{{ attendingBoolID }}" class="rsvp-form-item__is-attending rsvp-form-item--bool">
         <input 
           name="{{ loop.index }}--attending"
-          form="{{ meta.rsvpForm1 }}"
+          form="{{ meta.partyForm }}"
           id="{{ attendingBoolID }}"
           type="checkbox" 
           value="isAttending"
@@ -39,10 +39,10 @@
           onClick="setDefaultMeal()"
           {{ attendingBool }}
           />
-        {{ rsvpSteps.attendingBool }}
+        {{ rsvpParty.attendingBool }}
       </label>
-      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.rsvpForm1 }}">
-        <legend class="rsvp-form__meal-choices__title">{{ rsvpSteps.mealsTitle }}</legend>
+      <fieldset class="rsvp-form__meal-choices__container" name="{{ loop.index }}--meal-choice" form="{{ meta.partyForm }}">
+        <legend class="rsvp-form__meal-choices__title">{{ rsvpParty.mealsTitle }}</legend>
         {{ mealChoiceLoop(attendee, loop) }}
       </fieldset>
     </div>
@@ -53,13 +53,13 @@
   <ul class="rsvp-form__meal-choices__list">
     {% if attendee.kid %}
       {{ mealChoice(
-        rsvpSteps.kids, 
-        rsvpSteps.kidsMealLong, 
+        rsvpParty.kids, 
+        rsvpParty.kidsMealLong, 
         checked = false, 
         parentIndex = parentLoop.index)
       }}
     {% endif %}
-    {% for meal in rsvpSteps.adult %}
+    {% for meal in rsvpParty.adult %}
       {% set thisIndex = loop.index %}
       {% if ((parentLoop.index == 1) and (thisIndex == 1)) %}
         {% set mealSelection = true %}
@@ -91,14 +91,14 @@
   {% set mealCode -%}{{ parentIndex }}--meal-choice{%- endset %}
   <li class="rsvp-form__meal-choice">
     <label 
-      class="rsvp-form-item---bool"
+      class="rsvp-form-item--bool"
       for="{{ mealCode }}">
       <input 
         type="radio" 
         name="{{ mealCode }}"
         id="{{ meal.short }}" 
         value="{{ meal.short }}"
-        form="{{ meta.rsvpForm1 }}"
+        form="{{ meta.partyForm }}"
         {% if checked %}checked{% endif %}
         />
       <span class="">

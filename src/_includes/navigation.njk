@@ -39,7 +39,7 @@
   <ul class="navigation__rsvp-actions">
     <li id="rsvp-action--no" class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
       <form
-        name="Not-Attending"
+        name="{{ meta.notAttendingForm }}"
         id="rsvp-no"
         action="{{ page.url }}rsvp-no/"
         method="POST"
@@ -78,7 +78,7 @@
   </div>
   <script>
     function savePartyLocal() {
-      const form = document.getElementById('party-form');
+      const form = document.getElementById('{{ meta.partyForm }}');
       const dataObj = {};
       const data = new FormData(form);
       data.forEach((value, key) => dataObj[key] = value);
@@ -91,15 +91,25 @@
 
 {% macro submitRSVPDetails(invitationData) -%}
   <div class="navigation-container">
-    <nav class="navigation">
-      <button 
-        type="submit"
-        onClick="saveRSVPDetails()"
-        class="button--primary">
-        <span class="button--primary__label">{{ strings.submit }}</span>
-      </button>
-    </nav>
-  </div>
+  <nav class="navigation">
+    <button 
+      type="submit"
+      onClick="saveDetailsLocal()"
+      class="button--primary">
+      <span class="button--primary__label">{{ strings.submit }}</span>
+    </button>
+  </nav>
+</div>
+<script>
+  function saveDetailsLocal() {
+    const form = document.getElementById('{{ meta.detailForm }}');
+    const dataObj = {};
+    const data = new FormData(form);
+    data.forEach((value, key) => dataObj[key] = value);
+    const stringifiedObj = JSON.stringify(dataObj);
+    localStorage.setItem('details', stringifiedObj);
+  };
+</script>
 {%- endmacro %}
 
 {% macro navigationLinks(code) -%}
