@@ -17,7 +17,6 @@ title: 'Details'
 {# end copypasta #}
 
 {% include "pagination-debug.njk" %}
-
 <form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/" method="POST" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
@@ -25,7 +24,14 @@ title: 'Details'
   <main class="rsvp-details-content">
     {{ smallHeader(rsvpDetails.formTitle) }}
     <div class="rsvp-details">
-      <label for="cocktails" class="rsvp-details-item__cocktails rsvp-form-item--bool">
+      {% if 'cocktail' in invitation.permissions %}
+        {% set cocktailVisible = '' %}
+        {% set cocktailValue %}checked{% endset %}
+      {% else %}
+        {% set cocktailValue = '' %}
+        {% set cocktailVisible = 'style="display: none"' %}
+      {% endif %}
+      <label for="cocktails" class="rsvp-details-item__cocktails rsvp-form-item--bool" {{ cocktailVisible | safe }}>
         <input 
           name="cocktails"
           form="{{ meta.detailForm }}"
@@ -33,7 +39,7 @@ title: 'Details'
           type="checkbox" 
           value="cocktails"
           class="ui-checkbox"
-          checked
+          {{ cocktailValue }}
           />
         {{ rsvpDetails.cocktailBool }}
       </label>

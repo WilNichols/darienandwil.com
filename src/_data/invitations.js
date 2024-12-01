@@ -1800,7 +1800,7 @@ export default function () {
     {
       name: 'Darien',
       code: '11201995',
-      permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
+      permissions: ['early', 'photos', 'ceremony'],
       party: [
         {
           name: 'Darien Hiddins'
