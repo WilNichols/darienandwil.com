@@ -23,8 +23,8 @@ title: 'Your Party'
 <p>page number: {{ invitations[pagination.pageNumber] | dump }}</p>
 <p>code: {{ invitations[pagination.pageNumber].code }}</p>
 <p>{{ invitationData | dump }}</p>
-
-<form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" action="../rsvp-details/" netlify>
+<p>URL: {{ page.url | dump }}</p>
+<form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" method="POST" action="/invitations/{{ invitation.code }}/rsvp-details" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPParty(invitationData) }}
