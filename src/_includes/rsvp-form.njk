@@ -24,7 +24,6 @@
         type="text" 
         class="ui-textinput rsvp-form-item__name"
         placeholder="{{ namePlaceholder }}"
-        
         {% if attendee.name %}value="{{ attendee.name }}"{% endif %}
         />
         {% set attendingBoolId %}{{ i }}--attending{% endset %}
@@ -35,7 +34,7 @@
           id="{{ attendingBoolId }}"
           type="checkbox" 
           value="isAttending"
-          class="isAttending"
+          class="ui-checkbox isAttending"
           onClick="setDefaultMeal()"
           {{ attendingBool }}
           />
@@ -96,6 +95,7 @@
         type="radio" 
         name="{{ mealCode }}"
         id="{{ mealCode }}--{{ meal.short }}"
+        class="ui-radio"
         value="{{ meal.short }}"
         form="{{ meta.partyForm }}"
         {% if checked %}checked{% endif %}

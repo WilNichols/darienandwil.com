@@ -31,11 +31,17 @@ $constType: 16px;
 
 // text field
 
+label {
+  -webkit-tap-highlight-color: transparent;
+  cursor: pointer;
+}
+
 .ui-textinput {
   @extend %inner-shadow;
   @extend %degular;
   border: none;
   appearance: none;
+  -webkit-tap-highlight-color: transparent;
   min-height: var(--tap-height-sm);
   // uneven paddings to account for text alignment
   padding: 7px var(--radius-md) 6px var(--radius-md);
@@ -44,7 +50,7 @@ $constType: 16px;
   font-size: var(--type-0);
   color: var(--contentPrimaryColor);
   caret-color: var(--buttonPrimaryBackgroundColor);
-  font-size: var(--type--1);
+  font-size: var(--type-0);
   &::placeholder {
     color: var(--contentSecondaryColor);
   }
@@ -72,6 +78,7 @@ $constType: 16px;
   padding: 0;
   margin: 0;
   font-family: inherit;
+  font-size: var(--type-0);
   box-shadow: 
     0px 6px 12px rgba(10, 44, 8, 0.05), 
     0px 1.8px 3.6px rgba(10, 44, 8, 0.03), 
@@ -92,13 +99,7 @@ $constType: 16px;
 
 .button--primary {
   @extend %button;
-  background-color: var(--buttonPrimaryBackgroundColor);
-  &:hover {
-    background-color: var(--buttonPrimaryBackgroundColorHover);
-  }
-  &:active {
-    background-color: var(--buttonPrimaryBackgroundColorActive);
-  }
+  @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
 .button--primary__label {
@@ -108,16 +109,56 @@ $constType: 16px;
 
 .button--secondary {
   @extend %button;
-  background-color: var(--materialElevatedPrimaryColor);
-  &:hover {
-    background-color: var(--materialElevatedPrimaryColorHover);
-  }
-  &:active {
-    background-color: var(--materialElevatedPrimaryColorActive);
-  }
+  @include controlStates(background-color, --buttonSecondaryBackgroundColor); 
 }
 
 .button--secondary__label {
   @extend %button__label;
   color: var(--navLinkSelectedColor);
+}
+
+%bool {
+  appearance: none;
+  min-width: 24px;
+  min-height: 24px;
+  max-width: 24px;
+  max-height: 24px;
+  display: grid;
+  place-content: center;
+  pointer: cursor;
+  -webkit-tap-highlight-color: transparent;
+  position: relative;
+  cursor: pointer;
+  &:checked {
+    @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
+    --color: var(--rsvpSelectedColor);
+  }
+  &:not(:checked) {
+    @extend %inner-shadow;
+    @include controlStates(background-color, --buttonSecondaryBackgroundColor); 
+    --color: transparent;
+  }
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+}
+
+.ui-checkbox {
+  @extend %bool;
+  border-radius: var(--radius-sm);
+  &:checked::after {
+    background-image: url('../img/check--24.svg');
+  }
+}
+
+.ui-radio {
+  @extend %bool;
+  border-radius: var(--radius-md);
+  &::after {
+    border-radius: 50%;
+    background-color: var(--color);
+    transform: scale(.5);
+  }
 }

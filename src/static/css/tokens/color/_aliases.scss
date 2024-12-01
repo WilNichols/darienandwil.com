@@ -24,6 +24,9 @@
   @include light-dark(--buttonPrimaryBackgroundColor, var(--cG55), var(--cG50));
   @include light-dark(--buttonPrimaryBackgroundColorHover, var(--cG50), var(--cG55));
   @include light-dark(--buttonPrimaryBackgroundColorActive, var(--cG45), var(--cG60));
+  @include light-dark(--buttonSecondaryBackgroundColor, var(--c100), var(--cK40));
+  @include light-dark(--buttonSecondaryBackgroundColorHover, var(--cK95), var(--cK45));
+  @include light-dark(--buttonSecondaryBackgroundColorActive, var(--cK90), var(--cK50));
   @include light-dark(--navLinkSelectedColor, var(--cG40), var(--cG85));
   @include light-dark(--rsvpSelectedColor, var(--c100), var(--c100));
   @include light-dark(--materialNavColorHover, rgba(#5B9468,0.1), rgba(#D6F7D4,0.1));

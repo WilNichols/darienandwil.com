@@ -4,20 +4,6 @@
 @use 'tokens';
 @use 'ui';
 
-@mixin controlStates($prop, $val) {
-  $controlStates: '', 'Hover', 'Active';
-  @for $i from 1 through 3 {
-    @if $i == 1 {
-      #{$prop}: var($val);
-    } @else {
-      $state: list.nth($controlStates, $i);
-      &:#{string.to-lower-case($state)} {
-        #{$prop}: var(#{$val + $state});
-      }
-    }
-  }
-}
-
 %backgroundBlur {
   backdrop-filter: blur(20px) saturate(150%);
 }
@@ -349,7 +335,7 @@ body {
   padding: 0;
   position: absolute;
   right: 10px;
-  @include controlStates(background-color, --buttonPrimaryBackgroundColor); 
+  @include ui.controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
 %page--invite {
@@ -362,7 +348,7 @@ body {
 .page--program {
   @extend %page--invite; 
   $navHeight: calc((2 * var(--tap-height)) + 2rem);
-  padding: $navHeight 0;
+  padding: var(--tap-height) 0 $navHeight 0;
 }
 
 %page--padded__item {
@@ -501,10 +487,11 @@ body {
   --prefix: 'a'
 }
 
-.page--rsvp-party {
+.page--rsvp-party,
+.page--rsvp-details {
   @extend %page--invite; 
   $navHeight: calc(var(--tap-height) + 2rem);
-  padding: $navHeight;
+  padding: $navHeight 0;
 }
 
 .page--rsvp-party .page-header--sm .text--heading--3,
@@ -522,7 +509,7 @@ body {
   width: 100%;
   max-width: var(--gate-width--desktop);
   padding: 0 var(--gutterPadding);
-  font-size: var(--type--1);
+  font-size: var(--type-0);
 }
 
 .rsvp-form-items, .rsvp-details {
