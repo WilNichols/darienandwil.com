@@ -53,7 +53,7 @@ title: 'Program'
                 {% if detail.links -%}
                   <span class="program-item__map-links">{{ strings.routeVia }}
                     {% for link in detail.links -%}
-                      <a href={{ link.src }}">{{ link.label }}</a>{{ ' ' + strings.pipe + ' '  if loop.index != loop.length }}
+                      <a href="{{ link.src }}">{{ link.label }}</a>{{ ' ' + strings.pipe + ' '  if loop.index != loop.length }}
                     {%- endfor %}
                   </span>
                 {%- endif %}
