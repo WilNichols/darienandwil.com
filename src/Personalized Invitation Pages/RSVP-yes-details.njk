@@ -1,0 +1,46 @@
+---
+layout: 'paginated.njk'
+permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-details/index.html'
+isFormSubmissionPage: true
+---
+{%- from 'header.njk' import smallHeader with context -%}
+{%- from 'navigation.njk' import submitRSVPParty with context -%}
+{%- from 'rsvp-form.njk' import rsvpForm with context -%}
+
+{# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
+  {% set invitation = invitations[pagination.pageNumber] %}
+  {% set isAttending = 'unknown' %}
+  {% set partySizeInt = invitation.party.length %}
+  {% set partySizeWord = strings.numbers[partySizeInt - 1] %}
+  {% for notAttending in rsvpForms %}
+    {% if notAttending.data.code == invitation.code %}
+      {% set isAttending = 'no' %}
+    {% endif %}
+  {% endfor %}
+  {% set invitationData = {
+    name: invitation.name,
+    code: invitation.code,
+    attending: isAttending
+  } %}
+  {% if partySizeInt > 1 %}{% set suffix = 's' %}{% endif %}
+  {% set subtitle = rsvpSteps.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
+{# end copypasta #}
+
+<form class="page page--rsvp--one" id="{{ meta.rsvpForm1 }}" name="{{ meta.rsvpForm1 }}" action="/{{ invitation.code }}/rsvp-details/" netlify>
+  <input name="name" type="text" value="{{ invitationData.name }}" hidden />
+  <input name="code" type="text" value="{{ invitationData.code }}" hidden />
+  {{ submitRSVPParty(invitationData) }}
+  <main class="rsvp-form-content">
+    {{ smallHeader(rsvpSteps.formTitle, subtitle)}}
+    <div class="rsvp-form-items" data-party-size="{{ invitation.party.length }}">
+    {% for i in range(0, 6) %}
+      {{ rsvpForm(i, invitation.party) }}
+    {% endfor %}
+    </div>
+  </main>
+</form>
+<script>
+  function setDefaultMeal() {
+    event.target.parentElement.nextElementSibling.getElementsByTagName('input')[0].checked = !event.target.parentElement.nextElementSibling.getElementsByTagName('input')[0].checked;
+  }
+</script>
