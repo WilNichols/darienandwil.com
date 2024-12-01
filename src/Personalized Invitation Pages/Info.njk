@@ -15,7 +15,7 @@ title: 'Q & A'
 {% set invitation = invitations[pagination.pageNumber] %}
 {% set isAttending = 'unknown' %}
 
-{% for notAttending in rsvpForms %}
+{% for notAttending in rsvpDeclineRemote %}
   {% if notAttending.data.code == invitation.code %}
     {% set isAttending = 'no' %}
   {% endif %}

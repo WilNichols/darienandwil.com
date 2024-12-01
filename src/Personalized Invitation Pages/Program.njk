@@ -11,7 +11,7 @@ title: 'Program'
 {# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
 {% set isAttending = 'unknown' %}
 
-{% for notAttending in rsvpForms %}
+{% for notAttending in rsvpDeclineRemote %}
   {% if notAttending.data.code == invitation.code %}
     {% set isAttending = 'no' %}
   {% endif %}

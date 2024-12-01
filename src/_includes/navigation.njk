@@ -109,7 +109,6 @@
       const detailData = new FormData(detailForm);
       detailData.forEach((value, key) => detailDataObj[key] = value);
       const stringifiedDetailObj = JSON.stringify(detailDataObj);
-      localStorage.setItem('attending', 'yes');
       localStorage.setItem('detail', stringifiedDetailObj);
     };
   </script>

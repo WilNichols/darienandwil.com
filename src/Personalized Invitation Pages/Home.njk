@@ -9,9 +9,22 @@ title: 'Invitation'
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
 {% set invitation = invitations[pagination.pageNumber] %}
 {% set isAttending = 'unknown' %}
-{% for notAttending in rsvpForms %}
+{# Set not attending #}
+{% for notAttending in rsvpDeclineRemote %}
   {% if notAttending.data.code == invitation.code %}
     {% set isAttending = 'no' %}
+  {% endif %}
+{% endfor %}
+{# Set attending #}
+{% set firstName = '' %}
+{% set plu = '' %}
+{% for attending in rsvpPartiesRemote %}
+  {% if attending.data.code == invitation.code %}
+    {% set isAttending = 'yes' %}
+    {% set firstName = attending.data['0--correctedName'].split(" ")[0] %}
+    {% if (attending.data['1--correctedName']) or (attending.data['2--correctedName']) or (attending.data['3--correctedName']) or (attending.data['4--correctedName']) or (attending.data['5--correctedName']) %}
+      {% set plu = "and your party," %}
+    {% endif %}
   {% endif %}
 {% endfor %}
 {% set invitationData = {
@@ -32,9 +45,16 @@ title: 'Invitation'
       <h2><span class="light">Ms.</span> Darien Leigh Higgins <span class="light">&</span></h2>
       <h2><span class="light">Mr.</span> William Mayfield Nichols</h2>
     </div>
-    <p>On the <strong>eleventh</strong> of <strong>January</strong>, <strong>2025</strong></p>
-    <p>At the<strong> Georgetown Community Center<br />445 East Morrow Street<br />Georgetown, Texas</strong></p>
-    <p>Please arrive by <strong>a quarter after three</strong> o’clock <br />for a shuttle to the ceremony location. <br /><strong>Reception dinner to follow.</strong></p>
-    <p><strong>Kindly respond by December 16.</strong></p>
+    {% if isAttending == 'unknown' %}
+      <p>On the <strong>eleventh</strong> of <strong>January</strong>, <strong>2025</strong></p>
+      <p>At the<strong> Georgetown Community Center<br />445 East Morrow Street<br />Georgetown, Texas</strong></p>
+      <p>Please arrive by <strong>a quarter after three</strong> o’clock <br />for a shuttle to the ceremony location. <br /><strong>Reception dinner to follow.</strong></p>
+      <p><strong>Kindly respond by December 16.</strong></p>
+    {% elif isAttending == 'no' %}
+      <p>You’ll be missed, but we hope to see you soon, {{ invitation.party[0].name.split(" ")[0] }}.</p>
+    {% elif isAttending == 'yes' %}
+    <p>The pleasure of your company <br />is requested at the marriage of</p>
+      <p>We look forward to seeing you {{ plu }} {{ firstName }}!</p>
+    {% endif %}
   </main>
 </div>
