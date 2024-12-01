@@ -24,9 +24,7 @@ title: 'Program'
 } %}
 {# end copypasta #}
 
-<p>page number: {{ invitations[pagination.pageNumber] | dump}}</p>
-<p>code: {{ invitations[pagination.pageNumber].code }}</p>
-<p>{{ invitationData | dump }}</p>
+{% include "pagination-debug.njk" %}
 
 <div class="page page--program">
   {{ navigation(invitationData) }}

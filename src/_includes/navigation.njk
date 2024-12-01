@@ -86,9 +86,6 @@
       const stringifiedPartyObj = JSON.stringify(partyDataObj);
       localStorage.setItem('attending', 'yes');
       localStorage.setItem('party', stringifiedPartyObj);
-      console.log('local: ');
-      console.log(partyDataObj);
-      console.log('template: ');
     };
   </script>
 {%- endmacro %}
@@ -114,9 +111,6 @@
       const stringifiedDetailObj = JSON.stringify(detailDataObj);
       localStorage.setItem('attending', 'yes');
       localStorage.setItem('detail', stringifiedDetailObj);
-      console.log('local: ');
-      console.log(detailDataObj);
-      console.log('template: ');
     };
   </script>
 {%- endmacro %}

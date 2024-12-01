@@ -20,11 +20,9 @@ title: 'Your Party'
   {% set subtitle = rsvpParty.formSubtitle | replace('%num%', partySizeWord) | replace('%plu%', suffix) %}
 {# end copypasta #}
 
-<p>page number: {{ invitations[pagination.pageNumber] | dump }}</p>
-<p>code: {{ invitations[pagination.pageNumber].code }}</p>
-<p>{{ invitationData | dump }}</p>
-<p>URL: {{ page.url | dump }}</p>
-<form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" method="POST" action="/invitations/{{ invitation.code }}/rsvp-details" netlify>
+{% include "pagination-debug.njk" %}
+
+<form class="page page--rsvp-party" id="{{ meta.partyForm }}" name="{{ meta.partyForm }}" method="POST" action="/invitations/{{ invitation.code }}//?target=rsvp-details" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPParty(invitationData) }}

@@ -16,11 +16,9 @@ title: 'Details'
   } %}
 {# end copypasta #}
 
-<p>page number: {{ invitations[pagination.pageNumber] | dump}}</p>
-<p>code: {{ invitations[pagination.pageNumber].code }}</p>
-<p>{{ invitationData | dump }}</p>
-<p>URL: {{ page.url | dump }}</p>
-<form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/invitations/{{ invitation.code }}/" method="POST" netlify>
+{% include "pagination-debug.njk" %}
+
+<form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/" method="POST" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPDetails(invitationData) }}
