@@ -15,10 +15,12 @@ export default function () {
         name: 'Delta Abbott'
       }, 
       {
-        name: 'Beaux Abbott'
+        name: 'Beaux Abbott',
+        kid: true
       },
       {
-        name: 'Drake Abbott'
+        name: 'Drake Abbott',
+        kid: true
       }
     ],
     code: 'mf0vc'

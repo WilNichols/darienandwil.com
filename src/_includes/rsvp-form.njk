@@ -16,7 +16,7 @@
     {% endif %}
   {% endif %}
   <fieldset class="rsvp-form-item__container" name="attendee-{{ i }}" form="{{ meta.rsvpForm1 }}" >
-    <legend class="rsvp-form-item__title">{{ title }}</legend>
+    {% if i <= 1 %}<legend class="rsvp-form-item__title">{{ title }}</legend>{% endif %}
     <div class="rsvp-form-item__fields">
       <input 
         name="{{ i }}--correctedName"
@@ -67,9 +67,9 @@
         {% set mealSelection = false %}
       {% endif %}
       {% if choiceIndex == 1 %}
-          {% set label = meal.long %}
+        {% set label = meal.long %}
       {% else %}
-          {% set label = meal.short %}
+        {% set label = meal.short %}
       {% endif %}
       {{ mealChoice(
         meal, 
