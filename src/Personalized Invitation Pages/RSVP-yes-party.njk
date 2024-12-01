@@ -7,6 +7,10 @@ isFormSubmissionPage: true
 {%- from 'navigation.njk' import submitRSVPParty with context -%}
 {%- from 'rsvp-form.njk' import rsvpForm with context -%}
 
+{% set debug %}
+{{ invitations[pagination.pageNumber].name }} : {{ invitations[pagination.pageNumber].code }} {%endset %}
+{{ debug | log }}
+
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
   {% set invitation = invitations[pagination.pageNumber] %}
   {% set isAttending = 'unknown' %}

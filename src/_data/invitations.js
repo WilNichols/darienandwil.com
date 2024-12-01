@@ -1,6 +1,6 @@
 export default function () {
   
-  const invitations = [
+  return [
   {
     name: 'Aimee & Jeremy Abbott',
     permissions: ['ceremony'],
@@ -1774,10 +1774,7 @@ export default function () {
       }
     ],
     code: '4ifg2'
-    }
-  ]
-
-  const us = [
+    },
     {
       name: 'Wil',
       code: '09191994',
@@ -1814,9 +1811,4 @@ export default function () {
       ],
     }
   ]
-  
-  return {
-    ...invitations,
-    ...us
-  }
 }
