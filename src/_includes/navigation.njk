@@ -78,7 +78,12 @@
   </div>
   <script>
     function savePartyLocal() {
+      const form = document.getElementById('party-form');
+      const dataObj = {};
+      const data = new FormData(form);
+      data.forEach((value, key) => dataObj[key] = value);
       localStorage.setItem('attending', 'yes');
+      localStorage.setItem('party', dataObj);
     };
   </script>
 {%- endmacro %}

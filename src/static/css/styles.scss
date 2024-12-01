@@ -500,19 +500,19 @@ body {
   --prefix: 'a'
 }
 
-.page--rsvp--one {
+.page--rsvp-party {
   @extend %page--invite; 
   $navHeight: calc(var(--tap-height) + 2rem);
   padding: $navHeight;
 }
 
-.page--rsvp--one .page-header--sm .text--heading--3 {
+.page--rsvp-party .page-header--sm .text--heading--3 {
  font-variation-settings: "wght" 500;
  font-size: var(--type-1);
 }
 
 
-.page--rsvp--one .rsvp-form-content {
+.page--rsvp-party .rsvp-form-content {
   display: flex;
   flex-direction: column;
   gap: 4rem;
@@ -520,7 +520,7 @@ body {
   padding: 0 var(--gutterPadding);
 }
 
-.page--rsvp--one .rsvp-form-items {
+.page--rsvp-party .rsvp-form-items {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -534,8 +534,8 @@ body {
   }
 }
 
-.page--rsvp--one .rsvp-form-item__container,
-.page--rsvp--one .rsvp-form__meal-choices {
+.page--rsvp-party .rsvp-form-item__container,
+.page--rsvp-party .rsvp-form__meal-choices {
   border: none;
   padding: 0;
   margin: 0;
@@ -546,13 +546,13 @@ body {
   font-size: var(--type-0);
 }
 
-.page--rsvp--one .rsvp-form-item__title {
+.page--rsvp-party .rsvp-form-item__title {
   @extend %formTitle;
   margin: 0 0 var(--radius-sm) var(--radius-md);
 }
 
 
-.page--rsvp--one .rsvp-form-item__fields {
+.page--rsvp-party .rsvp-form-item__fields {
   display: flex;
   flex-direction: column;
   padding: 1rem;
@@ -562,7 +562,7 @@ body {
   width: 100%;
 }
 
-.page--rsvp--one .rsvp-form-item---bool {
+.page--rsvp-party .rsvp-form-item---bool {
   display: flex;
   gap: 10px;
   min-height: var(--tap-height-sm);
@@ -570,7 +570,7 @@ body {
   align-items: center;
 }
 
-.page--rsvp--one .rsvp-form__meal-choices__title {
+.page--rsvp-party .rsvp-form__meal-choices__title {
   @extend %formTitle;
 }
 
