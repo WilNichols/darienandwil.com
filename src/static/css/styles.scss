@@ -52,6 +52,7 @@
   --px: calc(1px / var(--density));
   --btnHeight: 44px;
   --btnRad: calc(var(--btnHeight)/2);
+  --gutterPadding: calc(var(--gutter) - var(--btnRad));
   @media (-webkit-min-device-pixel-ratio: 2) {
     --density: 2;
   }
@@ -95,8 +96,7 @@ body {
   width: 100%;
   max-width: var(--gate-width--desktop);
   $g: 1rem;
-  $gutterAdjust: calc(var(--gutter) - var(--btnRad));
-  padding: 0 $gutterAdjust $g $gutterAdjust;
+  padding: 0 var(--gutterPadding) $g var(--gutterPadding);
   gap: $g;
   z-index: 10;
   display: flex;
@@ -188,7 +188,8 @@ body {
   }
   
   .navigation__rsvp-actions {
-    @extend .button--secondary;
+    @extend %button;
+    background-color: var(--materialElevatedPrimaryColor);
     display: flex;
     flex-direction: row; 
     gap: var(--px);
@@ -356,18 +357,18 @@ body {
   display: flex;
   flex-direction: column;
   place-items: center;
-  $navHeight: calc((2 * var(--tap-height)) + 2rem);
-  padding: max($navHeight, var(--col)) 0;
 }
 
 .page--program {
   @extend %page--invite; 
+  $navHeight: calc((2 * var(--tap-height)) + 2rem);
+  padding: $navHeight 0;
 }
 
 %page--padded__item {
   width: 100%;
   max-width: var(--gate-width--desktop);
-  padding: 0 var(--gutter);
+  padding: 0 var(--gutterPadding);
 }
 
 .page-header {
@@ -501,6 +502,8 @@ body {
 
 .page--rsvp--one {
   @extend %page--invite; 
+  $navHeight: calc(var(--tap-height) + 2rem);
+  padding: $navHeight;
 }
 
 .page--rsvp--one .page-header--sm .text--heading--3 {
@@ -513,8 +516,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  max-width: var(--gate-width--desktop);
+  padding: 0 var(--gutterPadding);
 }
-
 
 .page--rsvp--one .rsvp-form-items {
   display: flex;
