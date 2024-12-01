@@ -78,13 +78,14 @@
   </div>
   <script>
     function savePartyLocal() {
-      const form = document.getElementById('{{ meta.partyForm }}');
-      const dataObj = {};
-      const data = new FormData(form);
-      data.forEach((value, key) => dataObj[key] = value);
-      const stringifiedObj = JSON.stringify(dataObj);
+      const partyForm = document.getElementById('{{ meta.partyForm }}');
+      const partyDataObj = {};
+      const partyData = new FormData(partyForm);
+      partyData.forEach((value, key) => dataObj[key] = value);
+      const stringifiedPartyObj = JSON.stringify(partyDataObj);
       localStorage.setItem('attending', 'yes');
-      localStorage.setItem('party', stringifiedObj);
+      localStorage.setItem('party', stringifiedPartyObj);
+      console.log(partyDataObj);
     };
   </script>
 {%- endmacro %}
@@ -102,12 +103,13 @@
 </div>
 <script>
   function saveDetailsLocal() {
-    const form = document.getElementById('{{ meta.detailForm }}');
-    const dataObj = {};
-    const data = new FormData(form);
-    data.forEach((value, key) => dataObj[key] = value);
-    const stringifiedObj = JSON.stringify(dataObj);
-    localStorage.setItem('details', stringifiedObj);
+    const detailsForm = document.getElementById('{{ meta.detailForm }}');
+    const detailsDataObj = {};
+    const detailsData = new FormData(detailsForm);
+    detailsData.forEach((value, key) => detailsDataObj[key] = value);
+    const stringifiedDetailsObj = JSON.stringify(dataObj);
+    localStorage.setItem('details', stringifiedDetailsObj);
+    console.log(detailsDataObj);
   };
 </script>
 {%- endmacro %}
