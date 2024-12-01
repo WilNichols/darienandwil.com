@@ -91,18 +91,16 @@
   <li class="rsvp-form__meal-choice">
     <label 
       class="rsvp-form-item--bool"
-      for="{{ mealCode }}">
+      for="{{ mealCode }}--{{ meal.short }}">
       <input 
         type="radio" 
         name="{{ mealCode }}"
-        id="{{ meal.short }}" 
+        id="{{ mealCode }}--{{ meal.short }}"
         value="{{ meal.short }}"
         form="{{ meta.partyForm }}"
         {% if checked %}checked{% endif %}
         />
-      <span class="">
-        {{ label }}
-      </span>
+      {{ label }}
     </label>
   </li>
 {%- endmacro %}
