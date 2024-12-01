@@ -29,46 +29,38 @@
       if (invitationData.attending == 'no') {
           console.log('got this from the server');
       }
-      // if "yes" and site hasn't rebuilt
-      if ((attendingLocal == 'yes')) {}
+      if ((attendingLocal == 'yes') && (invitationData.attending == 'unknown')) {
+        console.log('Doing this locally...');
+        yesButton.classList.add('navigation__rsvp__action--submitted');
+        noButton.getElementsByClassName('navigation__rsvp__action__label')[0].innerHTML = strings.RSVPButtonNoCorrection;
+      }
     });
   </script>
-  <form class="navigation__rsvp-actions" id="attending-form" name="Attending" netlify>
-    <input name="name" type="text" value="{{ invitationData.name }}" hidden />
-    <input name="code" type="text" value="{{ invitationData.code }}" hidden />
-    <button 
-      type="submit"
-      name="attending-button" 
-      value="false"
-      formaction="{{ page.url }}rsvp-no/"
-      onClick="saveAttendingLocal()"
-      class="navigation__rsvp__action"
-      id="rsvp-action--no" 
-      class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
-      {{ labelNo }}
-    </button>
-    <button 
-      type="submit"
-      name="attending-button" 
-      value="true"
-      formaction="{{ page.url }}rsvp-party/"
-      onClick="saveAttendingLocal()"
-      class="navigation__rsvp__action"
-      id="rsvp-action--yes" 
-      class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
-      {{ labelYes }}
-    </button>
-  </form>
-  <script> 
-    // set attending value locally for the gap between site rebuild
+  <ul class="navigation__rsvp-actions">
+    <li id="rsvp-action--no" class="navigation__rsvp__action{% if invitationData.attending == 'no' %} navigation__rsvp__action--submitted{% endif %}">
+      <form
+        name="Not-Attending"
+        id="rsvp-no"
+        action="{{ page.url }}rsvp-no/"
+        method="POST"
+        netlify>
+        <input name="name" type="text" value="{{ invitationData.name }}" hidden />
+        <input name="code" type="text" value="{{ invitationData.code }}" hidden />
+        <button 
+          type="submit" 
+          onClick="saveAttendingLocal()"
+          class="navigation__rsvp__action__label">
+          {{ labelNo }}
+        </button>
+      </form>
+    </li>
+    <li id="rsvp-action--yes" class="navigation__rsvp__action">
+      <a href="{{ baseURL }}rsvp-party/" class="navigation__rsvp__action__label">{{ labelYes }}</a>
+    </li>
+  </ul>
+  <script>
     function saveAttendingLocal() {
-      event.preventDefault();
-      const form = document.getElementById('attending-form');
-      const data = new FormData(form);
-      for (var [key, value] of data) {
-          console.log(key, value);
-      }
-      // localStorage.setItem('attending', 'no');
+      localStorage.setItem('attending', 'no');
     }
   </script>
 {%- endmacro %}
@@ -79,16 +71,15 @@
       <button 
         type="submit"
         onClick="savePartyLocal()"
-        class="button--primary"
-        id="rsvp-action--submit-party">
+        class="button--primary">
         <span class="button--primary__label">{{ strings.continue }}</span>
       </button>
     </nav>
   </div>
   <script>
-  function savePartyLocal() {
-    localStorage.setItem('attending', 'yes');
-  };
+    function savePartyLocal() {
+      localStorage.setItem('attending', 'yes');
+    };
   </script>
 {%- endmacro %}
 
