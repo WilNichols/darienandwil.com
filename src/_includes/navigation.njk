@@ -82,8 +82,9 @@
       const dataObj = {};
       const data = new FormData(form);
       data.forEach((value, key) => dataObj[key] = value);
+      const stringifiedObj = JSON.stringify(dataObj);
       localStorage.setItem('attending', 'yes');
-      localStorage.setItem('party', dataObj);
+      localStorage.setItem('party', stringifiedObj);
     };
   </script>
 {%- endmacro %}

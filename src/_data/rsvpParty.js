@@ -1,6 +1,6 @@
 export default function () {
   const strings = {
-    formTitle: 'Great! Let’s fill in a few details.',
+    formTitle: 'Great! Who’s coming?',
     formSubtitle: 'Your party has %num% seat%plu%.',
     yourFormTitle: 'Your RSVP',
     othersFormsTitle: 'The rest of your party',
