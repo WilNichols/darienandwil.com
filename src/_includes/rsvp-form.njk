@@ -61,7 +61,7 @@
     {% endif %}
     {% for meal in rsvpParty.adult %}
       {% set thisIndex = loop.index %}
-      {% if ((parentLoop.index == 1) and (thisIndex == 1)) %}
+      {% if ((i == 0) and (thisIndex == 1)) %}
         {% set mealSelection = true %}
       {% else %}
         {% set mealSelection = false %}

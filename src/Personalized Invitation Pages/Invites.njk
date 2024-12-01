@@ -1,30 +1,26 @@
 ---
-layout: '_root.njk'
-eleventyExcludeFromCollections: true
+layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/index.html'
-pagination:
-  data: invitations
-  size: 1
 ---
 {%- from 'navigation.njk' import navigation with context -%}
 {%- from 'header.njk' import header -%}
 
-{# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
-  {% set invitation = invitations[pagination.pageNumber] %}
-  {% set isAttending = 'unknown' %}
-  
-  {% for notAttending in rsvpForms %}
-    {% if notAttending.data.code == invitation.code %}
-      {% set isAttending = 'no' %}
-    {% endif %}
-  {% endfor %}
-   
-  {% set invitationData = {
+{% set invitation = invitations[pagination.pageNumber] %}
+{# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
+{% set isAttending = 'unknown' %}
+
+{% for notAttending in rsvpForms %}
+  {% if notAttending.data.code == invitation.code %}
+    {% set isAttending = 'no' %}
+  {% endif %}
+{% endfor %}
+ 
+{% set invitationData = {
   name: invitation.name,
   code: invitation.code,
   attending: isAttending
-  } %}
+} %}
 {# end copypasta #}
 
 <div class="page page--program">
