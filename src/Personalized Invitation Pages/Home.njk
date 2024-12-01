@@ -1,0 +1,41 @@
+---
+layout: 'paginated.njk'
+permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/index.html'
+title: 'Program'
+---
+{%- from 'navigation.njk' import navigation with context -%}
+{%- from 'header.njk' import smallHeader -%}
+
+{# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
+{% set invitation = invitations[pagination.pageNumber] %}
+{# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
+{% set isAttending = 'unknown' %}
+
+{% for notAttending in rsvpForms %}
+  {% if notAttending.data.code == invitation.code %}
+    {% set isAttending = 'no' %}
+  {% endif %}
+{% endfor %}
+ 
+{% set invitationData = {
+  name: invitation.name,
+  code: invitation.code,
+  attending: isAttending
+} %}
+{# end copypasta #}
+
+<div class="page page--home">
+  {{ navigation(invitationData) }}
+  {# {{ smallHeader('For ' + invitation.name, invitation.note) }} #}
+  <main class="home__invitation-text">
+    <p>The pleasure of your company <br />is requested at the marriage of</p>
+    <div>
+      <h2><span class="light">Ms.</span> Darien Leigh Higgins <span class="light">&</span></h2>
+      <h2><span class="light">Mr.</span> William Mayfield Nichols</h2>
+    </div>
+    <p>On the <strong>eleventh</strong> of <strong>January</strong>, <strong>2025</strong></p>
+    <p>At the<strong> Georgetown Community Center<br />445 East Morrow Street<br />Georgetown, Texas</strong></p>
+    <p>Please arrive by <strong>a quarter after three</strong> o’clock <br />for a shuttle to the ceremony location. <br /><strong>Reception dinner to follow.</strong></p>
+    <p><strong>Kindly respond by December 16.</strong></p>
+  </main>
+</div>

@@ -2,6 +2,7 @@
 layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/rsvp-no/index.html'
 isFormSubmissionPage: true
+title: 'Declined'
 ---
 {%- from 'navigation.njk' import navigation with context -%}
 
@@ -23,7 +24,6 @@ isFormSubmissionPage: true
 {# end copypasta #}
 
 <div class="page page--program">
-
   {{ navigation(invitationData) }}
   <main class="page-header">
     <div class="page-header__content">

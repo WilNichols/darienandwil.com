@@ -5,8 +5,9 @@ permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/info/index
 pagination:
   data: invitations
   size: 1
+title: 'Q & A'
 ---
-{%- from 'header.njk' import header -%}
+{%- from 'header.njk' import smallHeader -%}
 {%- from 'navigation.njk' import navigation with context -%}
 
 {# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
@@ -29,7 +30,7 @@ pagination:
 
 <div class="page page--qa">
   {{ navigation(invitationData) }}
-  {{ header(strings.QATitle | safe) }}
+  {{ smallHeader(strings.QATitle | safe) }}
   </header>
   <main class="qa-content">
     <dl class="qa-items">

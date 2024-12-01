@@ -90,6 +90,7 @@ export default async function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy({"src/_redirects": "/_redirects" });
   eleventyConfig.addPassthroughCopy({"src/robots.txt": "/robots.txt"});
   eleventyConfig.addPassthroughCopy({"src/static/img": "/assets/img"});
+  eleventyConfig.addPassthroughCopy({"src/static/fonts": "/assets/fonts"});
   eleventyConfig.addPassthroughCopy({"src/static/js": "/assets/js"});
 
   // CSS Mapping

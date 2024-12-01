@@ -41,7 +41,7 @@
       <form
         name="{{ meta.notAttendingForm }}"
         id="rsvp-no"
-        action="{{ page.url }}rsvp-no/"
+        action="/invitations/{{ invitationData.code }}/rsvp-no/"
         method="POST"
         netlify>
         <input name="name" type="text" value="{{ invitationData.name }}" hidden />
@@ -55,7 +55,7 @@
       </form>
     </li>
     <li id="rsvp-action--yes" class="navigation__rsvp__action">
-      <a href="{{ baseURL }}rsvp-party/" class="navigation__rsvp__action__label">{{ labelYes }}</a>
+      <a href="/invitations/{{ invitationData.code }}/rsvp-party/" class="navigation__rsvp__action__label">{{ labelYes }}</a>
     </li>
   </ul>
   <script>
@@ -114,17 +114,19 @@
 
 {% macro navigationLinks(code) -%}
   <ul class="navigation__items">
-    {% set baseURL %}/invitations/{{ code }}/{% endset %}
-    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if (not '/party/' in page.url) and (not '/info/' in page.url) and (not '/info/' in page.url) and (not '/registry/' in page.url) }}" 
-    href="{{ baseURL }}">
+    {% set baseURL %}/invitations/{{ code }}{% endset %}
+    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if (not '/program/' in page.url) and (not '/info/' in page.url) }}" 
+    href="{{ baseURL }}/">
       <span>{{ strings.navHome }}</span>
     </a></li>
-    {# <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/party/' in page.url }}" href="{{ page.url }}party/"><span>Party</span></a></li> #}
+    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/program/' in page.url }}" 
+    href="{{ baseURL }}/program/">
+      <span>{{ strings.navProgram }}</span>
+    </a></li>
     <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/info/' in page.url }}" 
-    href="{{ baseURL }}info/">
+    href="{{ baseURL }}/info/">
       <span>{{ strings.navQA }}</span>
     </a></li>
-    {# <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/registry/' in page.url }}" href="{{ page.url }}registry/"><span>Registry</span></a></li> #}
   </ul>
 {%- endmacro %}
 

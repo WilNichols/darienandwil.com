@@ -65,7 +65,7 @@ export default function () {
     code: 'rvrmu'
   },
   {
-    name: 'Sloan Arno',
+    name: 'Sloan Arno & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -241,7 +241,7 @@ export default function () {
     code: 'vr3pe'
   },
   {
-    name: 'Cece Rulon',
+    name: 'Cece Rulon & Guest',
     permissions: ['cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -292,7 +292,7 @@ export default function () {
     code: '5k694'
   },
   {
-    name: 'Tory Nunn',
+    name: 'Tory Nunn & Guest',
     permissions: ['cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -303,7 +303,7 @@ export default function () {
     code: 'm60a4'
   },
   {
-    name: 'Dean Shafer',
+    name: 'Dean Shafer & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -314,7 +314,7 @@ export default function () {
     code: 'o8nh8'
   },
   {
-    name: 'Glen Ochs',
+    name: 'Glen Ochs & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -325,7 +325,7 @@ export default function () {
     code: '5ssck'
   },
   {
-    name: 'Kelly Kraus',
+    name: 'Kelly Kraus & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -349,7 +349,7 @@ export default function () {
     code: 'iouc9'
   },
   {
-    name: 'Lauren Leary',
+    name: 'Lauren Leary & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -404,6 +404,7 @@ export default function () {
   },
   {
     name: 'Nayeli Cortina & Eugene Mymrin',
+    note: '& of course Natalie',
     permissions: ['ceremony'],
     party: [
       {
@@ -433,7 +434,7 @@ export default function () {
     code: '9v4ed'
   },
   {
-    name: 'Marlen Kraemer',
+    name: 'Marlen Kraemer & Guest',
     permissions: ['rehearsal', 'cocktail', 'ceremony'],
     party: [
       {
@@ -444,7 +445,7 @@ export default function () {
     code: 'nveww'
   },
   {
-    name: 'Elaine Higgins',
+    name: 'Elaine Higgins & Guest',
     permissions: ['rehearsal', 'cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -455,7 +456,7 @@ export default function () {
     code: 'c3yq4'
   },
   {
-    name: 'Brandon Walsh',
+    name: 'Brandon Walsh & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -466,15 +467,13 @@ export default function () {
     code: 'ugog6'
   },
   {
-    name: 'Hope Higgins',
+    name: 'Hope Higgins & Guest',
     permissions: ['ceremony'],
     party: [
       {
         name: 'Hope Higgins'
       },
-      {
-        name: '',
-      }
+      {}
     ],
     code: 'zemme'
   },
@@ -492,7 +491,7 @@ export default function () {
     code: '02gr6'
   },
   {
-    name: 'Daniel In',
+    name: 'Daniel In & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -503,7 +502,7 @@ export default function () {
     code: 'nsgi8'
   },
   {
-    name: 'Erick Hernandez',
+    name: 'Erick Hernandez & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -514,7 +513,7 @@ export default function () {
     code: '5f26p'
   },
   {
-    name: 'Tommy Nunn',
+    name: 'Tommy Nunn & Guest',
     permissions: ['cocktail', 'ceremony'],
     party: [
       {
@@ -538,7 +537,7 @@ export default function () {
     code: 'w0tp3'
   },
   {
-    name: 'Ell Bogat',
+    name: 'Ell Bogat & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -575,7 +574,7 @@ export default function () {
     code: '0bfly'
   },
   {
-    name: 'Shirley Stumpf',
+    name: 'Shirley Stumpf & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -626,7 +625,7 @@ export default function () {
     code: 'w43ob'
   },
   {
-    name: 'Tyler Comfort',
+    name: 'Tyler Comfort & Guest',
     permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
@@ -653,7 +652,7 @@ export default function () {
     code: 'yci7m'
   },
   {
-    name: 'Natalie Ready',
+    name: 'Natalie Ready & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -687,6 +686,7 @@ export default function () {
   },
   {
     name: 'Casey Higgins & Roel Pedraza',
+    note: '& Rae',
     permissions: ['rehearsal', 'cocktails', 'early', 'photos', 'ceremony'],
     party: [
       {
@@ -702,7 +702,7 @@ export default function () {
     code: 'skcub'
   },
   {
-    name: 'Jill Thompson',
+    name: 'Jill Thompson & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -723,7 +723,7 @@ export default function () {
     code: '37hi3'
   },
   {
-    name: 'Angela Cerrillo',
+    name: 'Angela Cerrillo & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -796,7 +796,7 @@ export default function () {
     code: '6pfo9'
   },
   {
-    name: 'Marie Perez',
+    name: 'Marie Perez & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -833,7 +833,7 @@ export default function () {
     code: 'xc6tc'
   },
   {
-    name: 'Beverly Krayeski',
+    name: 'Beverly Krayeski & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -870,7 +870,7 @@ export default function () {
     code: 'hcf60'
   },
   {
-    name: 'Allan Porter',
+    name: 'Allan Porter & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -908,6 +908,7 @@ export default function () {
   },
   {
     name: 'Craig & Judy Nunn',
+    note: '& Helen, if easier',
     permissions: ['rehearsal', 'cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -953,7 +954,7 @@ export default function () {
     code: 'fjxrh'
   },
   {
-    name: 'Kailey Andrew',
+    name: 'Kailey Andrew & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -977,7 +978,7 @@ export default function () {
     code: 'v7hyy'
   },
   {
-    name: 'Heena Momaya',
+    name: 'Heena Momaya & Guest',
     permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
@@ -1001,7 +1002,7 @@ export default function () {
     code: '335tc'
   },
   {
-    name: 'Shmuel Zlotnikov',
+    name: 'Shmuel Zlotnikov & Guest',
     permissions: ['cocktail', 'ceremony'],
     party: [
       {
@@ -1012,7 +1013,7 @@ export default function () {
     code: '53ect'
   },
   {
-    name: 'Ginny & Tommy Elia',
+    name: 'Ginny Elia, Tommy Elia, & Guests',
     permissions: ['cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -1103,8 +1104,8 @@ export default function () {
     code: 'd8wuc'
   },
   {
-    name: 'Helen Nunn',
-    permissions: ['rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
+    name: 'Helen Nunn & Guest',
+    permissions: ['cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
         name: 'Helen Nunn'
@@ -1174,7 +1175,7 @@ export default function () {
     code: 'pgj8j'
   },
   {
-    name: 'Jamie Holmes',
+    name: 'Jamie Holmes & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1198,7 +1199,7 @@ export default function () {
     code: 'v9okx'
   },
   {
-    name: 'Gary Gehiere & Petrina Burkard',
+    name: 'Gary Gehiere, Petrina Burkard, & Family',
     permissions: ['ceremony'],
     party: [
       {
@@ -1230,7 +1231,7 @@ export default function () {
     code: 'g5ift'
   },
   {
-    name: 'Donald Mason',
+    name: 'Donald Mason & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1241,7 +1242,7 @@ export default function () {
     code: 'qywlt'
   },
   {
-    name: 'Reef Love',
+    name: 'Reef Love & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1308,7 +1309,7 @@ export default function () {
     code: '0njue'
   },
   {
-    name: 'Jerry Reardon',
+    name: 'Jerry Reardon & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1319,7 +1320,7 @@ export default function () {
     code: 'mysrc'
   },
   {
-    name: 'Andie & Matt Hanson',
+    name: 'Andie Hanson, Matt Hanson, & Family',
     permissions: ['cocktail', 'photos', 'ceremony'],
     party: [
       {
@@ -1367,7 +1368,7 @@ export default function () {
     code: 'pzifl'
   },
   {
-    name: 'Alex Bulla',
+    name: 'Alex Bulla & Guest',
     permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
@@ -1407,7 +1408,7 @@ export default function () {
     code: 'd96k6'
   },
   {
-    name: 'Matt Petri',
+    name: 'Matt Petri & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1431,7 +1432,7 @@ export default function () {
     code: '9saj0'
   },
   {
-    name: 'Chris Foote',
+    name: 'Chris Foote & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1443,6 +1444,7 @@ export default function () {
   },
   {
     name: 'Laxmi & Adam Sheehan',
+    note: '& of course Riyan',
     permissions: ['ceremony'],
     party: [
       {
@@ -1485,7 +1487,7 @@ export default function () {
     code: 'efheq'
   },
   {
-    name: 'Gayle Mayfield',
+    name: 'Gayle Mayfield & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1505,7 +1507,7 @@ export default function () {
     code: 'm7ymb'
   },
   {
-    name: 'Bella Rulon',
+    name: 'Bella Rulon & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1529,7 +1531,7 @@ export default function () {
     code: '9shsz'
   },
   {
-    name: 'Matthew Kluchin',
+    name: 'Matthew Kluchin & Guest',
     permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
@@ -1540,7 +1542,7 @@ export default function () {
     code: '3hccf'
   },
   {
-    name: 'Tate Burke',
+    name: 'Tate Burke & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1565,7 +1567,7 @@ export default function () {
     code: '5mfz0'
   },
   {
-    name: 'Everley Estes-Lloyd',
+    name: 'Everley Estes-Lloyd & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1576,14 +1578,13 @@ export default function () {
     code: 'vlq2c'
   },
   {
-    name: 'Kira Daniel',
+    name: 'Kira Daniel & Guest',
     permissions: ['ceremony'],
     party: [
       {
         name: 'Kira Daniel'
       },
-      {
-      }
+      {}
     ],
     code: 'djwum'
   },
@@ -1611,7 +1612,7 @@ export default function () {
     code: '070oo'
   },
   {
-    name: 'Dasawn Gray',
+    name: 'Dasawn Gray & Guest',
     permissions: ['cocktail', 'ceremony'],
     party: [
       {
@@ -1622,7 +1623,7 @@ export default function () {
     code: 'fpmxf'
   },
   {
-    name: 'Christy Milam',
+    name: 'Christy Milam & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1672,7 +1673,7 @@ export default function () {
     code: 'p87sp'
   },
   {
-    name: 'Jose Azuara',
+    name: 'Jose Azuara & Family',
     permissions: ['ceremony'],
     party: [
       {
@@ -1689,7 +1690,7 @@ export default function () {
     code: 'byaa0'
   },
   {
-    name: 'Josh & Jacqueline Ellis',
+    name: 'Josh Ellis, Jacqueline Ellis, & Family',
     permissions: ['ceremony'],
     party: [
       {
@@ -1708,7 +1709,7 @@ export default function () {
     code: 'tr2qf'
   },
   {
-    name: 'Thomas Elmasri',
+    name: 'Thomas Elmasri & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1732,7 +1733,7 @@ export default function () {
     code: 'pzmgn'
   },
   {
-    name: 'Adam Oganowski',
+    name: 'Adam Oganowski & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1743,7 +1744,7 @@ export default function () {
     code: 'oo1td'
   },
   {
-    name: 'Blaine Williams',
+    name: 'Blaine Williams & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1754,7 +1755,7 @@ export default function () {
     code: 'h7p64'
   },
   {
-    name: 'Greg Cooksey',
+    name: 'Greg Cooksey & Guest',
     permissions: ['ceremony'],
     party: [
       {
@@ -1765,7 +1766,7 @@ export default function () {
     code: 'k9vpo'
   },
   {
-    name: 'Nate Filipek',
+    name: 'Nate Filipek & Emily Blackner',
     permissions: ['ceremony'],
     party: [
       {
@@ -1779,6 +1780,7 @@ export default function () {
     },
     {
       name: 'Wil',
+      note: '& Milo of course',
       code: '09191994',
       permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
       party: [

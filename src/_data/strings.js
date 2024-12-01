@@ -2,7 +2,7 @@ export default function () {
   return {
     pipe: ' | ',
     routeVia: 'Route via ',
-    navHome: 'Home',
+    navHome: 'Invitation',
     navProgram: 'Program',
     navQA: 'Q&A',
     RSVPButtonNo: 'No, I’m not attending',
@@ -24,6 +24,5 @@ export default function () {
     contact: 'Contact',
     name: 'Name',
     meal: 'Meal'
-    
   }
 }

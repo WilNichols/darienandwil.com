@@ -78,6 +78,7 @@ body {
   place-items: center;
   z-index: 10;
 }
+
 .navigation {
   width: 100%;
   max-width: var(--gate-width--desktop);
@@ -601,6 +602,59 @@ body {
     min-width: 100%;
   }
 }
+
+@font-face {
+  font-family: "MarketAlt";
+  font-weight: 400;
+  src: url("../fonts/MarketAlt-Regular.otf");
+}
+@font-face {
+  font-family: "MarketAlt";
+  font-weight: 500;
+  src: url("../fonts/MarketAlt-Medium.otf");
+}
+@font-face {
+  font-family: "MarketAlt";
+  font-weight: 700;
+  src: url("../fonts/MarketAlt-Bold.otf");
+}
+
+.home__invitation-text  {
+  font-family: "MarketAlt", sans-serif;
+  color: var(--contentTintedSecondaryColor);
+  font-variation-settings: unset;
+  font-weight: 400 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+  h2, p {
+    text-align: center;
+    margin: 0 auto;
+  }
+  h2 {
+    font-family: "MarketAlt", sans-serif;
+    font-weight: 700 !important;
+    font-variation-settings: unset;
+    color: var(--contentTintedPrimaryColor);  
+  }
+  strong {
+    font-family: "MarketAlt", sans-serif;
+    font-weight: 500 !important;
+    font-variation-settings: unset;
+    color: var(--contentTintedPrimaryColor);  
+  }
+  .light {
+    color: var(--contentTintedTertiaryColor);  
+  }
+}
+
+.home__invitation-text {
+  width: 100%;
+  max-width: var(--gate-width--desktop); 
+  $navHeight: calc((2 * var(--tap-height)) + 2rem);
+  padding: var(--tap-height) 0 $navHeight 0;
+}
+
 // .page--program .program-item__details
 // mobile portrait
 @media (hover: none) and (width <= 440px) and (height <= 956px) {  
