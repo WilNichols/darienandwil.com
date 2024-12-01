@@ -10,21 +10,17 @@ title: 'Details'
 
 {# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
   {% set invitation = invitations[pagination.pageNumber] %}
-  {% set isAttending = 'unknown' %}
-  {% for notAttending in rsvpForms %}
-    {% if notAttending.data.code == invitation.code %}
-      {% set isAttending = 'no' %}
-    {% endif %}
-  {% endfor %}
   {% set invitationData = {
     name: invitation.name,
-    code: invitation.code,
-    attending: isAttending
+    code: invitation.code
   } %}
 {# end copypasta #}
-code: {{ invitations[pagination.pageNumber].code }}
-{{ invitationData | dump }}
-<form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="/invitations/{{ invitation.code }}/" netlify>
+
+<p>page number: {{ invitations[pagination.pageNumber] | dump}}</p>
+<p>code: {{ invitations[pagination.pageNumber].code }}</p>
+<p>{{ invitationData | dump }}</p>
+
+<form class="page page--rsvp-details" id="{{ meta.detailForm }}" name="{{ meta.detailForm }}" action="../" netlify>
   <input name="name" type="text" value="{{ invitationData.name }}" hidden />
   <input name="code" type="text" value="{{ invitationData.code }}" hidden />
   {{ submitRSVPDetails(invitationData) }}

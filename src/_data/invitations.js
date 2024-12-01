@@ -773,7 +773,7 @@ export default function () {
     code: 'linsx'
   },
   {
-    name: 'Bill and Janet Grubbs',
+    name: 'Bill & Janet Grubbs',
     permissions: ['ceremony'],
     party: [
       {

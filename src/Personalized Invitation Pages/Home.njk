@@ -21,9 +21,10 @@ title: 'Invitation'
 } %}
 {# end copypasta #}
 
-{{ invitationData | dump }}
-{% set debug %}{{ invitation.code }}{% endset %}
-{{ debug | log }}
+<p>page number: {{ invitations[pagination.pageNumber] | dump}}</p>
+<p>code: {{ invitations[pagination.pageNumber].code }}</p>
+<p>{{ invitationData | dump }}</p>
+
 <div class="page page--home">
   {{ navigation(invitationData) }}
   {# {{ smallHeader('For ' + invitation.name, invitation.note) }} #}

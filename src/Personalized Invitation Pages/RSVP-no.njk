@@ -6,25 +6,8 @@ title: 'Declined'
 ---
 {%- from 'navigation.njk' import navigation with context -%}
 
-{# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
-  {% set invitation = invitations[pagination.pageNumber] %}
-  {% set isAttending = 'unknown' %}
-  
-  {% for notAttending in rsvpForms %}
-  {% if notAttending.data.code == invitation.code %}
-    {% set isAttending = 'no' %}
-  {% endif %}
-  {% endfor %}
-  
-  {% set invitationData = {
-    name: invitation.name,
-    code: invitation.code,
-    attending: isAttending
-  } %}
-{# end copypasta #}
-
 <div class="page page--program">
-  {{ navigation(invitationData) }}
+  {{ navigation() }}
   <main class="page-header">
     <div class="page-header__content">
       <h1 class="text--heading--1">{{ strings.noRSVPTitle }}</h1>

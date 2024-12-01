@@ -66,6 +66,7 @@
 {%- endmacro %}
 
 {% macro submitRSVPParty(invitationData) -%}
+{{ invitationData | dump | safe }}
   <div class="navigation-container">
     <nav class="navigation">
       <button 
@@ -81,37 +82,43 @@
       const partyForm = document.getElementById('{{ meta.partyForm }}');
       const partyDataObj = {};
       const partyData = new FormData(partyForm);
-      partyData.forEach((value, key) => dataObj[key] = value);
+      partyData.forEach((value, key) => partyDataObj[key] = value);
       const stringifiedPartyObj = JSON.stringify(partyDataObj);
       localStorage.setItem('attending', 'yes');
       localStorage.setItem('party', stringifiedPartyObj);
+      console.log('local: ');
       console.log(partyDataObj);
+      console.log('template: ');
     };
   </script>
 {%- endmacro %}
 
 {% macro submitRSVPDetails(invitationData) -%}
+{{ invitationData | dump | safe }}
   <div class="navigation-container">
-  <nav class="navigation">
-    <button 
-      type="submit"
-      onClick="saveDetailsLocal()"
-      class="button--primary">
-      <span class="button--primary__label">{{ strings.submit }}</span>
-    </button>
-  </nav>
-</div>
-<script>
-  function saveDetailsLocal() {
-    const detailsForm = document.getElementById('{{ meta.detailForm }}');
-    const detailsDataObj = {};
-    const detailsData = new FormData(detailsForm);
-    detailsData.forEach((value, key) => detailsDataObj[key] = value);
-    const stringifiedDetailsObj = JSON.stringify(dataObj);
-    localStorage.setItem('details', stringifiedDetailsObj);
-    console.log(detailsDataObj);
-  };
-</script>
+    <nav class="navigation">
+      <button 
+        type="submit"
+        onClick="saveDetailLocal()"
+        class="button--primary">
+        <span class="button--primary__label">{{ strings.submit }}</span>
+      </button>
+    </nav>
+  </div>
+  <script>
+    function saveDetailLocal() {
+      const detailForm = document.getElementById('{{ meta.detailForm }}');
+      const detailDataObj = {};
+      const detailData = new FormData(detailForm);
+      detailData.forEach((value, key) => detailDataObj[key] = value);
+      const stringifiedDetailObj = JSON.stringify(detailDataObj);
+      localStorage.setItem('attending', 'yes');
+      localStorage.setItem('detail', stringifiedDetailObj);
+      console.log('local: ');
+      console.log(detailDataObj);
+      console.log('template: ');
+    };
+  </script>
 {%- endmacro %}
 
 {% macro navigationLinks(code) -%}
@@ -137,7 +144,7 @@
   <div class="navigation-container">
     <nav class="navigation">
       {% if isFormSubmissionPage -%}
-          <a class="button--secondary" href="/invitations/{{ code }}/"><span class="button--secondary__label">Return to your invitation</span></a>
+          <a class="button--secondary" href="../"><span class="button--secondary__label">Return to your invitation</span></a>
         {% else %}
           {{ navigationLinks(code) }}
           {{ rsvpActions(invitationData) }}

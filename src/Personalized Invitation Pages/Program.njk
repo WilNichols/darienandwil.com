@@ -24,6 +24,10 @@ title: 'Program'
 } %}
 {# end copypasta #}
 
+<p>page number: {{ invitations[pagination.pageNumber] | dump}}</p>
+<p>code: {{ invitations[pagination.pageNumber].code }}</p>
+<p>{{ invitationData | dump }}</p>
+
 <div class="page page--program">
   {{ navigation(invitationData) }}
   {{ header(strings.programTitle | safe, strings.receptionAddress) }}
