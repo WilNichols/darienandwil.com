@@ -5,6 +5,10 @@ export default function () {
     title: 'Darien & Wil',
     notAttendingForm: 'Not-Attending',
     partyForm: 'Parties',
-    detailForm: 'Details'
+    detailForm: 'Details',
+    attendingLocalKey: 'attending',
+    partyLocalKey: 'partyB',
+    detailLocalKey: 'detailB',
+    codeLocalKey: 'codeB'
   }
 }

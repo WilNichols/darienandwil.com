@@ -66,9 +66,9 @@ title: 'Details'
     </div>
   </main>
 </form>
-<script>
-const partyLocal = localStorage.getItem('party');
+{# <script>
+const partyLocal = localStorage.getItem('{{ meta.partyLocalKey }}');
   window.addEventListener('DOMContentLoaded', function() {
     console.log(JSON.parse(partyLocal));
   });
-</script>
+</script> #}

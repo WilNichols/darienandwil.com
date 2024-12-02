@@ -1,13 +1,14 @@
 {% macro checkCode() -%}
   <script>
-    const code = localStorage.getItem('code');
+    const code = localStorage.getItem('{{ meta.codeLocalKey }}');
     const url = new URL(window.location);
     const target = url.searchParams.get("target");
     if (code && !url.pathname.includes(code)) {
       window.location.replace(url.origin + '/invitations/' + code + '/');
-    } else if (!code) {
-      window.location.replace(url.origin);
-    }
+    } 
+    // else if (!code) {
+    //   window.location.replace(url.origin);
+    // }
     if (target) {
       window.location.replace(url.origin + '/invitations/' + code + '/' + target )
     }

@@ -15,7 +15,7 @@
   {%- endset %}
   <script> 
     const invitationData = {{ invitationData | dump | safe }};
-    const attendingLocal = localStorage.getItem('attending');
+    const attendingLocal = localStorage.getItem('{{ meta.attendingLocalKey }}');
     const strings = {{ strings | dump | safe }};
     window.addEventListener('DOMContentLoaded', function() {
       const noButton = document.getElementById('rsvp-action--no');
@@ -60,7 +60,7 @@
   </ul>
   <script>
     function saveAttendingLocal() {
-      localStorage.setItem('attending', 'no');
+      localStorage.setItem('{{ meta.attendingLocalKey }}', 'no');
     }
   </script>
 {%- endmacro %}
@@ -83,8 +83,8 @@
       const partyData = new FormData(partyForm);
       partyData.forEach((value, key) => partyDataObj[key] = value);
       const stringifiedPartyObj = JSON.stringify(partyDataObj);
-      localStorage.setItem('attending', 'yes');
-      localStorage.setItem('party', stringifiedPartyObj);
+      localStorage.setItem('{{ meta.attendingLocalKey }}', 'yes');
+      localStorage.setItem('{{ meta.partyLocalKey }}', stringifiedPartyObj);
     };
   </script>
 {%- endmacro %}
@@ -107,7 +107,7 @@
       const detailData = new FormData(detailForm);
       detailData.forEach((value, key) => detailDataObj[key] = value);
       const stringifiedDetailObj = JSON.stringify(detailDataObj);
-      localStorage.setItem('detail', stringifiedDetailObj);
+      localStorage.setItem('{{ meta.detailLocalKey }}', stringifiedDetailObj);
     };
   </script>
 {%- endmacro %}

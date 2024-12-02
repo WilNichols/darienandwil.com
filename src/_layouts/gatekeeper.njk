@@ -22,7 +22,7 @@ layout: _root.njk
 
 <script>
   if (document.readyState === "loading") {
-    const code = localStorage.getItem('code');
+    const code = localStorage.getItem('{{ meta.codeLocalKey }}');
     if (code) {
       console.log('code: ' + code);
       window.location.replace('../invitations/' + code + '/')
@@ -41,7 +41,7 @@ layout: _root.njk
   }, true);
   function signIn() {
     var field = document.getElementsByClassName('code-input')[0];
-    localStorage.setItem('code', field.value);
+    localStorage.setItem('{{ meta.codeLocalKey }}', field.value);
     if (field.value.length > 0) {
       location.href = '../invitations/' + field.value + '/';
     } else {

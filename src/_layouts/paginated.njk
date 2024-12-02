@@ -5,7 +5,7 @@ pagination:
   data: invitations
   size: 1
 ---
-{%- from 'check-code.njk' import checkCode -%}
+{%- from 'check-code.njk' import checkCode with context -%}
 {{ checkCode() }}
 
 {{ content | safe }}
