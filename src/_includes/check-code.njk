@@ -1,6 +1,9 @@
 {% macro checkCode() -%}
   <script>
     const code = localStorage.getItem('{{ meta.codeLocalKey }}');
+    if (code) {
+      localStorage.setItem('{{ meta.codeLocalKey }}', code.toLowerCase());
+    }
     const url = new URL(window.location);
     const target = url.searchParams.get("target");
     if (code && !url.pathname.includes(code)) {

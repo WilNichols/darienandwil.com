@@ -21,8 +21,11 @@ layout: _root.njk
 </div>
 
 <script>
+  if (localStorage.getItem('{{ meta.codeLocalKey }}')) {
+    localStorage.setItem('{{ meta.codeLocalKey }}', field.value.toLowerCase());
+  }
   if (document.readyState === "loading") {
-    const code = localStorage.getItem('{{ meta.codeLocalKey }}');
+    const code = localStorage.getItem('{{ meta.codeLocalKey }}').toLowerCase();
     if (code) {
       console.log('code: ' + code);
       window.location.replace('../invitations/' + code + '/')
@@ -41,7 +44,7 @@ layout: _root.njk
   }, true);
   function signIn() {
     var field = document.getElementsByClassName('code-input')[0];
-    localStorage.setItem('{{ meta.codeLocalKey }}', field.value);
+    localStorage.setItem('{{ meta.codeLocalKey }}', field.value.toLowerCase());
     if (field.value.length > 0) {
       location.href = '../invitations/' + field.value + '/';
     } else {
