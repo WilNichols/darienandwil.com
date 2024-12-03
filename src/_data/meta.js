@@ -9,6 +9,6 @@ export default function () {
     attendingLocalKey: 'attending',
     partyLocalKey: 'partyB',
     detailLocalKey: 'detailB',
-    codeLocalKey: 'codeB'
+    codeLocalKey: 'codeC'
   }
 }
