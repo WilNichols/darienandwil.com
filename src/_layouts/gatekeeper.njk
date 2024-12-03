@@ -22,13 +22,14 @@ layout: _root.njk
 
 <script>
   if (localStorage.getItem('{{ meta.codeLocalKey }}')) {
-    localStorage.setItem('{{ meta.codeLocalKey }}', field.value.toLowerCase());
+    localStorage.setItem('{{ meta.codeLocalKey }}', localStorage.getItem('{{ meta.codeLocalKey }}').toLowerCase());
   }
   if (document.readyState === "loading") {
-    const code = localStorage.getItem('{{ meta.codeLocalKey }}').toLowerCase();
+    const code = localStorage.getItem('{{ meta.codeLocalKey }}');
     if (code) {
-      console.log('code: ' + code);
-      window.location.replace('../invitations/' + code + '/')
+      const codeLower = code.toLowerCase();
+      console.log('code: ' + codeLower);
+      window.location.replace('../invitations/' + codeLower + '/')
     }
   };
   

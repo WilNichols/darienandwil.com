@@ -7,13 +7,13 @@
     const url = new URL(window.location);
     const target = url.searchParams.get("target");
     if (code && !url.pathname.includes(code)) {
-      window.location.replace(url.origin + '/invitations/' + code + '/');
+      window.location.replace(url.origin + '/invitations/' + code.toLowerCase() + '/');
     } 
-    // else if (!code) {
-    //   window.location.replace(url.origin);
-    // }
+    else if (!code) {
+      window.location.replace(url.origin);
+    }
     if (target) {
-      window.location.replace(url.origin + '/invitations/' + code + '/' + target )
+      window.location.replace(url.origin + '/invitations/' + code.toLowerCase() + '/' + target )
     }
   </script>
 {%- endmacro %}

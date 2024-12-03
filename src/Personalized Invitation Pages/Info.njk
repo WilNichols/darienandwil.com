@@ -1,10 +1,6 @@
 ---
-layout: '_root.njk'
-eleventyExcludeFromCollections: true
+layout: 'paginated.njk'
 permalink: 'invitations/{{ invitations[pagination.pageNumber].code }}/info/index.html'
-pagination:
-  data: invitations
-  size: 1
 title: 'Q & A'
 ---
 {%- from 'header.njk' import smallHeader -%}
