@@ -146,7 +146,7 @@ export default function () {
   },
   {
     name: 'Adam & Morgan Bailey',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Adam Bailey'
