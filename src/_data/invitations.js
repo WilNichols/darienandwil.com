@@ -1813,6 +1813,28 @@ export default function () {
         }, 
         {}
       ],
+    },
+    {
+      name: 'Jackson Bicart & Guest',
+      permissions: ['ceremony'],
+      party: [
+        {
+          name: 'Jackson Bicart'
+        },
+        {}
+      ],
+      code: '9qh2i'
+    },
+    {
+      name: 'Rick Fernandez & Guest',
+      permissions: ['ceremony'],
+      party: [
+        {
+          name: 'Rick Fernandez'
+        },
+        {}
+      ],
+      code: '5km7r'
     }
   ]
 }
