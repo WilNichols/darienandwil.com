@@ -346,10 +346,10 @@ body {
   place-items: center;
 }
 
+$navHeight: calc((2 * var(--tap-height)) + 2rem);
 .page--program,
 .page--qa {
   @extend %page--invite; 
-  $navHeight: calc((2 * var(--tap-height)) + 2rem);
   padding: var(--tap-height) 0 $navHeight 0;
 }
 
@@ -447,12 +447,14 @@ body {
 .page--qa .qa-content {
   @extend %page--padded__item;
   font-size: var(--type-0);
+  margin: 2em 0 0 0;
 }
 
 .page--qa .qa-items {
   display: flex;
   flex-direction: column;
   line-height: 1.5em;
+  margin: 0;
 }
 
 .page--qa .qa__q, .qa__a {
@@ -480,6 +482,9 @@ body {
   font-variation-settings: "wght" 500;
   color: var(--contentTintedPrimaryColor);
   margin: 1em 0 0 0;
+  &:first-child {
+    margin-top: 0;
+  }
   --prefix: 'q'
 }
 
@@ -653,6 +658,18 @@ body {
   max-width: var(--gate-width--desktop); 
   $navHeight: calc((2 * var(--tap-height)) + 2rem);
   padding: var(--tap-height) 0 $navHeight 0;
+}
+
+.page--registry {
+  align-content: flex-start;
+  padding: var(--tap-height) 0 $navHeight 0;
+  
+}
+.page--registry .registry-content {
+  @extend %page--padded__item;
+  font-size: var(--type-0);
+  margin: 2em 0 auto 0;
+  height: auto;
 }
 
 // .page--program .program-item__details
