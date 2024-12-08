@@ -1,0 +1,33 @@
+---
+layout: 'paginated.njk'
+title: 'Registry'
+---
+{%- from 'header.njk' import smallHeader -%}
+{%- from 'navigation.njk' import navigation with context -%}
+
+{# this is unknown bc I need an 'unknown' that isn't falsy. 'no', 'unknown', and 'yes' to be self-documenting. #}
+{# This is a lot of redundancy but I can't figure out how to cascade it :/  #}
+{% set invitation = invitations[pagination.pageNumber] %}
+{% set isAttending = 'unknown' %}
+
+{% for notAttending in rsvpDeclineRemote %}
+  {% if notAttending.data.code == invitation.code %}
+    {% set isAttending = 'no' %}
+  {% endif %}
+{% endfor %}
+ 
+{% set invitationData = {
+  name: invitation.name,
+  code: invitation.code,
+  attending: isAttending
+} %}
+{# end copypasta #}
+
+<div class="page page--qa">
+  {{ navigation(invitationData) }}
+  {{ smallHeader(strings.RegistryTitle | safe) }}
+  </header>
+  <main class="qa-content">
+    {{ content | markdownify | safe }}
+  </main>
+</div>

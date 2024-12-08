@@ -115,7 +115,7 @@
 {% macro navigationLinks(code) -%}
   <ul class="navigation__items">
     {% set baseURL %}/invitations/{{ code }}{% endset %}
-    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if (not '/program/' in page.url) and (not '/info/' in page.url) }}" 
+    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if (not '/program/' in page.url) and (not '/info/' in page.url) and (not '/registry/' in page.url) }}" 
     href="{{ baseURL }}/">
       <span>{{ strings.navHome }}</span>
     </a></li>
@@ -126,6 +126,10 @@
     <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/info/' in page.url }}" 
     href="{{ baseURL }}/info/">
       <span>{{ strings.navQA }}</span>
+    </a></li>
+    <li class="navigation__item"><a class="navigation__link{{ ' navigation__link--current' if '/registry/' in page.url }}" 
+    href="{{ baseURL }}/registry/">
+      <span>{{ strings.navRegistry }}</span>
     </a></li>
   </ul>
 {%- endmacro %}

@@ -9,6 +9,7 @@ export default function () {
     attendingLocalKey: 'attending',
     partyLocalKey: 'partyB',
     detailLocalKey: 'detailB',
-    codeLocalKey: 'codeC'
+    codeLocalKey: 'codeC',
+    etsyRegistry: 'https://www.etsy.com/registry/MTQ2ODE5NjkzfDEwMTk2Nzc2MzY',
   }
 }
