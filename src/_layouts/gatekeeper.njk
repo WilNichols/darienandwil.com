@@ -16,6 +16,9 @@ layout: _root.njk
           {% include "../static/img/arrow-right--16.svg" %}
         </button>
       </div>
+      {% if excludeBadCode -%}
+        <p class="code-input-error">Try your code again, or contact Wil at <a href="tel:{{ process.env.WIL_PHONE }}">{{ process.env.WIL_PHONE_FORMATTED }}</a>.
+      {%- endif %}
     </div>
   </div>
 </div>
@@ -48,7 +51,7 @@ layout: _root.njk
     var field = document.getElementsByClassName('code-input')[0];
     localStorage.setItem('{{ meta.codeLocalKey }}', field.value.toLowerCase());
     if (field.value.length > 0) {
-      location.href = '../invitations/' + field.value + '/';
+      location.href = '/invitations/' + field.value + '/';
     } else {
       document.getElementsByClassName('code-input-container')[0].classList.add('error--visible');
     }

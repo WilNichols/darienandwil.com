@@ -341,6 +341,15 @@ body {
   @include ui.controlStates(background-color, --buttonPrimaryBackgroundColor); 
 }
 
+.page--gatekeeper .code-input-error {
+  margin-top: -.5em;
+  z-index: 10;
+  padding: 0 1em;
+  color: var(--contentErrorColor);
+  font-size: var(--type--1);
+  
+}
+
 %page--invite {
   position: relative;
   display: flex;

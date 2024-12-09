@@ -2,7 +2,7 @@ export default function () {
   return [
     { 
       q: 'I have a question. Who do I contact?',
-      a: 'Text or call Wil at <a href="tel:' + process.env.WIL_PHONE + '">' + process.env.WIL_PHONE_FORMATTED+ '</a>.'
+      a: 'Text or call Wil at <a href="tel:' + process.env.WIL_PHONE + '">' + process.env.WIL_PHONE_FORMATTED + '</a>.'
     },
     {
       q: 'When is the latest I can RSVP?',

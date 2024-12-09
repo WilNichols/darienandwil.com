@@ -18,6 +18,7 @@
   @include light-dark(--contentTintedPrimaryColor, var(--cG40), var(--cG70));
   @include light-dark(--contentTintedSecondaryColor, var(--cG50), var(--cG60));
   @include light-dark(--contentTintedTertiaryColor, var(--cG70), var(--cG40));
+  @include light-dark(--contentErrorColor, var(--cR40), var(--cR50));
   @include light-dark(--linkColor, var(--cG30), var(--cG50));
   @include light-dark(--linkVisitedColor, var(--cK30), var(--cK50));
   @include light-dark(--blurTintColor, var(--cG95), var(--cG05));
