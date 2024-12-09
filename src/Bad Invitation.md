@@ -1,7 +1,6 @@
 ---
-layout: '_root.njk'
+layout: 'gatekeeper.njk'
 permalink: '/invitations/404/'
 eleventyExcludeFromCollections: true
+excludeBadCode: true
 ---
-Bad Invite Code
-

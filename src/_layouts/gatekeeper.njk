@@ -24,14 +24,16 @@ layout: _root.njk
   if (localStorage.getItem('{{ meta.codeLocalKey }}')) {
     localStorage.setItem('{{ meta.codeLocalKey }}', localStorage.getItem('{{ meta.codeLocalKey }}').toLowerCase());
   }
-  if (document.readyState === "loading") {
-    const code = localStorage.getItem('{{ meta.codeLocalKey }}');
-    if (code) {
-      const codeLower = code.toLowerCase();
-      console.log('code: ' + codeLower);
-      window.location.replace('../invitations/' + codeLower + '/')
-    }
-  };
+  {% if not excludeBadCode %}
+    if (document.readyState === "loading") {
+      const code = localStorage.getItem('{{ meta.codeLocalKey }}');
+      if (code) {
+        const codeLower = code.toLowerCase();
+        console.log('code: ' + codeLower);
+        window.location.replace('../invitations/' + codeLower + '/')
+      }
+    };
+  {% endif %}
   
   {# addEventListener solution from https://stackoverflow.com/questions/5629805/disabling-enter-key-for-form #}
   window.addEventListener('keydown', function(e) {
@@ -53,4 +55,3 @@ layout: _root.njk
     }
   };
 </script>
-
