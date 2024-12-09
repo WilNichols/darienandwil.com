@@ -96,7 +96,6 @@ label {
   place-content: center;
 }
 
-
 .button--primary {
   @extend %button;
   @include controlStates(background-color, --buttonPrimaryBackgroundColor); 

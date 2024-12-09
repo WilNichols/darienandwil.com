@@ -26,8 +26,13 @@ title: 'Registry'
 <div class="page page--registry">
   {{ navigation(invitationData) }}
   {{ smallHeader(strings.registryTitle | safe) }}
-  </header>
   <main class="registry-content">
     {{ content | markdownify | safe }}
   </main>
+  <div class="bottom-buttons-container">
+    <div class="bottom-buttons">
+      <a class="button button--secondary" href="{{ meta.etsyRegistry }}"><span class="button--secondary__label">View household items</span></a>
+      <a class="button button--secondary" href="{{ meta.joyRegistry }}"><span class="button--secondary__label">View other items & funds</span></a>
+    </div>
+  </div>
 </div>

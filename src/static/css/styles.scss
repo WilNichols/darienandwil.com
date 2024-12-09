@@ -172,6 +172,7 @@ body {
   .navigation__rsvp__action button {
     all: unset;
     cursor: pointer;
+    text-align: center;
   }
   
   .navigation__rsvp-actions {
@@ -193,6 +194,7 @@ body {
 
     .navigation__rsvp__action a, .navigation__rsvp__action button {
       display: flex;
+      text-align: center;
       align-items: center;
       width: 100%;
       text-decoration: none;
@@ -662,7 +664,7 @@ $navHeight: calc((2 * var(--tap-height)) + 2rem);
 
 .page--registry {
   align-content: flex-start;
-  padding: var(--tap-height) 0 $navHeight 0;
+  padding: var(--tap-height) 0 calc(2 * $navHeight) 0;
   
 }
 .page--registry .registry-content {
@@ -670,6 +672,26 @@ $navHeight: calc((2 * var(--tap-height)) + 2rem);
   font-size: var(--type-0);
   margin: 2em 0 auto 0;
   height: auto;
+}
+
+.bottom-buttons-container {
+  position: fixed;
+  bottom: calc($navHeight + 1em);
+  width: 100%;
+  .bottom-buttons {
+    max-width: var(--gate-width--desktop);
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 0 var(--gutterPadding);
+    > * {
+      margin: 0 auto;
+      width: 100%;
+      max-width: var(--gate-width--desktop);
+    }
+  }
 }
 
 // .page--program .program-item__details

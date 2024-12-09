@@ -11,5 +11,6 @@ export default function () {
     detailLocalKey: 'detailB',
     codeLocalKey: 'codeC',
     etsyRegistry: 'https://www.etsy.com/registry/MTQ2ODE5NjkzfDEwMTk2Nzc2MzY',
+    joyRegistry: 'hhttps://withjoy.com/darien-and-wil/registry',
   }
 }
