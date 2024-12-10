@@ -1187,7 +1187,7 @@ export default function () {
   },
   {
     name: 'Sam Valdez & Stephen Chan',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Sam Valdez'
