@@ -1200,7 +1200,7 @@ export default function () {
   },
   {
     name: 'Gary Gehiere, Petrina Burkard, & Family',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Gary Gehiere'
