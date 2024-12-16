@@ -1826,6 +1826,28 @@ export default function () {
       code: '9qh2i'
     },
     {
+      name: 'Jacob Caudell & Guest',
+      permissions: ['ceremony'],
+      party: [
+        {
+          name: 'Jacob Caudell'
+        },
+        {}
+      ],
+      code: '8s5br'
+    },
+    {
+      name: 'Jean-Luc Vorster & Guest',
+      permissions: ['ceremony'],
+      party: [
+        {
+          name: 'Jean-Luc Vorster'
+        },
+        {}
+      ],
+      code: '8s5br'
+    },
+    {
       name: 'Rick Fernandez & Guest',
       permissions: ['ceremony'],
       party: [
