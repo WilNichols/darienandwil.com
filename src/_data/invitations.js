@@ -687,7 +687,7 @@ export default function () {
   {
     name: 'Casey Higgins & Roel Pedraza',
     note: '& Rae',
-    permissions: ['rehearsal', 'cocktails', 'early', 'photos', 'ceremony'],
+    permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
     party: [
       {
         name: 'Casey Higgins'
