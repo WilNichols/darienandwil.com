@@ -117,7 +117,7 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '3:15 - 3:45 pm'
+          value: '3:00 - 3:45 pm'
         },
         {
           title: 'Details',
@@ -146,7 +146,7 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '4:00 - 5:00 pm'
+          value: '4:00 - 4:30 pm'
         }
       ]
     },
@@ -161,7 +161,7 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '5:00 - 5:45 pm'
+          value: '5:00 - 5:30 pm'
         }
       ]
     },
@@ -191,14 +191,14 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '6:00 - 9:45 pm',
+          value: '6:00 - 10:45 pm',
         }
       ]
     },
     {
       id: 'end',
       permission: 'ceremony',
-      title: 'Sendoff',
+      title: 'Sendoff & End',
       details: [
         {
           title: 'Date',
@@ -206,7 +206,7 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '10:00 pm',
+          value: '11:00 pm',
         }
       ]
     }

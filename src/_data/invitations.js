@@ -1857,6 +1857,19 @@ export default function () {
         {}
       ],
       code: '5km7r'
+    },
+    {
+      name: 'Dan Johnson & Michelle Shaban',
+      permissions: ['ceremony'],
+      party: [
+        {
+          name: 'Dan Johnson'
+        },
+        {
+          name: 'Michelle Shaban'
+        }
+      ],
+      code: 'i3rdm'
     }
   ]
 }
