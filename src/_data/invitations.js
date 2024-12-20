@@ -253,7 +253,7 @@ export default function () {
   },
   {
     name: 'Eileen & John Kuen',
-    permissions: ['cocktail', 'ceremony'],
+    permissions: ['ceremony'],
     party: [
       {
         name: 'Eileen Kuen'
@@ -405,7 +405,7 @@ export default function () {
   {
     name: 'Nayeli Cortina & Eugene Mymrin',
     note: '& of course Natalie',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Nayeli Cortina'
@@ -1255,7 +1255,7 @@ export default function () {
   {
     name: 'Alex & Irina Gavrilov',
     note: 'if unable to come, maybe the rehearsal',
-    permissions: ['ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Alex Gavrilov'
