@@ -132,6 +132,19 @@ export default function () {
     code: '2m804'
   },
   {
+    name: 'Molly & Annie Burke',
+    permissions: ['ceremony'],
+    party: [
+      {
+        name: 'Molly Burke'
+      }, 
+      {
+        name: 'Annie Burke'
+      }
+    ],
+    code: '0n3jd'
+  },
+  {
     name: 'Rob & Terri Faulkenberry',
     permissions: ['ceremony'],
     party: [
