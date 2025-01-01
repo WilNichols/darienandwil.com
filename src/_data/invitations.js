@@ -132,30 +132,17 @@ export default function () {
     code: '2m804'
   },
   {
-    name: 'Joe & Katie Burke',
+    name: 'Rob & Terri Faulkenberry',
     permissions: ['ceremony'],
     party: [
       {
-        name: 'Joe Burke'
+        name: 'Rob Faulkenberry'
       }, 
       {
-        name: 'Katie Burke'
+        name: 'Terri Faulkenberry'
       }
     ],
-    code: '2m804'
-  },
-  {
-    name: 'Molly & Annie Burle',
-    permissions: ['ceremony'],
-    party: [
-      {
-        name: 'Molly Burke'
-      }, 
-      {
-        name: 'Annie Burke'
-      }
-    ],
-    code: '086ga'
+    code: '7pq5p'
   },
   {
     name: 'Adam & Morgan Bailey',
