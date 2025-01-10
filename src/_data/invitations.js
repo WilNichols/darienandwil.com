@@ -3,7 +3,7 @@ export default function () {
   return [
   {
     name: 'Aimee & Jeremy Abbott',
-    permissions: ['ceremony'],
+    permissions: ['ceremony', 'breakfast'],
     party: [
       {
         name: 'Aimee Abbott'
@@ -172,7 +172,7 @@ export default function () {
   },
   {
     name: 'Natalie Rulon & Daniel Lee',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Natalie Rulon'
@@ -202,7 +202,7 @@ export default function () {
   },
   {
     name: 'Wes & Julie Nichols',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Wes Nichols'
@@ -255,7 +255,7 @@ export default function () {
   },
   {
     name: 'Cece Rulon & Guest',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Cece Rulon'
@@ -306,7 +306,7 @@ export default function () {
   },
   {
     name: 'Tory Nunn & Guest',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Tory Nunn'
@@ -391,7 +391,7 @@ export default function () {
   },
   {
     name: 'Laura & Tom Rulon',
-    permissions: ['rehearsal', 'cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Laura Rulon'
@@ -448,7 +448,7 @@ export default function () {
   },
   {
     name: 'Marlen Kraemer & Guest',
-    permissions: ['rehearsal', 'cocktail', 'ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Marlen Kraemer'
@@ -527,7 +527,7 @@ export default function () {
   },
   {
     name: 'Tommy Nunn & Guest',
-    permissions: ['cocktail', 'ceremony'],
+    permissions: ['cocktail', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Tommy Nunn'
@@ -575,7 +575,7 @@ export default function () {
   },
   {
     name: 'Alex Nichols & Meredith Dixon',
-    permissions: ['cocktail', 'ceremony'],
+    permissions: ['cocktail', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Alex Nichols'
@@ -908,7 +908,7 @@ export default function () {
   },
   {
     name: 'Jeanne & Robert Guy',
-    permissions: ['rehearsal', 'cocktail', 'ceremony'],
+    permissions: ['cocktail', 'ceremony'],
     party: [
       {
         name: 'Jeanne Guy'
@@ -922,7 +922,7 @@ export default function () {
   {
     name: 'Craig & Judy Nunn',
     note: '& Helen, if easier',
-    permissions: ['rehearsal', 'cocktail', 'photos', 'ceremony'],
+    permissions: ['rehearsal', 'cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Craig Nunn'
@@ -1027,7 +1027,7 @@ export default function () {
   },
   {
     name: 'Ginny Elia, Tommy Elia, & Guests',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Ginny Elia'
@@ -1047,7 +1047,7 @@ export default function () {
   {
     name: 'Ricky Elia & Victoria Torres',
     permissions: ['ceremony'],
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Ricky Elia'
@@ -1334,7 +1334,7 @@ export default function () {
   },
   {
     name: 'Andie Hanson, Matt Hanson, & Family',
-    permissions: ['cocktail', 'photos', 'ceremony'],
+    permissions: ['cocktail', 'photos', 'ceremony', 'breakfast'],
     party: [
       {
         name: 'Andie Hanson'
@@ -1521,7 +1521,7 @@ export default function () {
   },
   {
     name: 'Bella Rulon & Guest',
-    permissions: ['ceremony'],
+    permissions: ['ceremony', 'breakfast'],
     party: [
       {
         name: 'Bella Rulon'
@@ -1795,7 +1795,7 @@ export default function () {
       name: 'Wil',
       note: '& Milo of course',
       code: '09191994',
-      permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony'],
+      permissions: ['bach', 'rehearsal', 'cocktail', 'early', 'photos', 'ceremony', 'breakfast'],
       party: [
         {
           name: 'Wil Nichols'
@@ -1813,7 +1813,7 @@ export default function () {
     {
       name: 'Darien',
       code: '11201995',
-      permissions: ['early', 'photos', 'ceremony'],
+      permissions: ['early', 'photos', 'ceremony', 'breakfast'],
       party: [
         {
           name: 'Darien Hiddins'

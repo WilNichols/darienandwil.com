@@ -55,7 +55,7 @@ export default function () {
         },
         {
           title: 'Time',
-          value: '5:30 - 9:00 pm'
+          value: '6:00 - 9:00 pm'
         },
         {
           title: 'Details',
@@ -207,6 +207,39 @@ export default function () {
         {
           title: 'Time',
           value: '11:00 pm',
+        }
+      ]
+    },
+    {
+      id: 'breakfast',
+      permission: 'breakfast', 
+      title: 'Farewell Breakfeast',
+      details: [
+        {
+          title: 'Date',
+          value: 'Sunday <strong class="text--tinted--primary">January 12</strong>'
+        },
+        {
+          title: 'Time',
+          value: '9:00 am',
+        },
+        {
+          title: 'Details',
+          value: '643 River Bluff Cir.',
+          links: [
+            {
+              label: 'Google Maps',
+              src: 'https://maps.app.goo.gl/NE8AbGYFxjTQwzXQ8'
+            },
+            {
+              label: 'Apple Maps',
+              src: 'https://maps.apple.com/?address=643%20River%20Bluff%20Cir,%20Georgetown,%20TX%20%2078626,%20United%20States&ll=30.655601,-97.657360&q=643%20River%20Bluff%20Cir'
+            }
+          ]
+        },
+        {
+          title: 'Extra',
+          value: 'Arrive as early as 9:00 for bagels and donuts. Darien and Wil will arrive by 10 at the latest.'
         }
       ]
     }
